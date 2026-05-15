@@ -1,0 +1,17 @@
+{
+  "title": "{{ .Site.Title }}",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Permalink }}",
+  "projects": [
+    {{- range $index, $page := .Site.RegularPages -}}
+      {{- if eq $page.Section "projects" -}}
+      {{- if $index }},{{ end }}
+      {
+        "title": "{{ $page.Title }}",
+        "url": "{{ $page.Permalink }}",
+        "summary": "{{ $page.Summary | plainify | htmlEscape }}"
+      }
+      {{- end -}}
+    {{- end -}}
+  ]
+}

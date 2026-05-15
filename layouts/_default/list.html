@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ if .Content }}<div class="page-content">{{ .Content }}</div>{{ end }}
+    {{ if .Pages }}
+    <div class="project-grid">
+      {{ range .Pages.ByTitle }}
+      <article class="project-card">
+        <div class="project-card-top">
+          {{ with .Params.status }}<span class="project-status">{{ . }}</span>{{ end }}
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Params.summary }}</p>
+        </div>
+        <div class="project-tags">
+          {{ with .Params.tags }}{{ range . }}<span class="tag">{{ . }}</span>{{ end }}{{ end }}
+        </div>
+        <a class="button outline" href="{{ .RelPermalink }}">Ver proyecto</a>
+      </article>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

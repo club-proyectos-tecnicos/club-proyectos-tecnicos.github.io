@@ -1,0 +1,42 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container detail-container">
+    <article class="detail-card">
+      <header class="detail-header">
+        <div>
+          <p class="eyebrow">Proyecto del club</p>
+          <p class="back-link"><a href="/projects/">← Volver a Proyectos</a></p>
+          <h1>{{ .Title }}</h1>
+          {{ with .Params.summary }}<p class="lead">{{ . }}</p>{{ end }}
+        </div>
+        {{ with .Params.image }}
+        <div class="detail-image">
+          <img src="{{ . | relURL }}" alt="Imagen del proyecto {{ $.Title }}">
+        </div>
+        {{ end }}
+      </header>
+
+      <div class="detail-meta">
+        {{ with .Params.status }}<div><strong>Estado:</strong> {{ . }}</div>{{ end }}
+        {{ with .Params.tags }}<div><strong>Tags:</strong> {{ range $index, $tag := . }}{{ if $index }}, {{ end }}{{ $tag }}{{ end }}</div>{{ end }}
+        {{ if or .Params.repo .Params.memory .Params.team }}
+        <div class="meta-links">
+          {{ if .Params.repo }}<a class="button outline" href="{{ .Params.repo }}" target="_blank" rel="noopener">Repositorio</a>{{ else }}<span class="meta-placeholder">Repositorio pendiente</span>{{ end }}
+          {{ if .Params.memory }}<a class="button outline" href="{{ .Params.memory }}" target="_blank" rel="noopener">Memoria</a>{{ else }}<span class="meta-placeholder">Memoria pendiente</span>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+
+      <div class="page-content">
+        {{ .Content }}
+      </div>
+
+      {{ with .Params.team }}
+      <div class="project-footer">
+        <strong>Equipo:</strong> {{ . }}
+      </div>
+      {{ end }}
+    </article>
+  </div>
+</section>
+{{ end }}

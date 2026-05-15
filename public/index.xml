@@ -1,19 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hugo Profile</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Hugo Profile</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Bank Customer Churn Prediction</title>
-      <link>http://localhost:1313/blogs/content/bank-churn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/content/bank-churn/</guid>
-      <description>&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;p&gt;Predict which customers are likely to leave the bank.&lt;/p&gt;&#xA;&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Data cleaning &amp;amp; EDA&lt;/li&gt;&#xA;&lt;li&gt;Feature engineering&lt;/li&gt;&#xA;&lt;li&gt;Interpretable model&lt;/li&gt;&#xA;&lt;li&gt;Business-oriented evaluation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;&#xA;&lt;p&gt;Describe metrics, ROC, what decisions you’d make.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-i-learned&#34;&gt;What I learned&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Connecting data to business decisions&lt;/li&gt;&#xA;&lt;li&gt;Model interpretation&lt;/li&gt;&#xA;&lt;li&gt;Data pipelines&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Club de Proyectos Técnicos Aplicados</title><link>/</link><description>Recent content on Club de Proyectos Técnicos Aplicados</description><generator>Hugo</generator><language>es-ES</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Contacto</title><link>/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/contact/</guid><description>&lt;h3 id="para-estudiantes"&gt;Para estudiantes&lt;/h3&gt;
+&lt;p&gt;Si tienes curiosidad por aprender construyendo y quieres participar en proyectos técnicos en equipo, este club es un espacio accesible para primeros cursos y grados técnicos.&lt;/p&gt;
+&lt;p&gt;No es necesario llegar con todo resuelto: buscamos personas con ganas de aprender, compromiso razonable e interés por trabajar con otros.&lt;/p&gt;
+&lt;h3 id="para-profesores-y-colaboradores"&gt;Para profesores y colaboradores&lt;/h3&gt;
+&lt;p&gt;Si eres profesor, mentor o colaborador externo, el club está abierto a recibir propuestas de retos, feedback técnico y orientación para los equipos.&lt;/p&gt;</description></item><item><title>Movimiento Browniano para Análisis de Mercados</title><link>/projects/smart-rail-monitoring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/smart-rail-monitoring/</guid><description>Exploración de movimiento browniano y modelos estocásticos aplicados a la evolución de precios y comportamientos en mercados financieros.</description></item><item><title>Predicción de Decisiones de Lanzamiento bajo Presión en Deportes Competitivos</title><link>/projects/smart-plant-monitoring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/smart-plant-monitoring/</guid><description>Análisis de patrones de comportamiento y decisiones en deportes competitivos bajo presión usando datos y modelos predictivos.</description></item><item><title>Sistema Inteligente de Monitorización y Optimización de Flujos de Pasajeros en Aeropuertos</title><link>/projects/airport-queue-optimization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/airport-queue-optimization/</guid><description>Prototipo que analiza flujos de pasajeros en distintas fases de un aeropuerto y genera recomendaciones de apertura de líneas usando visión artificial y teoría de colas.</description></item><item><title>Sobre el club</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>&lt;p&gt;El Club de Proyectos Técnicos Aplicados nace como un espacio universitario para que estudiantes de grados técnicos apliquen sus conocimientos en proyectos concretos. La idea es crear un entorno donde se pueda experimentar, equivocarse, documentar el proceso y presentar resultados.&lt;/p&gt;
+&lt;p&gt;Este club está impulsado por estudiantes interesados en crear un puente entre la teoría del aula y la práctica del proyecto técnico. No se trata de un laboratorio avanzado ni de una consultora: es un grupo joven que quiere aprender haciendo.&lt;/p&gt;</description></item></channel></rss>

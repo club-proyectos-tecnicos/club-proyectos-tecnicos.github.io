@@ -31,7 +31,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify --baseURL "https://javiergonzalvez07-star.github.io/"
+        run: hugo --minify --baseURL "https://javiergonzalvez07-star.github.io/cpta-web/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

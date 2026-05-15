@@ -1,0 +1,212 @@
+{{ define "main" }}
+<section class="hero hero-strong">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Club de Proyectos Técnicos Aplicados</p>
+      <h1>Aprender construyendo proyectos técnicos reales</h1>
+      <p class="hero-text">Una comunidad universitaria donde estudiantes de grados técnicos trabajan en equipo para convertir ideas en prototipos, aprender herramientas reales y presentar resultados.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/projects/">Ver proyectos</a>
+        <a class="button secondary" href="mailto:javier.gonzalvezsempere@usp.ceu.es">Unirse al club</a>
+      </div>
+      <p class="hero-note">No hace falta saberlo todo desde el principio: el objetivo es aprender, aportar y avanzar en equipo.</p>
+    </div>
+
+    <aside class="hero-panel">
+      <div class="panel-header">
+        <div>
+          <p class="panel-eyebrow">Estado actual</p>
+          <h2>Progreso inicial</h2>
+        </div>
+      </div>
+      <div class="panel-content">
+        <div class="panel-row">
+          <div>
+            <span class="panel-value">3</span>
+            <p>Proyectos en desarrollo</p>
+          </div>
+          <div>
+            <span class="panel-value">3</span>
+            <p>Grupos de estudiantes</p>
+          </div>
+        </div>
+        <div class="panel-badges">
+          <span>Aprendizaje</span>
+          <span>Prototipos</span>
+          <span>Datos</span>
+          <span>Sensores</span>
+        </div>
+        <div class="panel-alert">
+          <strong>Próximas presentaciones</strong>
+          <p>En los próximos días, los equipos compartirán los primeros avances.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-header">
+      <h2>Qué es el club</h2>
+      <p>Un espacio universitario joven para aplicar conocimientos técnicos a proyectos concretos, compartir aprendizajes y preparar presentaciones con resultados claros.</p>
+    </div>
+    <div class="card-grid">
+      <article class="feature-card">
+        <h3>Aprender aplicando teoría</h3>
+        <p>Nos interesa conectar la clase con problemas reales y construir prototipos que permitan validar ideas y medir su evolución.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Trabajo en equipo</h3>
+        <p>Estudiantes de distintas disciplinas suman capacidades para avanzar juntos y aprender a planificar, coordinar y comunicar.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Proyectos honestos</h3>
+        <p>No son trabajos terminados, sino primeras iteraciones con documentación, resultados iniciales y próximos pasos claros.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Cómo trabajamos</h2>
+      <p>Un proceso práctico para avanzar paso a paso con cada proyecto, desde el problema inicial hasta la presentación de resultados.</p>
+    </div>
+    <div class="card-grid">
+      <article class="process-card">
+        <h3>Definir el problema</h3>
+        <p>Elegimos un reto técnico concreto y buscamos una forma sencilla de abordarlo con datos, modelos y pruebas.</p>
+      </article>
+      <article class="process-card">
+        <h3>Formar equipos</h3>
+        <p>Trabajamos en grupos reducidos para repartir tareas, coordinar el avance y compartir responsabilidades.</p>
+      </article>
+      <article class="process-card">
+        <h3>Construir un prototipo</h3>
+        <p>Desarrollamos una primera versión práctica: código, sensores, dashboards o modelos que permitan experimentar.</p>
+      </article>
+      <article class="process-card">
+        <h3>Documentar y presentar</h3>
+        <p>Recogemos los resultados, las limitaciones y los aprendizajes para presentarlos con claridad y pensar siguientes iteraciones.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-header">
+      <h2>Qué se aprende en el club</h2>
+      <p>El club es un lugar para desarrollar habilidades técnicas y de equipo, incluso cuando todavía se está empezando.</p>
+    </div>
+    <div class="skill-grid">
+      <article class="skill-card">
+        <h3>Hard skills</h3>
+        <ul>
+          <li>Programación y GitHub</li>
+          <li>Análisis de datos y dashboards</li>
+          <li>Modelización matemática y simulación</li>
+          <li>Física aplicada y sensores</li>
+          <li>Documentación técnica</li>
+          <li>Presentación de resultados</li>
+        </ul>
+      </article>
+      <article class="skill-card">
+        <h3>Soft skills</h3>
+        <ul>
+          <li>Trabajo en equipo y responsabilidad</li>
+          <li>Comunicación técnica clara</li>
+          <li>Organización y división de tareas</li>
+          <li>Gestión de incertidumbre</li>
+          <li>Feedback y mejora iterativa</li>
+          <li>Explicar ideas a públicos no especializados</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Proyectos actuales</h2>
+      <p>Estos proyectos están en desarrollo y sus páginas individuales recogen el enfoque, el estado y los próximos pasos de cada iniciativa.</p>
+    </div>
+    <div class="project-grid">
+      {{ with site.GetPage "section" "projects" }}
+      {{ range .Pages.ByTitle }}
+      <article class="project-card project-card-strong">
+        <div class="project-card-top">
+          {{ with .Params.status }}<span class="project-status">{{ . }}</span>{{ end }}
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Params.summary }}</p>
+        </div>
+        <div class="project-tags">
+          {{ with .Params.tags }}{{ range . }}<span class="tag">{{ . }}</span>{{ end }}{{ end }}
+        </div>
+        <div class="project-actions">
+          <a class="button outline" href="{{ .RelPermalink }}">Ver proyecto</a>
+        </div>
+      </article>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-header">
+      <h2>Líneas de trabajo</h2>
+      <p>Áreas hacia las que el club quiere crecer paso a paso, siempre con una base práctica y realista.</p>
+    </div>
+    <div class="badge-grid">
+      <span class="badge">Aeroespacial y sistemas físicos</span>
+      <span class="badge">IA y datos aplicados</span>
+      <span class="badge">Consultoría técnica universitaria</span>
+      <span class="badge">Sensores e IoT</span>
+      <span class="badge">Optimización y toma de decisiones</span>
+      <span class="badge">Simulación y modelización matemática</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section-callout">
+  <div class="container callout-card">
+    <div>
+      <h2>Próximas presentaciones</h2>
+      <p>En los próximos días, los equipos presentarán sus primeras versiones. Tras las presentaciones, la web irá incorporando memorias, repositorios, imágenes y aprendizajes de cada grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cta">
+  <div class="container cta-panel">
+    <div>
+      <p class="eyebrow">Contacto</p>
+      <h2>¿Quieres participar o colaborar?</h2>
+      <p>Escríbenos si quieres unirte a los proyectos, aprender en equipo o proponer retos técnicos para los próximos ciclos.</p>
+      <p class="cta-email">javier.gonzalvezsempere@usp.ceu.es</p>
+      <p class="cta-note">Correo de contacto provisional para el club.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="button primary" href="mailto:javier.gonzalvezsempere@usp.ceu.es">Contactar</a>
+      <a class="button outline" href="/projects/">Ver proyectos</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container contact-section">
+    <div class="contact-card">
+      <h2>Contacto</h2>
+      <p>Si eres estudiante y tienes ganas de aprender construyendo, este club es un espacio para avanzar con proyectos técnicos y trabajo en equipo.</p>
+      <p>Si eres profesor, mentor o colaborador externo, te invitamos a conectar para apoyar iniciativas, proponer retos y aportar feedback técnico.</p>
+      <p><strong>Email:</strong> javier.gonzalvezsempere@usp.ceu.es</p>
+      <p>El club está en una fase inicial. Este es el canal principal de contacto para estudiantes, colaboradores y profesores interesados en participar o apoyar.</p>
+    </div>
+  </div>
+</section>
+{{ end }}

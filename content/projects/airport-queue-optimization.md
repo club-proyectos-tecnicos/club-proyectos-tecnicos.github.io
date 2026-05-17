@@ -13,7 +13,7 @@ tags:
   - "YOLO"
   - "Data Analysis"
   - "Operations Research"
-repo: ""
+repo: "https://github.com/javiergonzalvez07-star/Optimizacion-Inteligente-Colas-Aeropuertos"
 memory: "/documents/memoria-optimizacion-colas-aeropuertos.pdf"
 team: "Javier Gonzálvez, Luis González, María Macías y Matthew Puente-Villegas"
 image: "/images/projects/airport-queue-optimization/dashboard-operativo.png"

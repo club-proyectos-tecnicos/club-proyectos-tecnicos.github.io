@@ -1,4 +1,4 @@
-﻿baseURL: "https://github.com/club-proyectos-tecnicos/club-proyectos-tecnicos.git"
+﻿baseURL: "https://club-proyectos-tecnicos.github.io/"
 canonifyURLs: true
 relativeURLs: false
 locale: "es-ES"

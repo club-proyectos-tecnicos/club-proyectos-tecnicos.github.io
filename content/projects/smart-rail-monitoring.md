@@ -1,6 +1,8 @@
 ---
 title: "Modelización browniana de precios financieros"
 slug: "modelizacion-browniana-precios-financieros"
+aliases:
+  - "/projects/smart-rail-monitoring/"
 description: "Comparación empírica entre trayectorias reales de mercado y simulaciones basadas en movimiento browniano geométrico."
 summary: "Proyecto teórico-computacional para conectar movimiento browniano, lema de Itō, simulación Monte Carlo y arquitectura software aplicada al análisis de precios financieros."
 status: "Diseño teórico y arquitectura"

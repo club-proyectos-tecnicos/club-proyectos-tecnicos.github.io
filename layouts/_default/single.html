@@ -22,7 +22,7 @@
         {{ if or .Params.repo .Params.memory .Params.team }}
         <div class="meta-links">
           {{ if .Params.repo }}<a class="button outline" href="{{ .Params.repo }}" target="_blank" rel="noopener">Repositorio</a>{{ else }}<span class="meta-placeholder">Repositorio pendiente</span>{{ end }}
-          {{ if .Params.memory }}<a class="button outline" href="{{ .Params.memory }}" target="_blank" rel="noopener">Memoria</a>{{ else }}<span class="meta-placeholder">Memoria pendiente</span>{{ end }}
+          {{ if .Params.memory }}<a class="button outline" href="{{ .Params.memory }}" target="_blank" rel="noopener">Descargar memoria completa (PDF)</a>{{ else }}<span class="meta-placeholder">Memoria pendiente</span>{{ end }}
         </div>
         {{ end }}
       </div>

@@ -1,5 +1,6 @@
 ---
 title: "Optimización inteligente de colas y accesos en aeropuertos"
+date: 2026-05-18
 description: "Prototipo de simulación y apoyo a la decisión para estimar saturación de pasajeros en aeropuertos y recomendar refuerzos operativos mediante teoría de colas."
 summary: "Prototipo de simulación y apoyo a la decisión para estimar saturación de pasajeros en aeropuertos y recomendar refuerzos operativos mediante teoría de colas."
 status: "Prototipo funcional"
@@ -14,13 +15,13 @@ tags:
   - "Data Analysis"
   - "Operations Research"
 repo: "https://github.com/javiergonzalvez07-star/Optimizacion-Inteligente-Colas-Aeropuertos"
-memory: "/documents/memoria-optimizacion-colas-aeropuertos.pdf"
-team: "Javier Gonzálvez, Luis González, María Macías y Matthew Puente-Villegas"
-image: "/images/projects/airport-queue-optimization/dashboard-operativo.png"
+memory: "/proyectos/airport-queue-optimization/memoria.pdf"
+team: "Javier Gonzálvez, Luis Gonzalez, Matthew Puente-Villegas y María Macías"
+image: "/proyectos/airport-queue-optimization/imagenes/dashboard-operativo.png"
 ---
 
 <div class="project-cta">
-  <a class="button primary" href="/documents/memoria-optimizacion-colas-aeropuertos.pdf" target="_blank" rel="noopener">Descargar memoria completa (PDF)</a>
+  <a class="button primary" href="/proyectos/airport-queue-optimization/memoria.pdf" target="_blank" rel="noopener">Descargar memoria</a>
 </div>
 
 ## Resumen
@@ -47,7 +48,7 @@ La validación principal se realiza mediante simulación, comparando un escenari
 </div>
 
 <figure>
-  <img src="/images/projects/airport-queue-optimization/esquema-conceptual-sistema.png" alt="Esquema conceptual del sistema desde vídeos y simulación hasta dashboard">
+  <img src="/proyectos/airport-queue-optimization/imagenes/esquema-conceptual-sistema.png" alt="Esquema conceptual del sistema desde vídeos y simulación hasta dashboard">
   <figcaption>Flujo documentado en la memoria: datos sintéticos o conteos visuales, CSV de lecturas, motor de colas y dashboard de recomendaciones.</figcaption>
 </figure>
 
@@ -133,7 +134,7 @@ La comparación más relevante del proyecto enfrenta dos escenarios sobre las mi
 En esa simulación, la espera total acumulada baja de **19,09 minutos** a **5,32 minutos**, lo que supone una mejora relativa del **72,1%**. También se reduce el pico de espera agregado, que pasa de **1,70 minutos** a **0,75 minutos**.
 
 <figure>
-  <img src="/images/projects/airport-queue-optimization/comparacion-espera-acumulada.png" alt="Comparación de espera acumulada sin sistema y con recomendaciones">
+  <img src="/proyectos/airport-queue-optimization/imagenes/comparacion-espera-acumulada.png" alt="Comparación de espera acumulada sin sistema y con recomendaciones">
   <figcaption>Comparación recogida en la memoria: escenario base frente a escenario con recomendaciones.</figcaption>
 </figure>
 
@@ -193,8 +194,8 @@ Finalmente, el dashboard podría evolucionar hacia una interfaz más operativa, 
 
 La memoria completa recoge el desarrollo del proyecto con más detalle: contexto, fundamento teórico, metodología, arquitectura, implementación, resultados, limitaciones y líneas futuras.
 
-Equipo del proyecto: **Javier Gonzálvez, Luis González, María Macías y Matthew Puente-Villegas**.
+Equipo del proyecto: **Javier Gonzálvez, Luis Gonzalez, Matthew Puente-Villegas y María Macías**.
 
 <div class="project-cta">
-  <a class="button primary" href="/documents/memoria-optimizacion-colas-aeropuertos.pdf" target="_blank" rel="noopener">Descargar memoria completa (PDF)</a>
+  <a class="button primary" href="/proyectos/airport-queue-optimization/memoria.pdf" target="_blank" rel="noopener">Descargar memoria</a>
 </div>

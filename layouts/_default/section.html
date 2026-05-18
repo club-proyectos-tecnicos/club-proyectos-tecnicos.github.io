@@ -20,7 +20,8 @@
           </h2>
 
           <p class="text-muted small">
-            {{ .Date.Format "02 Jan 2006" }}
+            {{ $months := dict "January" "enero" "February" "febrero" "March" "marzo" "April" "abril" "May" "mayo" "June" "junio" "July" "julio" "August" "agosto" "September" "septiembre" "October" "octubre" "November" "noviembre" "December" "diciembre" }}
+            {{ .Date.Day }} de {{ index $months (.Date.Format "January") }} de {{ .Date.Year }}
           </p>
 
           {{ with .Params.summary }}

@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ if .Content }}<div class="page-content">{{ .Content }}</div>{{ end }}
+
+    {{ $photos := slice }}
+    {{ range readDir "static/fotos-club" }}
+      {{ $ext := lower (path.Ext .Name) }}
+      {{ if and (not .IsDir) (in (slice ".jpg" ".jpeg" ".png" ".webp" ".gif") $ext) }}
+        {{ $photos = $photos | append .Name }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $photos }}
+    <div class="gallery-grid">
+      {{ range sort $photos }}
+      <figure class="gallery-item">
+        <img src="/fotos-club/{{ . }}" alt="Foto del Club de Proyectos Tecnicos Aplicados">
+      </figure>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="gallery-empty">
+      <p>La galeria aun no tiene fotos. Coloca imagenes en <code>static/fotos-club/</code> para que aparezcan aqui.</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,1 +1,137 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Club de Proyectos Técnicos Aplicados</title><link>/tags/</link><description>Recent content in Tags on Club de Proyectos Técnicos Aplicados</description><generator>Hugo</generator><language>es-ES</language><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Comportamiento</title><link>/tags/comportamiento/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/comportamiento/</guid><description/></item><item><title>Dashboard</title><link>/tags/dashboard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/dashboard/</guid><description/></item><item><title>Data Analysis</title><link>/tags/data-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/data-analysis/</guid><description/></item><item><title>Datos</title><link>/tags/datos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/datos/</guid><description/></item><item><title>Deporte</title><link>/tags/deporte/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/deporte/</guid><description/></item><item><title>Finanzas Cuantitativas</title><link>/tags/finanzas-cuantitativas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/finanzas-cuantitativas/</guid><description/></item><item><title>Machine Learning</title><link>/tags/machine-learning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/machine-learning/</guid><description/></item><item><title>Monte Carlo</title><link>/tags/monte-carlo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/monte-carlo/</guid><description/></item><item><title>NumPy</title><link>/tags/numpy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/numpy/</guid><description/></item><item><title>Operations Research</title><link>/tags/operations-research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/operations-research/</guid><description/></item><item><title>Pandas</title><link>/tags/pandas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/pandas/</guid><description/></item><item><title>Predicción</title><link>/tags/predicci%C3%B3n/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/predicci%C3%B3n/</guid><description/></item><item><title>Procesos Estocásticos</title><link>/tags/procesos-estoc%C3%A1sticos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/procesos-estoc%C3%A1sticos/</guid><description/></item><item><title>Python</title><link>/tags/python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/python/</guid><description/></item><item><title>Simulación</title><link>/tags/simulaci%C3%B3n/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/simulaci%C3%B3n/</guid><description/></item><item><title>Streamlit</title><link>/tags/streamlit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/streamlit/</guid><description/></item><item><title>Teoría De Colas</title><link>/tags/teor%C3%ADa-de-colas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/teor%C3%ADa-de-colas/</guid><description/></item><item><title>YOLO</title><link>/tags/yolo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tags/yolo/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Club de Proyectos Técnicos Aplicados</title>
+    <link>//localhost:64537/tags/</link>
+    <description>Recent content in Tags on Club de Proyectos Técnicos Aplicados</description>
+    <generator>Hugo</generator>
+    <language>es-ES</language>
+    <atom:link href="//localhost:64537/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dashboard</title>
+      <link>//localhost:64537/tags/dashboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/dashboard/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Analysis</title>
+      <link>//localhost:64537/tags/data-analysis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/data-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Datos</title>
+      <link>//localhost:64537/tags/datos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/datos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deporte</title>
+      <link>//localhost:64537/tags/deporte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/deporte/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Finanzas Cuantitativas</title>
+      <link>//localhost:64537/tags/finanzas-cuantitativas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/finanzas-cuantitativas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>//localhost:64537/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monte Carlo</title>
+      <link>//localhost:64537/tags/monte-carlo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NumPy</title>
+      <link>//localhost:64537/tags/numpy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/numpy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations Research</title>
+      <link>//localhost:64537/tags/operations-research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/operations-research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pandas</title>
+      <link>//localhost:64537/tags/pandas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/pandas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prediccion</title>
+      <link>//localhost:64537/tags/prediccion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/prediccion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Procesos Estocasticos</title>
+      <link>//localhost:64537/tags/procesos-estocasticos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/procesos-estocasticos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>//localhost:64537/tags/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Simulacion</title>
+      <link>//localhost:64537/tags/simulacion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/simulacion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Simulación</title>
+      <link>//localhost:64537/tags/simulaci%C3%B3n/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/simulaci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Streamlit</title>
+      <link>//localhost:64537/tags/streamlit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/streamlit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Teoría De Colas</title>
+      <link>//localhost:64537/tags/teor%C3%ADa-de-colas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/teor%C3%ADa-de-colas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>YOLO</title>
+      <link>//localhost:64537/tags/yolo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/tags/yolo/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

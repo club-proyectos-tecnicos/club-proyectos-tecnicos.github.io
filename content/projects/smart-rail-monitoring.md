@@ -1,219 +1,127 @@
 ---
-title: "Modelización browniana de precios financieros"
-slug: "modelizacion-browniana-precios-financieros"
+title: "Movimiento Browniano"
+date: 2026-05-18
+slug: "movimiento-browniano"
 aliases:
   - "/projects/smart-rail-monitoring/"
-description: "Comparación empírica entre trayectorias reales de mercado y simulaciones basadas en movimiento browniano geométrico."
-summary: "Proyecto teórico-computacional para conectar movimiento browniano, lema de Itō, simulación Monte Carlo y arquitectura software aplicada al análisis de precios financieros."
-status: "Diseño teórico y arquitectura"
+  - "/projects/modelizacion-browniana-precios-financieros/"
+description: "Comparacion empirica entre precios reales y simulaciones basadas en movimiento browniano geometrico."
+summary: "Proyecto teorico-computacional para estudiar movimiento browniano, lema de Ito, simulacion GBM y contraste con activos reales."
+status: "Analisis teorico y experimental"
 tags:
   - "Python"
   - "NumPy"
   - "pandas"
-  - "Simulación"
-  - "Procesos estocásticos"
+  - "Simulacion"
+  - "Procesos estocasticos"
   - "Finanzas cuantitativas"
   - "Monte Carlo"
-  - "Data Analysis"
-repo: ""
-memory: "/documents/memoria-browniano-ito-arquitectura.pdf"
-team: ""
-image: ""
+team: "Giancarlo Vargas, Rafael Laria y Nikolai Ilin"
+image: "/proyectos/movimiento-browniano/imagenes/results_SPY.png"
 ---
-
-<div class="project-cta">
-  <a class="button primary" href="/documents/memoria-browniano-ito-arquitectura.pdf" target="_blank" rel="noopener">Descargar memoria completa (PDF)</a>
-</div>
 
 ## Resumen
 
-**Modelización browniana de precios financieros** es un proyecto teórico-computacional orientado a comparar trayectorias reales de precios con simulaciones basadas en el **movimiento browniano geométrico**.
+**Movimiento Browniano** es un proyecto teorico-computacional centrado en comparar trayectorias reales de precios financieros con simulaciones basadas en el **movimiento browniano geometrico**.
 
-El objetivo es estudiar hasta qué punto un modelo clásico de matemáticas financieras puede reproducir la evolución de activos reales y, sobre todo, detectar dónde falla: colas pesadas, clustering de volatilidad, asimetría en los retornos o memoria temporal.
+El objetivo es estudiar hasta que punto un modelo clasico de matematicas financieras puede reproducir la evolucion de activos reales y, sobre todo, detectar donde falla: colas pesadas, clustering de volatilidad, asimetria en los retornos o memoria temporal.
 
-La memoria desarrolla la base matemática necesaria —variables aleatorias, procesos estocásticos, movimiento browniano, variación cuadrática y lema de Itō— y propone una arquitectura software modular para cargar datos de mercado, simular trayectorias, aplicar tests estadísticos y visualizar los resultados.
-
-No se presenta como un sistema de trading ni como una herramienta de predicción financiera en producción. Es una primera arquitectura de investigación aplicada para conectar teoría matemática, simulación Monte Carlo y análisis empírico de mercados.
+El proyecto trabaja con la base matematica del movimiento browniano, la variacion cuadratica y el lema de Ito, y la conecta con simulaciones y contrastes estadisticos sobre activos como SPY, BTC-USD y AAPL.
 
 <div class="project-kpis">
   <div>
     <span>GBM</span>
-    <p>modelo browniano geométrico como referencia matemática</p>
+    <p>modelo browniano geometrico como referencia matematica</p>
   </div>
   <div>
-    <span>Itō</span>
-    <p>base teórica para derivar la solución exacta del modelo</p>
+    <span>Ito</span>
+    <p>base teorica para derivar la solucion exacta del modelo</p>
   </div>
   <div>
-    <span>5 módulos</span>
-    <p>datos, simulación, tests, modelos avanzados y visualización</p>
+    <span>3 activos</span>
+    <p>SPY, BTC-USD y AAPL como casos de comparacion</p>
   </div>
 </div>
 
+<figure>
+  <img src="/proyectos/movimiento-browniano/imagenes/results_SPY.png" alt="Estudio GBM para SPY con simulacion, retornos, QQ-plot y autocorrelacion">
+  <figcaption>Comparacion para SPY: precio real frente a banda de simulacion GBM y diagnosticos sobre retornos.</figcaption>
+</figure>
+
 ## Problema
 
-Los precios financieros se mueven de forma irregular, con fluctuaciones que parecen aleatorias. El movimiento browniano geométrico es uno de los modelos clásicos para describir esa evolución, porque permite representar precios siempre positivos y retornos logarítmicos normalmente distribuidos.
+Los precios financieros se mueven de forma irregular, con fluctuaciones que parecen aleatorias. El movimiento browniano geometrico es uno de los modelos clasicos para describir esa evolucion, porque mantiene precios positivos y modela retornos logaritmicos mediante una distribucion normal.
 
-Sin embargo, los mercados reales no siempre se comportan como predice el modelo. En la práctica aparecen fenómenos como eventos extremos más frecuentes de lo esperado, volatilidad agrupada en periodos de estrés, asimetría entre subidas y caídas, y posibles patrones de memoria temporal.
+En mercados reales aparecen fenomenos que el modelo ideal no recoge completamente: eventos extremos mas frecuentes, volatilidad agrupada en periodos de tension, asimetria entre subidas y caidas y posibles patrones de memoria temporal.
 
-El problema del proyecto es analizar esa diferencia entre el modelo ideal y los datos reales: no basta con simular trayectorias que “se parezcan” a precios financieros, sino que hay que comprobar estadísticamente qué propiedades captura el modelo y cuáles quedan fuera.
+El problema del proyecto es analizar esa diferencia entre modelo y datos reales. No basta con generar trayectorias visualmente parecidas; hay que comprobar que propiedades captura el modelo y cuales quedan fuera.
 
 ## Objetivo
 
-El objetivo principal es construir una base teórica y una arquitectura computacional para comparar empíricamente precios reales con trayectorias simuladas mediante movimiento browniano geométrico.
+El proyecto busca construir una base teorica y experimental para:
 
-El proyecto busca:
-
-- explicar la teoría matemática que justifica el modelo;
-- derivar la solución del GBM mediante el lema de Itō;
-- cargar series históricas de precios;
-- estimar los parámetros de drift y volatilidad;
-- simular trayectorias mediante Monte Carlo;
-- comparar retornos reales y simulados;
-- aplicar tests estadísticos sobre normalidad, autocorrelación y volatilidad;
-- proponer extensiones como GARCH, Heston o análisis del exponente de Hurst;
-- visualizar de forma clara las diferencias entre modelo y mercado real.
-
-La idea central es usar el GBM como punto de partida, no como verdad definitiva.
+- explicar el movimiento browniano y su papel en finanzas;
+- derivar la solucion del movimiento browniano geometrico mediante el lema de Ito;
+- simular trayectorias de precios con Monte Carlo;
+- comparar trayectorias simuladas con precios reales;
+- analizar retornos, colas, normalidad y volatilidad;
+- interpretar las limitaciones del modelo GBM frente al mercado real.
 
 ## Enfoque
 
-El proyecto parte de una construcción progresiva: primero se introduce la teoría probabilística elemental y después se avanza hacia procesos estocásticos, movimiento browniano, cálculo de Itō y simulación de precios.
+El trabajo parte de la teoria probabilistica elemental y avanza hacia procesos estocasticos, movimiento browniano, variacion cuadratica y calculo de Ito.
 
-El primer bloque establece la base matemática: variables aleatorias, espacios de probabilidad y procesos estocásticos. A partir de ahí se presenta el movimiento browniano como proceso continuo de estado continuo, con incrementos independientes, incrementos gaussianos y varianza creciente linealmente con el tiempo.
-
-Después se introduce una idea clave: la **variación cuadrática**. A diferencia de una función diferenciable clásica, el movimiento browniano no tiene derivada ordinaria, pero sí una variación cuadrática finita. Esta propiedad explica por qué en cálculo estocástico aparece la regla informal:
+Una idea clave es que el movimiento browniano es continuo pero no diferenciable. Su variacion cuadratica no desaparece, y por eso en calculo estocastico aparece la regla informal:
 
 ```text
 (dW_t)^2 = dt
 ```
 
-Esa diferencia lleva al **lema de Itō**, que permite calcular la diferencial de funciones aplicadas a procesos estocásticos. En el caso del movimiento browniano geométrico, el lema de Itō permite derivar la solución:
+Esa propiedad lleva al lema de Ito. Aplicado al movimiento browniano geometrico, permite obtener la solucion:
 
 ```text
-S_t = S_0 · exp[(μ - 1/2 σ²)t + σ W_t]
+S_t = S_0 * exp[(mu - 1/2 sigma^2)t + sigma W_t]
 ```
 
-La corrección `-1/2 σ²` es esencial: representa el efecto de la volatilidad sobre el crecimiento logarítmico del precio y evita sobreestimar la evolución esperada del activo.
+La correccion `-1/2 sigma^2` es esencial: representa el efecto de la volatilidad sobre el crecimiento logaritmico del precio.
 
-## Arquitectura del sistema
+## Resultados visuales
 
-La memoria propone una arquitectura software modular para convertir la teoría en un pipeline de análisis empírico.
+Las graficas del proyecto comparan el precio real con una banda de simulaciones GBM y muestran diagnosticos sobre los retornos: distribucion, QQ-plot y autocorrelacion de retornos al cuadrado.
 
-El sistema se organiza en cinco módulos principales:
+<figure>
+  <img src="/proyectos/movimiento-browniano/imagenes/results_BTC_USD.png" alt="Estudio GBM para BTC-USD con simulacion, retornos, QQ-plot y autocorrelacion">
+  <figcaption>BTC-USD muestra un comportamiento mas volatil y con desviaciones visibles respecto a la normalidad ideal del modelo.</figcaption>
+</figure>
 
-### 1. Carga y limpieza de datos
+<figure>
+  <img src="/proyectos/movimiento-browniano/imagenes/results_AAPL.png" alt="Estudio GBM para AAPL con simulacion, retornos, QQ-plot y autocorrelacion">
+  <figcaption>AAPL permite observar diferencias entre una accion individual y el comportamiento agregado de un ETF como SPY.</figcaption>
+</figure>
 
-El módulo `data_loader` se encarga de obtener datos históricos de mercado, limpiar la serie temporal y calcular retornos logarítmicos. También estima parámetros básicos como el precio inicial, el drift anualizado y la volatilidad anualizada.
+## Tecnologias utilizadas
 
-### 2. Simulación browniana
+El proyecto utiliza herramientas habituales de analisis cuantitativo:
 
-El módulo `gbm_engine` genera trayectorias Monte Carlo del movimiento browniano geométrico. La simulación se plantea usando la discretización exacta derivada del lema de Itō:
-
-```text
-S_{t+Δt} = S_t · exp[(μ - 1/2 σ²)Δt + σ√Δt Z]
-```
-
-Esto evita el error de discretización que aparecería con una aproximación de Euler simple.
-
-### 3. Tests estadísticos
-
-El módulo `statistical_tests` compara los retornos reales con los retornos simulados o teóricos. Incluye pruebas como Jarque-Bera, Kolmogorov-Smirnov, Anderson-Darling, Ljung-Box, ARCH-LM y ADF.
-
-Estas pruebas permiten detectar desviaciones respecto al GBM: falta de normalidad, autocorrelación, heterocedasticidad, clustering de volatilidad o no estacionariedad.
-
-### 4. Modelos avanzados
-
-El módulo `advanced_models` se plantea como extensión para estudiar modelos que capturan fenómenos que el GBM clásico no reproduce bien. Entre ellos aparecen GARCH(1,1), el modelo de Heston y el análisis del exponente de Hurst.
-
-### 5. Visualización
-
-El módulo `visualization` genera figuras para interpretar los resultados: fan charts, histogramas de retornos, QQ-plots, autocorrelaciones, volatilidad condicional y análisis de Hurst.
-
-La arquitectura completa está pensada como un pipeline unidireccional: datos reales → estimación de parámetros → simulación GBM → contraste estadístico → modelos avanzados → visualización.
-
-## Datos y archivos revisados
-
-La memoria revisada es un documento de teoría y arquitectura del proyecto. Define la base matemática y la estructura de software prevista, pero no presenta todavía una implementación completa ni resultados empíricos finales.
-
-La estructura propuesta para el proyecto es:
-
-- `src/data_loader.py`: carga de datos financieros y cálculo de retornos.
-- `src/gbm_engine.py`: simulación Monte Carlo del movimiento browniano geométrico.
-- `src/statistical_tests.py`: batería de tests estadísticos.
-- `src/advanced_models.py`: modelos como GARCH, Heston y Hurst.
-- `src/visualization.py`: generación de figuras y visualizaciones.
-- `notebooks/`: exploración de datos, simulación, análisis estadístico y modelos avanzados.
-- `dashboard/app.py`: posible dashboard en Streamlit.
-- `validation/validate_R.R`: validación cruzada en R.
-- `outputs/figures/`: figuras generadas.
-- `outputs/results/`: resultados exportados.
-- `config.yaml`: configuración del análisis.
-- `requirements.txt`: dependencias del proyecto.
-
-También se proponen activos de referencia como SPY, AAPL o BTC-USD para el análisis comparativo, aunque la memoria se centra principalmente en la teoría y en la arquitectura del sistema.
-
-## Resultados principales
-
-Este proyecto no presenta resultados empíricos cerrados, sino una base teórica y una arquitectura preparada para producirlos.
-
-Los principales resultados de esta fase son:
-
-- desarrollo de una explicación completa del movimiento browniano y su conexión con modelos financieros;
-- derivación de la solución del movimiento browniano geométrico mediante el lema de Itō;
-- justificación de la corrección `-1/2 σ²`, clave para no sobreestimar el crecimiento logarítmico;
-- diseño de una arquitectura modular para comparar datos reales y simulaciones;
-- definición de una batería de tests para evaluar normalidad, colas pesadas, autocorrelación y volatilidad;
-- identificación de extensiones naturales cuando el GBM no capture correctamente el comportamiento real del mercado.
-
-El valor principal del proyecto está en conectar matemáticas avanzadas con una aplicación computacional clara: usar el GBM como modelo base, contrastarlo contra datos reales y justificar cuándo hacen falta modelos más sofisticados.
-
-## Tecnologías utilizadas
-
-La arquitectura propuesta utiliza herramientas habituales en análisis cuantitativo y ciencia de datos:
-
-- **Python** como lenguaje principal.
-- **NumPy** para simulación numérica y vectorización.
-- **pandas** para series temporales financieras.
-- **SciPy** para tests estadísticos.
-- **matplotlib** para visualización.
-- **yfinance** para descarga de datos de mercado.
-- **arch** para modelos GARCH.
-- **statsmodels** para tests como ADF, Ljung-Box y ACF.
-- **Streamlit** como posible dashboard interactivo.
-- **R** para validación cruzada.
-- **Hugo** para la publicación web del proyecto.
-
-A nivel matemático, el proyecto se apoya en procesos estocásticos, movimiento browniano, lema de Itō, simulación Monte Carlo y modelos de volatilidad.
+- **Python** como lenguaje principal;
+- **NumPy** para simulacion numerica;
+- **pandas** para series temporales;
+- **matplotlib** para visualizacion;
+- **yfinance** para obtener datos de mercado;
+- tests estadisticos para estudiar normalidad, colas y volatilidad.
 
 ## Limitaciones
 
-La limitación principal es que la memoria actual desarrolla sobre todo la teoría y la arquitectura, pero no incluye todavía una validación empírica completa con resultados finales sobre activos concretos.
+El movimiento browniano geometrico es un modelo simplificado. Supone retornos logaritmicos normales, volatilidad constante e independencia temporal, hipotesis que suelen fallar en mercados reales.
 
-Además, el movimiento browniano geométrico es un modelo simplificado. Supone retornos logarítmicos normales, volatilidad constante e independencia temporal, hipótesis que suelen fallar en mercados reales.
+Por eso el proyecto no se presenta como herramienta de prediccion financiera ni como sistema de trading. Su valor esta en usar el modelo como referencia matematica, contrastarlo con datos reales y justificar cuando hacen falta modelos mas sofisticados.
 
-También hay que tener cuidado con la interpretación financiera: el proyecto no pretende predecir precios ni construir una estrategia de inversión. Su finalidad es analítica y educativa: entender qué captura el modelo, qué no captura y cómo se puede comprobar de forma estadística.
+## Archivos del proyecto
 
-Por último, los modelos avanzados como GARCH, Heston o movimiento browniano fraccionario se plantean como extensiones naturales, pero requerirían implementación, calibración y validación adicional para formar parte de una comparación completa.
+Las imagenes y graficas propias del proyecto se organizan en:
 
-## Líneas futuras
+- `/proyectos/movimiento-browniano/imagenes/results_SPY.png`;
+- `/proyectos/movimiento-browniano/imagenes/results_BTC_USD.png`;
+- `/proyectos/movimiento-browniano/imagenes/results_AAPL.png`.
 
-Las siguientes fases del proyecto deberían centrarse en implementar y validar la arquitectura propuesta.
-
-Una primera línea sería construir el pipeline completo en Python: descarga de datos, estimación de parámetros, simulación Monte Carlo y comparación estadística.
-
-Después, se podrían analizar distintos activos con comportamientos diferentes, por ejemplo un ETF amplio como SPY, una acción individual como AAPL y un activo más volátil como BTC-USD. Esto permitiría estudiar cómo cambia la adecuación del GBM según el tipo de mercado.
-
-También sería interesante generar visualizaciones comparativas: fan charts de trayectorias simuladas, histogramas de retornos, QQ-plots, autocorrelación de retornos al cuadrado y evolución de la volatilidad.
-
-Otra línea futura sería implementar GARCH(1,1), Heston o análisis del exponente de Hurst para comparar el GBM con modelos que capturan clustering de volatilidad, volatilidad estocástica o memoria temporal.
-
-Finalmente, el proyecto podría cerrarse con un dashboard en Streamlit que permita seleccionar activo, rango temporal, número de simulaciones y visualizar de forma interactiva las diferencias entre modelo y mercado real.
-
-## Memoria completa
-
-La memoria completa desarrolla el fundamento matemático del proyecto y la arquitectura software propuesta: variables aleatorias, procesos estocásticos, movimiento browniano, variación cuadrática, lema de Itō, solución del movimiento browniano geométrico y diseño modular del sistema de análisis.
-
-<div class="project-cta">
-  <a class="button primary" href="/documents/memoria-browniano-ito-arquitectura.pdf" target="_blank" rel="noopener">Descargar memoria completa (PDF)</a>
-</div>
+Este proyecto no tiene memoria PDF publicada por ahora.

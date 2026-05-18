@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Proyectos on Club de Proyectos Técnicos Aplicados</title><link>/projects/</link><description>Recent content in Proyectos on Club de Proyectos Técnicos Aplicados</description><generator>Hugo</generator><language>es-ES</language><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Modelización browniana de precios financieros</title><link>/projects/modelizacion-browniana-precios-financieros/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/modelizacion-browniana-precios-financieros/</guid><description>Proyecto teórico-computacional para conectar movimiento browniano, lema de Itō, simulación Monte Carlo y arquitectura software aplicada al análisis de precios financieros.</description></item><item><title>Optimización inteligente de colas y accesos en aeropuertos</title><link>/projects/airport-queue-optimization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/airport-queue-optimization/</guid><description>Prototipo de simulación y apoyo a la decisión para estimar saturación de pasajeros en aeropuertos y recomendar refuerzos operativos mediante teoría de colas.</description></item><item><title>Predicción de Decisiones de Lanzamiento bajo Presión en Deportes Competitivos</title><link>/projects/smart-plant-monitoring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/smart-plant-monitoring/</guid><description>Análisis de patrones de comportamiento y decisiones en deportes competitivos bajo presión usando datos y modelos predictivos.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Proyectos on Club de Proyectos Técnicos Aplicados</title>
+    <link>//localhost:64537/projects/</link>
+    <description>Recent content in Proyectos on Club de Proyectos Técnicos Aplicados</description>
+    <generator>Hugo</generator>
+    <language>es-ES</language>
+    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:64537/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimización inteligente de colas y accesos en aeropuertos</title>
+      <link>//localhost:64537/projects/airport-queue-optimization/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/projects/airport-queue-optimization/</guid>
+      <description>Prototipo de simulación y apoyo a la decisión para estimar saturación de pasajeros en aeropuertos y recomendar refuerzos operativos mediante teoría de colas.</description>
+    </item>
+    <item>
+      <title>Movimiento Browniano</title>
+      <link>//localhost:64537/projects/movimiento-browniano/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/projects/movimiento-browniano/</guid>
+      <description>Proyecto teorico-computacional para estudiar movimiento browniano, lema de Ito, simulacion GBM y contraste con activos reales.</description>
+    </item>
+    <item>
+      <title>Prediccion de trayectoria en deportes</title>
+      <link>//localhost:64537/projects/deportes/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:64537/projects/deportes/</guid>
+      <description>Sistema aplicado a deporte para estudiar trayectorias, extraer patrones y construir una base predictiva documentada.</description>
+    </item>
+  </channel>
+</rss>

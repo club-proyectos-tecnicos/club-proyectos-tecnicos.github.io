@@ -19,10 +19,10 @@
       <div class="detail-meta">
         {{ with .Params.status }}<div><strong>Estado:</strong> {{ . }}</div>{{ end }}
         {{ with .Params.tags }}<div><strong>Tags:</strong> {{ range $index, $tag := . }}{{ if $index }}, {{ end }}{{ $tag }}{{ end }}</div>{{ end }}
-        {{ if or .Params.repo .Params.memory .Params.team }}
+        {{ if or .Params.repo .Params.memory }}
         <div class="meta-links">
-          {{ if .Params.repo }}<a class="button outline" href="{{ .Params.repo }}" target="_blank" rel="noopener">Repositorio</a>{{ else }}<span class="meta-placeholder">Repositorio pendiente</span>{{ end }}
-          {{ if .Params.memory }}<a class="button outline" href="{{ .Params.memory }}" target="_blank" rel="noopener">Descargar memoria completa (PDF)</a>{{ else }}<span class="meta-placeholder">Memoria pendiente</span>{{ end }}
+          {{ with .Params.repo }}<a class="button outline" href="{{ . }}" target="_blank" rel="noopener">Ver repositorio</a>{{ end }}
+          {{ with .Params.memory }}<a class="button outline" href="{{ . }}" target="_blank" rel="noopener">Descargar memoria</a>{{ end }}
         </div>
         {{ end }}
       </div>

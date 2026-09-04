@@ -1,39 +1,26 @@
 {{ define "main" }}
-<section class="py-5">
-  <div class="container" style="max-width: 860px;">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-
-        <header class="mb-5">
-          <h1 class="fw-bold mb-2">{{ .Title }}</h1>
-          {{ with .Description }}
-          <p class="text-muted">{{ . }}</p>
-          {{ end }}
-        </header>
-
-        {{ range .Pages.ByDate.Reverse }}
-        <article class="mb-5 pb-4 border-bottom">
-          <h2 class="h3">
-            <a href="{{ .RelPermalink }}" class="text-decoration-none">
-              {{ .Title }}
-            </a>
-          </h2>
-
-          <p class="text-muted small">
-            {{ $months := dict "January" "enero" "February" "febrero" "March" "marzo" "April" "abril" "May" "mayo" "June" "junio" "July" "julio" "August" "agosto" "September" "septiembre" "October" "octubre" "November" "noviembre" "December" "diciembre" }}
-            {{ .Date.Day }} de {{ index $months (.Date.Format "January") }} de {{ .Date.Year }}
-          </p>
-
-          {{ with .Params.summary }}
-          <p>{{ . }}</p>
-          {{ end }}
-
-          <a href="{{ .RelPermalink }}">Read article →</a>
-        </article>
-        {{ end }}
-
-      </div>
+<section class="section">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ if .Content }}<div class="page-content">{{ .Content }}</div>{{ end }}
+    {{ if .Pages }}
+    <div class="project-grid">
+      {{ range .Pages.ByTitle }}
+      <article class="project-card">
+        <div class="project-card-top">
+          {{ with .Params.status }}<span class="project-status">{{ . }}</span>{{ end }}
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+        </div>
+        <div class="project-tags">
+          {{ with .Params.tags }}{{ range . }}<span class="tag">{{ . }}</span>{{ end }}{{ end }}
+        </div>
+        <a class="button outline" href="{{ .RelPermalink }}">{{ i18n "view_project" }}</a>
+      </article>
+      {{ end }}
     </div>
+    {{ end }}
   </div>
 </section>
 {{ end }}

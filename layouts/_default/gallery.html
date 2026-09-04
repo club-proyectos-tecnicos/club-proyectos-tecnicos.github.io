@@ -17,13 +17,13 @@
     <div class="gallery-grid">
       {{ range sort $photos }}
       <figure class="gallery-item">
-        <img src="/fotos-club/{{ . }}" alt="Foto del Club de Proyectos Tecnicos Aplicados">
+        <img src="{{ printf "fotos-club/%s" . | relURL }}" alt="{{ i18n "gallery_image_alt" }}">
       </figure>
       {{ end }}
     </div>
     {{ else }}
     <div class="gallery-empty">
-      <p>La galeria aun no tiene fotos. Coloca imagenes en <code>static/fotos-club/</code> para que aparezcan aqui.</p>
+      <p>{{ i18n "gallery_empty" | safeHTML }}</p>
     </div>
     {{ end }}
   </div>

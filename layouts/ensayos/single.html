@@ -1,30 +1,18 @@
 {{ define "main" }}
-<section class="py-5">
-  <div class="container" style="max-width: 860px;">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <article>
-          <header class="mb-5">
-            <h1 class="fw-bold mb-2">{{ .Title }}</h1>
-            <p class="text-muted small mb-0">
-              {{ .Date.Format "02 Jan 2006" }}
-            </p>
-          </header>
-
-          <div class="content">
-            {{ .Content }}
-          </div>
-
-          <div class="mt-5 pt-3 border-top">
-            {{ with site.GetPage "section" "ensayos" }}
-              <a href="{{ .RelPermalink }}" class="text-decoration-none">
-                ← Volver a Ensayos
-              </a>
-            {{ end }}
-          </div>
-        </article>
+<section class="section">
+  <div class="container detail-container">
+    <article class="detail-card">
+      <header class="page-header">
+        <h1>{{ .Title }}</h1>
+        <p class="lead">{{ .Date | time.Format ":date_long" }}</p>
+      </header>
+      <div class="page-content">
+        {{ .Content }}
       </div>
-    </div>
+      {{ with .Site.GetPage "/ensayos" }}
+      <p class="back-link"><a href="{{ .RelPermalink }}">← {{ i18n "back_to_essays" }}</a></p>
+      {{ end }}
+    </article>
   </div>
 </section>
 {{ end }}

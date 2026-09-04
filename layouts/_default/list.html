@@ -16,7 +16,13 @@
         <div class="project-tags">
           {{ with .Params.tags }}{{ range . }}<span class="tag">{{ . }}</span>{{ end }}{{ end }}
         </div>
-        <a class="button outline" href="{{ .RelPermalink }}">Ver proyecto</a>
+        <a class="button outline" href="{{ .RelPermalink }}">
+          {{- if eq $.Kind "taxonomy" -}}
+            {{- if eq $.Data.Singular "tag" }}{{ i18n "view_tag" }}{{ else }}{{ i18n "view_category" }}{{ end -}}
+          {{- else -}}
+            {{- i18n "view_project" -}}
+          {{- end -}}
+        </a>
       </article>
       {{ end }}
     </div>

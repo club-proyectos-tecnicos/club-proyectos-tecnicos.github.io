@@ -146,11 +146,51 @@ html.dark-mode .site-header {
   padding: 24px 0;
 }
 
+.header-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border: 1px solid rgba(15, 76, 129, 0.14);
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+html.dark-mode .header-controls {
+  border-color: rgba(91, 163, 208, 0.18);
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 36px;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  background: rgba(15, 76, 129, 0.1);
+  color: var(--primary);
+}
+
+html.dark-mode .language-toggle:hover,
+html.dark-mode .language-toggle:focus-visible {
+  background: rgba(91, 163, 208, 0.1);
+}
+
 .theme-toggle {
   background: none;
-  border: 1px solid rgba(15, 76, 129, 0.2);
+  border: 0;
   color: var(--text);
-  padding: 0.5rem 1rem;
+  min-height: 36px;
+  padding: 0.4rem 0.7rem;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.9rem;
@@ -644,6 +684,7 @@ html.dark-mode .callout-card {
 
 .feature-card h3,
 .process-card h3,
+.project-card h2,
 .project-card h3,
 .contact-card h2,
 .cta-panel h2,
@@ -686,6 +727,7 @@ html.dark-mode .callout-card {
   box-shadow: 0 32px 90px rgba(15, 76, 129, 0.1);
 }
 
+.project-card-top h2,
 .project-card-top h3 {
   margin: 0 0 14px;
   font-size: 1.35rem;
@@ -854,8 +896,17 @@ html.dark-mode .site-footer {
   }
 
   .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .site-nav ul {
+    gap: 12px 20px;
   }
 }
 
@@ -892,5 +943,33 @@ html.dark-mode .site-footer {
 
   .panel-row {
     grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    padding: 16px 0;
+  }
+
+  .brand {
+    max-width: calc(100% - 132px);
+    font-size: 1rem;
+  }
+
+  .header-controls {
+    margin-left: auto;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    font-size: 0;
+  }
+
+  .theme-toggle::before {
+    content: "🌙";
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .theme-toggle[aria-pressed="true"]::before {
+    content: "☀️";
   }
 }

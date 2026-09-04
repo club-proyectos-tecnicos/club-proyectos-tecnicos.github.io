@@ -12,7 +12,7 @@ tags:
   - "Python"
   - "NumPy"
   - "pandas"
-  - "Simulacion"
+  - "Simulación"
   - "Procesos estocasticos"
   - "Finanzas cuantitativas"
   - "Monte Carlo"

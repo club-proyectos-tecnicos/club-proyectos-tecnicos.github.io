@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ .Site.Language.Locale }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Site.Params.description }}{{ . }}{{ end }}">
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+  {{ end }}
+  {{ range .AllTranslations }}{{ if eq .Language.Lang hugo.Sites.Default.Language.Lang }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}{{ end }}
   <link rel="icon" href="{{ with .Site.Params.favicon }}{{ . | relURL }}{{ else }}{{ "/Logo_2.png" | relURL }}{{ end }}">
-  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">  <script>
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  <script>
     (function() {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const savedTheme = localStorage.getItem('theme');
@@ -15,20 +22,38 @@
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script></head>
+  </script>
+</head>
 <body>
   <div class="page-shell">
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
-        <nav class="site-nav" aria-label="Menú principal">
+        <a class="brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        <nav class="site-nav" aria-label="{{ i18n "main_navigation" }}">
           <ul>
             {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
             {{ end }}
           </ul>
         </nav>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">🌙 Oscuro</button>
+        <div class="header-controls">
+          {{ $switchURL := "" }}
+          {{ $switchCode := "" }}
+          {{ range .Translations }}
+            {{ $switchURL = .RelPermalink }}
+            {{ $switchCode = upper .Language.Lang }}
+          {{ end }}
+          {{ if not $switchURL }}
+            {{ range hugo.Sites }}
+              {{ if ne .Language.Lang $.Site.Language.Lang }}
+                {{ $switchURL = .Home.RelPermalink }}
+                {{ $switchCode = upper .Language.Lang }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          <a class="language-toggle" href="{{ $switchURL }}" hreflang="{{ lower $switchCode }}" lang="{{ lower $switchCode }}" aria-label="{{ i18n "switch_language" }}">{{ $switchCode }}</a>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="{{ i18n "change_theme" }}" aria-pressed="false" data-dark-label="🌙 {{ i18n "dark_theme" }}" data-light-label="☀️ {{ i18n "light_theme" }}">🌙 {{ i18n "dark_theme" }}</button>
+        </div>
       </div>
     </header>
     <main class="site-content">
@@ -41,23 +66,24 @@
     </footer>
   </div>
   <script>
-    document.getElementById('theme-toggle').addEventListener('click', function() {
+    (function() {
+      const button = document.getElementById('theme-toggle');
       const html = document.documentElement;
-      const btn = this;
-      if (html.classList.contains('dark-mode')) {
-        html.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-        btn.textContent = '🌙 Oscuro';
-      } else {
-        html.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-        btn.textContent = '☀️ Claro';
+
+      function updateThemeButton() {
+        const darkMode = html.classList.contains('dark-mode');
+        button.textContent = darkMode ? button.dataset.lightLabel : button.dataset.darkLabel;
+        button.setAttribute('aria-pressed', darkMode ? 'true' : 'false');
       }
-    });
-    // Set button text on load
-    if (document.documentElement.classList.contains('dark-mode')) {
-      document.getElementById('theme-toggle').textContent = '☀️ Claro';
-    }
+
+      button.addEventListener('click', function() {
+        const darkMode = html.classList.toggle('dark-mode');
+        localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+        updateThemeButton();
+      });
+
+      updateThemeButton();
+    })();
   </script>
 </body>
 </html>

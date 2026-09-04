@@ -1,8 +1,8 @@
-﻿baseURL: "https://club-proyectos-tecnicos.github.io/"
+baseURL: "https://club-proyectos-tecnicos.github.io/"
 canonifyURLs: true
 relativeURLs: false
-locale: "es-ES"
-title: "Club de Proyectos Técnicos Aplicados"
+defaultContentLanguage: "es"
+defaultContentLanguageInSubdir: false
 
 enableRobotsTXT: true
 
@@ -23,36 +23,67 @@ markup:
     renderer:
       unsafe: true
 
-Menus:
-  main:
-    - identifier: home
-      name: Inicio
-      title: Inicio
-      url: /
-      weight: 1
-    - identifier: projects
-      name: Proyectos
-      title: Proyectos
-      url: /projects/
-      weight: 2
-    - identifier: fotos
-      name: Fotos
-      title: Fotos
-      url: /fotos/
-      weight: 3
-    - identifier: about
-      name: Sobre el club
-      title: Sobre el club
-      url: /about/
-      weight: 4
-    - identifier: contact
-      name: Contacto
-      title: Contacto
-      url: /contact/
-      weight: 5
-
 params:
-  title: "Club de Proyectos Técnicos Aplicados"
-  description: "Club universitario donde estudiantes de grados técnicos aprenden construyendo proyectos reales, documentan su avance y comparten resultados."
   favicon: "/Logo_2.png"
-  footerText: "Club de Proyectos Técnicos Aplicados — Aprendizaje aplicado, proyectos reales y trabajo en equipo."
+
+languages:
+  es:
+    locale: "es-ES"
+    label: "Español"
+    title: "Club de Proyectos Técnicos Aplicados"
+    weight: 1
+    params:
+      description: "Club universitario donde estudiantes de grados técnicos aprenden construyendo proyectos reales, documentan su avance y comparten resultados."
+      footerText: "Club de Proyectos Técnicos Aplicados — Aprendizaje aplicado, proyectos reales y trabajo en equipo."
+    menus:
+      main:
+        - identifier: home
+          name: Inicio
+          pageRef: /
+          weight: 1
+        - identifier: projects
+          name: Proyectos
+          pageRef: /projects
+          weight: 2
+        - identifier: fotos
+          name: Fotos
+          pageRef: /fotos
+          weight: 3
+        - identifier: about
+          name: Sobre el club
+          pageRef: /about
+          weight: 4
+        - identifier: contact
+          name: Contacto
+          pageRef: /contact
+          weight: 5
+  en:
+    locale: "en-US"
+    label: "English"
+    title: "Applied Technical Projects Club"
+    weight: 2
+    params:
+      description: "A university club where students in technical degree programs learn by building real projects, documenting their progress and sharing results."
+      footerText: "Applied Technical Projects Club — Applied learning, real projects and teamwork."
+    menus:
+      main:
+        - identifier: home
+          name: Home
+          pageRef: /
+          weight: 1
+        - identifier: projects
+          name: Projects
+          pageRef: /projects
+          weight: 2
+        - identifier: fotos
+          name: Photos
+          pageRef: /fotos
+          weight: 3
+        - identifier: about
+          name: About the club
+          pageRef: /about
+          weight: 4
+        - identifier: contact
+          name: Contact
+          pageRef: /contact
+          weight: 5

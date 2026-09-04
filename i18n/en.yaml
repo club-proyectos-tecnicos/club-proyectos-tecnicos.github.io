@@ -1,0 +1,178 @@
+main_navigation:
+  other: "Main navigation"
+switch_language:
+  other: "Switch to Spanish"
+change_theme:
+  other: "Change color theme"
+dark_theme:
+  other: "Dark"
+light_theme:
+  other: "Light"
+club_name:
+  other: "Applied Technical Projects Club"
+hero_title:
+  other: "Learn by building real technical projects"
+hero_text:
+  other: "A university community where students in technical degree programs work together to turn ideas into prototypes, learn real-world tools and present results."
+view_projects:
+  other: "View projects"
+join_club:
+  other: "Join the club"
+hero_note:
+  other: "You do not need to know everything from the start: the goal is to learn, contribute and move forward as a team."
+current_status:
+  other: "Current status"
+initial_progress:
+  other: "Initial progress"
+projects_in_progress:
+  other: "Projects in development"
+student_groups:
+  other: "Student groups"
+learning:
+  other: "Learning"
+prototypes:
+  other: "Prototypes"
+data:
+  other: "Data"
+sensors:
+  other: "Sensors"
+first_edition_complete:
+  other: "First edition completed"
+what_is_club:
+  other: "What the club is"
+what_is_club_text:
+  other: "A young university space for applying technical knowledge to concrete projects, sharing lessons learned and preparing clear presentations of results."
+learn_by_applying:
+  other: "Learn by applying theory"
+learn_by_applying_text:
+  other: "We connect classroom knowledge with real problems and build prototypes that help us test ideas and measure their progress."
+teamwork:
+  other: "Teamwork"
+teamwork_text:
+  other: "Students from different disciplines combine their skills to move forward together and learn how to plan, coordinate and communicate."
+honest_projects:
+  other: "Honest projects"
+honest_projects_text:
+  other: "These are not finished products, but first iterations with documentation, initial results and clear next steps."
+how_we_work:
+  other: "How we work"
+how_we_work_text:
+  other: "A practical process for moving each project forward step by step, from the initial problem to presenting the results."
+define_problem:
+  other: "Define the problem"
+define_problem_text:
+  other: "We choose a specific technical challenge and find a straightforward way to address it with data, models and testing."
+form_teams:
+  other: "Form teams"
+form_teams_text:
+  other: "We work in small groups to divide tasks, coordinate progress and share responsibility."
+build_prototype:
+  other: "Build a prototype"
+build_prototype_text:
+  other: "We develop a practical first version: code, sensors, dashboards or models that let us experiment."
+document_present:
+  other: "Document and present"
+document_present_text:
+  other: "We record results, limitations and lessons learned, present them clearly and plan the next iterations."
+what_you_learn:
+  other: "What you learn in the club"
+what_you_learn_text:
+  other: "The club is a place to develop technical and teamwork skills, even when you are just getting started."
+hard_skills:
+  other: "Hard skills"
+soft_skills:
+  other: "Soft skills"
+skill_programming:
+  other: "Programming and GitHub"
+skill_data:
+  other: "Data analysis and dashboards"
+skill_modelling:
+  other: "Mathematical modelling and simulation"
+skill_physics:
+  other: "Applied physics and sensors"
+skill_documentation:
+  other: "Technical documentation"
+skill_presentation:
+  other: "Presenting results"
+skill_teamwork:
+  other: "Teamwork and responsibility"
+skill_communication:
+  other: "Clear technical communication"
+skill_organization:
+  other: "Organization and task allocation"
+skill_uncertainty:
+  other: "Managing uncertainty"
+skill_feedback:
+  other: "Feedback and iterative improvement"
+skill_explain:
+  other: "Explaining ideas to non-specialist audiences"
+current_projects:
+  other: "Current projects"
+current_projects_text:
+  other: "These projects are in development, and their individual pages describe each initiative's approach, status and next steps."
+view_project:
+  other: "View project"
+view_tag:
+  other: "View tag"
+view_category:
+  other: "View category"
+areas_of_work:
+  other: "Areas of work"
+areas_of_work_text:
+  other: "Areas where the club aims to grow step by step, always with a practical and realistic foundation."
+area_aerospace:
+  other: "Aerospace and physical systems"
+area_ai:
+  other: "AI and applied data"
+area_consulting:
+  other: "University technical consulting"
+area_sensors:
+  other: "Sensors and IoT"
+area_optimization:
+  other: "Optimization and decision-making"
+area_simulation:
+  other: "Simulation and mathematical modelling"
+upcoming_projects:
+  other: "Upcoming projects"
+upcoming_projects_text:
+  other: "New teams and presentations in the 2026–2027 academic year."
+contact:
+  other: "Contact"
+participate_question:
+  other: "Would you like to take part or collaborate?"
+participate_text:
+  other: "Write to us if you want to join a project, learn as part of a team or propose technical challenges for future cycles."
+temporary_email:
+  other: "Temporary contact email for the club."
+contact_action:
+  other: "Contact us"
+contact_students:
+  other: "If you are a student who wants to learn by building, this club is a place to make progress through technical projects and teamwork."
+contact_collaborators:
+  other: "If you are a lecturer, mentor or external collaborator, we invite you to support initiatives, propose challenges and offer technical feedback."
+email:
+  other: "Email"
+contact_channel:
+  other: "The club is at an early stage. This is the main contact channel for students, collaborators and lecturers interested in taking part or offering support."
+club_project:
+  other: "Club project"
+back_to_projects:
+  other: "Back to Projects"
+project_image_alt:
+  other: "Image for the {{ .Title }} project"
+status:
+  other: "Status"
+tags:
+  other: "Tags"
+view_repository:
+  other: "View repository"
+download_report:
+  other: "Download report"
+team:
+  other: "Team"
+gallery_image_alt:
+  other: "Photo of the Applied Technical Projects Club"
+gallery_empty:
+  other: "The gallery does not have any photos yet. Add images to <code>static/fotos-club/</code> for them to appear here."
+back_to_essays:
+  other: "Back to Essays"

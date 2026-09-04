@@ -1,0 +1,178 @@
+main_navigation:
+  other: "Menú principal"
+switch_language:
+  other: "Cambiar a inglés"
+change_theme:
+  other: "Cambiar tema de color"
+dark_theme:
+  other: "Oscuro"
+light_theme:
+  other: "Claro"
+club_name:
+  other: "Club de Proyectos Técnicos Aplicados"
+hero_title:
+  other: "Aprender construyendo proyectos técnicos reales"
+hero_text:
+  other: "Una comunidad universitaria donde estudiantes de grados técnicos trabajan en equipo para convertir ideas en prototipos, aprender herramientas reales y presentar resultados."
+view_projects:
+  other: "Ver proyectos"
+join_club:
+  other: "Unirse al club"
+hero_note:
+  other: "No hace falta saberlo todo desde el principio: el objetivo es aprender, aportar y avanzar en equipo."
+current_status:
+  other: "Estado actual"
+initial_progress:
+  other: "Progreso inicial"
+projects_in_progress:
+  other: "Proyectos en desarrollo"
+student_groups:
+  other: "Grupos de estudiantes"
+learning:
+  other: "Aprendizaje"
+prototypes:
+  other: "Prototipos"
+data:
+  other: "Datos"
+sensors:
+  other: "Sensores"
+first_edition_complete:
+  other: "Primera edición completada"
+what_is_club:
+  other: "Qué es el club"
+what_is_club_text:
+  other: "Un espacio universitario joven para aplicar conocimientos técnicos a proyectos concretos, compartir aprendizajes y preparar presentaciones con resultados claros."
+learn_by_applying:
+  other: "Aprender aplicando teoría"
+learn_by_applying_text:
+  other: "Nos interesa conectar la clase con problemas reales y construir prototipos que permitan validar ideas y medir su evolución."
+teamwork:
+  other: "Trabajo en equipo"
+teamwork_text:
+  other: "Estudiantes de distintas disciplinas suman capacidades para avanzar juntos y aprender a planificar, coordinar y comunicar."
+honest_projects:
+  other: "Proyectos honestos"
+honest_projects_text:
+  other: "No son trabajos terminados, sino primeras iteraciones con documentación, resultados iniciales y próximos pasos claros."
+how_we_work:
+  other: "Cómo trabajamos"
+how_we_work_text:
+  other: "Un proceso práctico para avanzar paso a paso con cada proyecto, desde el problema inicial hasta la presentación de resultados."
+define_problem:
+  other: "Definir el problema"
+define_problem_text:
+  other: "Elegimos un reto técnico concreto y buscamos una forma sencilla de abordarlo con datos, modelos y pruebas."
+form_teams:
+  other: "Formar equipos"
+form_teams_text:
+  other: "Trabajamos en grupos reducidos para repartir tareas, coordinar el avance y compartir responsabilidades."
+build_prototype:
+  other: "Construir un prototipo"
+build_prototype_text:
+  other: "Desarrollamos una primera versión práctica: código, sensores, dashboards o modelos que permitan experimentar."
+document_present:
+  other: "Documentar y presentar"
+document_present_text:
+  other: "Recogemos los resultados, las limitaciones y los aprendizajes para presentarlos con claridad y pensar siguientes iteraciones."
+what_you_learn:
+  other: "Qué se aprende en el club"
+what_you_learn_text:
+  other: "El club es un lugar para desarrollar habilidades técnicas y de equipo, incluso cuando todavía se está empezando."
+hard_skills:
+  other: "Hard skills"
+soft_skills:
+  other: "Soft skills"
+skill_programming:
+  other: "Programación y GitHub"
+skill_data:
+  other: "Análisis de datos y dashboards"
+skill_modelling:
+  other: "Modelización matemática y simulación"
+skill_physics:
+  other: "Física aplicada y sensores"
+skill_documentation:
+  other: "Documentación técnica"
+skill_presentation:
+  other: "Presentación de resultados"
+skill_teamwork:
+  other: "Trabajo en equipo y responsabilidad"
+skill_communication:
+  other: "Comunicación técnica clara"
+skill_organization:
+  other: "Organización y división de tareas"
+skill_uncertainty:
+  other: "Gestión de incertidumbre"
+skill_feedback:
+  other: "Feedback y mejora iterativa"
+skill_explain:
+  other: "Explicar ideas a públicos no especializados"
+current_projects:
+  other: "Proyectos actuales"
+current_projects_text:
+  other: "Estos proyectos están en desarrollo y sus páginas individuales recogen el enfoque, el estado y los próximos pasos de cada iniciativa."
+view_project:
+  other: "Ver proyecto"
+view_tag:
+  other: "Ver etiqueta"
+view_category:
+  other: "Ver categoría"
+areas_of_work:
+  other: "Líneas de trabajo"
+areas_of_work_text:
+  other: "Áreas hacia las que el club quiere crecer paso a paso, siempre con una base práctica y realista."
+area_aerospace:
+  other: "Aeroespacial y sistemas físicos"
+area_ai:
+  other: "IA y datos aplicados"
+area_consulting:
+  other: "Consultoría técnica universitaria"
+area_sensors:
+  other: "Sensores e IoT"
+area_optimization:
+  other: "Optimización y toma de decisiones"
+area_simulation:
+  other: "Simulación y modelización matemática"
+upcoming_projects:
+  other: "Próximos proyectos"
+upcoming_projects_text:
+  other: "Nuevos equipos y presentaciones en el curso 2026–2027."
+contact:
+  other: "Contacto"
+participate_question:
+  other: "¿Quieres participar o colaborar?"
+participate_text:
+  other: "Escríbenos si quieres unirte a los proyectos, aprender en equipo o proponer retos técnicos para los próximos ciclos."
+temporary_email:
+  other: "Correo de contacto provisional para el club."
+contact_action:
+  other: "Contactar"
+contact_students:
+  other: "Si eres estudiante y tienes ganas de aprender construyendo, este club es un espacio para avanzar con proyectos técnicos y trabajo en equipo."
+contact_collaborators:
+  other: "Si eres profesor, mentor o colaborador externo, te invitamos a conectar para apoyar iniciativas, proponer retos y aportar feedback técnico."
+email:
+  other: "Email"
+contact_channel:
+  other: "El club está en una fase inicial. Este es el canal principal de contacto para estudiantes, colaboradores y profesores interesados en participar o apoyar."
+club_project:
+  other: "Proyecto del club"
+back_to_projects:
+  other: "Volver a Proyectos"
+project_image_alt:
+  other: "Imagen del proyecto {{ .Title }}"
+status:
+  other: "Estado"
+tags:
+  other: "Etiquetas"
+view_repository:
+  other: "Ver repositorio"
+download_report:
+  other: "Descargar memoria"
+team:
+  other: "Equipo"
+gallery_image_alt:
+  other: "Foto del Club de Proyectos Técnicos Aplicados"
+gallery_empty:
+  other: "La galería aún no tiene fotos. Coloca imágenes en <code>static/fotos-club/</code> para que aparezcan aquí."
+back_to_essays:
+  other: "Volver a Ensayos"

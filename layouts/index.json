@@ -1,17 +1,16 @@
 {
-  "title": "{{ .Site.Title }}",
-  "description": "{{ .Site.Params.description }}",
-  "url": "{{ .Permalink }}",
+  "title": {{ .Site.Title | jsonify }},
+  "description": {{ .Site.Params.description | jsonify }},
+  "url": {{ .Permalink | jsonify }},
   "projects": [
-    {{- range $index, $page := .Site.RegularPages -}}
-      {{- if eq $page.Section "projects" -}}
+    {{- $projects := where .Site.RegularPages "Section" "projects" -}}
+    {{- range $index, $page := $projects -}}
       {{- if $index }},{{ end }}
       {
-        "title": "{{ $page.Title }}",
-        "url": "{{ $page.Permalink }}",
-        "summary": "{{ $page.Summary | plainify | htmlEscape }}"
+        "title": {{ $page.Title | jsonify }},
+        "url": {{ $page.Permalink | jsonify }},
+        "summary": {{ $page.Params.summary | default $page.Summary | plainify | jsonify }}
       }
-      {{- end -}}
-    {{- end -}}
+    {{- end }}
   ]
 }

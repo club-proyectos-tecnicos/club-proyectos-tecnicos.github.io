@@ -1,13 +1,16 @@
 {{ define "main" }}
 {{ $selectedNames := slice "IMG_4344.jpg" "IMG_4348.jpg" "IMG_4360.jpg" "IMG_4368.jpg" "IMG_4385.jpg" "IMG_4395.jpg" "IMG_4400.jpg" "IMG_4410.jpg" "IMG_4346.jpg" "IMG_4399.jpg" }}
 {{ $allPhotos := sort (resources.Match "fotos-club/*") "Name" }}
+{{ $photoTotal := len $allPhotos }}
+{{ $photoOrdinals := newScratch }}
+{{ range $index, $image := $allPhotos }}{{ $photoOrdinals.Set $image.Name (add $index 1) }}{{ end }}
 <section class="page-hero page-hero--gallery">
   <div class="container layout-grid">
     <p class="section-code">01 / {{ i18n "visual_archive" }}</p>
     <div class="page-hero__copy">
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p>{{ . }}</p>{{ end }}
-      <p class="archive-count">{{ len $allPhotos }} {{ i18n "photographs" }}</p>
+      <p class="archive-count">{{ $photoTotal }} {{ i18n "photographs" }}</p>
     </div>
   </div>
 </section>
@@ -17,14 +20,14 @@
     <div class="gallery-heading"><p class="section-code">02 / {{ i18n "editorial_selection" }}</p><p>{{ i18n "club_session_caption" }}</p></div>
     <div class="editorial-gallery">
       {{ range $index, $name := $selectedNames }}
-        {{ with resources.Get (printf "fotos-club/%s" $name) }}{{ partial "gallery-image.html" (dict "image" . "index" $index "featured" true) }}{{ end }}
+        {{ with resources.Get (printf "fotos-club/%s" $name) }}{{ partial "gallery-image.html" (dict "image" . "ordinal" ($photoOrdinals.Get .Name) "total" $photoTotal "featured" true "eager" (eq $index 0)) }}{{ end }}
       {{ end }}
     </div>
 
     <details class="archive-details">
-      <summary><span>{{ i18n "complete_archive" }}</span><span>{{ len $allPhotos }} {{ i18n "photographs" }} +</span></summary>
+      <summary><span>{{ i18n "complete_archive" }}</span><span>{{ $photoTotal }} {{ i18n "photographs" }} +</span></summary>
       <div class="archive-gallery">
-        {{ range $index, $image := $allPhotos }}{{ partial "gallery-image.html" (dict "image" $image "index" $index) }}{{ end }}
+        {{ range $index, $image := $allPhotos }}{{ partial "gallery-image.html" (dict "image" $image "ordinal" (add $index 1) "total" $photoTotal) }}{{ end }}
       </div>
     </details>
   </div>
@@ -34,8 +37,9 @@
   <div class="lightbox__inner">
     <button class="lightbox__close" type="button" data-lightbox-close aria-label="{{ i18n "close_image" }}">×</button>
     <button class="lightbox__nav lightbox__nav--previous" type="button" data-lightbox-previous aria-label="{{ i18n "previous_image" }}">←</button>
-    <figure><img src="" alt=""><figcaption></figcaption></figure>
+    <figure><img src="" alt="" decoding="async"><figcaption></figcaption></figure>
     <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="{{ i18n "next_image" }}">→</button>
+    <p class="visually-hidden" data-lightbox-status aria-live="polite" aria-atomic="true"></p>
   </div>
 </dialog>
 <script>
@@ -45,25 +49,37 @@
     var links = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox-item]'));
     var image = dialog.querySelector('img');
     var caption = dialog.querySelector('figcaption');
+    var liveStatus = dialog.querySelector('[data-lightbox-status]');
     var closeButton = dialog.querySelector('[data-lightbox-close]');
     var previousButton = dialog.querySelector('[data-lightbox-previous]');
     var nextButton = dialog.querySelector('[data-lightbox-next]');
     var currentIndex = 0;
     var returnFocus = null;
+    var items = [];
+    var itemIndexByUrl = Object.create(null);
+
+    links.forEach(function (link) {
+      var key = link.dataset.full;
+      if (!Object.prototype.hasOwnProperty.call(itemIndexByUrl, key)) {
+        itemIndexByUrl[key] = items.length;
+        items.push(link);
+      }
+    });
 
     function show(index) {
-      currentIndex = (index + links.length) % links.length;
-      var link = links[currentIndex];
+      currentIndex = (index + items.length) % items.length;
+      var link = items[currentIndex];
       image.src = link.dataset.full;
       image.alt = link.querySelector('img').alt;
       caption.textContent = link.dataset.caption;
+      liveStatus.textContent = link.dataset.status;
     }
 
-    links.forEach(function (link, index) {
+    links.forEach(function (link) {
       link.addEventListener('click', function (event) {
         event.preventDefault();
         returnFocus = link;
-        show(index);
+        show(itemIndexByUrl[link.dataset.full]);
         dialog.showModal();
         closeButton.focus();
       });
@@ -73,7 +89,7 @@
     previousButton.addEventListener('click', function () { show(currentIndex - 1); });
     nextButton.addEventListener('click', function () { show(currentIndex + 1); });
     dialog.addEventListener('click', function (event) { if (event.target === dialog) dialog.close(); });
-    dialog.addEventListener('close', function () { image.src = ''; if (returnFocus) returnFocus.focus(); });
+    dialog.addEventListener('close', function () { image.src = ''; liveStatus.textContent = ''; if (returnFocus) returnFocus.focus(); });
     dialog.addEventListener('keydown', function (event) {
       if (event.key === 'ArrowLeft') { event.preventDefault(); show(currentIndex - 1); }
       if (event.key === 'ArrowRight') { event.preventDefault(); show(currentIndex + 1); }

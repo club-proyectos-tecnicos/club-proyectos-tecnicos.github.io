@@ -172,8 +172,10 @@ team:
   other: "Equipo"
 gallery_image_alt:
   other: "Foto del Club de Proyectos Técnicos Aplicados"
+gallery_image_alt_numbered:
+  other: "Fotografía {{ .Number }} de {{ .Total }} del Club de Proyectos Técnicos Aplicados"
 gallery_empty:
-  other: "La galería aún no tiene fotos. Coloca imágenes en <code>static/fotos-club/</code> para que aparezcan aquí."
+  other: "La galería aún no tiene fotos. Coloca imágenes en <code>assets/fotos-club/</code> para que aparezcan aquí."
 back_to_essays:
   other: "Volver a Ensayos"
 skip_to_content:
@@ -230,6 +232,10 @@ complete_archive:
   other: "Archivo completo"
 open_image:
   other: "Abrir fotografía a tamaño grande"
+open_image_numbered:
+  other: "Abrir fotografía {{ .Number }} de {{ .Total }} a tamaño grande"
+viewing_image_numbered:
+  other: "Fotografía {{ .Number }} de {{ .Total }} abierta"
 close_image:
   other: "Cerrar fotografía"
 previous_image:

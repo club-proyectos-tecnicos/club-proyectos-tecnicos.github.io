@@ -172,8 +172,10 @@ team:
   other: "Team"
 gallery_image_alt:
   other: "Photo of the Applied Technical Projects Club"
+gallery_image_alt_numbered:
+  other: "Photograph {{ .Number }} of {{ .Total }} from the Applied Technical Projects Club"
 gallery_empty:
-  other: "The gallery does not have any photos yet. Add images to <code>static/fotos-club/</code> for them to appear here."
+  other: "The gallery does not have any photos yet. Add images to <code>assets/fotos-club/</code> for them to appear here."
 back_to_essays:
   other: "Back to Essays"
 skip_to_content:
@@ -230,6 +232,10 @@ complete_archive:
   other: "Complete archive"
 open_image:
   other: "Open photograph at large size"
+open_image_numbered:
+  other: "Open photograph {{ .Number }} of {{ .Total }} at large size"
+viewing_image_numbered:
+  other: "Photograph {{ .Number }} of {{ .Total }} opened"
 close_image:
   other: "Close photograph"
 previous_image:

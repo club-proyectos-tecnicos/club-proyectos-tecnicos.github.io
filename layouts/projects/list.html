@@ -13,7 +13,7 @@
 <section class="project-catalog">
   <div class="container">
     <div class="project-catalog__header" aria-hidden="true">
-      <span>{{ i18n "number_short" }}</span><span>{{ i18n "project" }}</span><span>{{ i18n "status" }}</span><span>{{ i18n "field" }}</span><span>{{ i18n "visual" }}</span>
+      <span>{{ i18n "number_short" }}</span><span>{{ i18n "project" }}</span><span>{{ i18n "year" }}</span><span>{{ i18n "status" }}</span><span>{{ i18n "tags" }}</span><span>{{ i18n "visual" }}</span>
     </div>
     <div class="project-catalog__list">
       {{ range .Pages.ByParam "projectNumber" }}
@@ -24,8 +24,9 @@
           {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
           <a class="catalog-row__link" href="{{ .RelPermalink }}">{{ i18n "view_project" }} <span aria-hidden="true">→</span></a>
         </div>
+        <div class="catalog-row__year"><span>{{ i18n "year" }}</span>{{ .Date.Format "2006" }}</div>
         <div class="catalog-row__status"><span>{{ i18n "status" }}</span>{{ .Params.status }}</div>
-        <div class="catalog-row__field"><span>{{ i18n "field" }}</span>{{ delimit (first 3 .Params.tags) " · " }}</div>
+        <div class="catalog-row__field"><span>{{ i18n "tags" }}</span>{{ delimit (first 3 .Params.tags) " · " }}</div>
         <a class="catalog-row__visual" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
           {{ partial "project-visual.html" (dict "page" . "class" "catalog-row__image") }}
         </a>

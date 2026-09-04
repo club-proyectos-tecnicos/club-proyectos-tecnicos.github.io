@@ -77,16 +77,18 @@
       </div>
     </article>
     {{ end }}
-    <div class="project-index" role="list">
+    <ol class="project-index">
       {{ range $projects }}{{ if ne (int .Params.projectNumber) 2 }}
-      <a class="project-index__row" href="{{ .RelPermalink }}" role="listitem">
-        <span>{{ printf "%02d" (int .Params.projectNumber) }}</span>
-        <strong>{{ .Title }}</strong>
-        <span>{{ delimit (first 2 .Params.tags) " / " }}</span>
-        <span aria-hidden="true">→</span>
-      </a>
+      <li>
+        <a class="project-index__row" href="{{ .RelPermalink }}">
+          <span>{{ printf "%02d" (int .Params.projectNumber) }}</span>
+          <strong>{{ .Title }}</strong>
+          <span>{{ delimit (first 2 .Params.tags) " / " }}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </li>
       {{ end }}{{ end }}
-    </div>
+    </ol>
   </div>
 </section>
 

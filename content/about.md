@@ -8,13 +8,13 @@ El Club de Proyectos Técnicos Aplicados nace como un espacio universitario para
 
 Este club está impulsado por estudiantes interesados en crear un puente entre la teoría del aula y la práctica del proyecto técnico. No se trata de un laboratorio avanzado ni de una consultora: es un grupo joven que quiere aprender haciendo.
 
-### Nuestra misión
+## Nuestra misión
 
 - Ofrecer un espacio para aplicar teoría a problemas reales.
 - Realizar primeros prototipos, análisis y documentación técnica.
 - Aprender a trabajar en equipo, comunicar ideas y cerrar proyectos con sentido.
 
-### Cómo crecemos
+## Cómo crecemos
 
 El club avanza poco a poco, a medida que los equipos terminan primeras iteraciones y comparten lo que han aprendido. Las áreas de interés incluyen:
 

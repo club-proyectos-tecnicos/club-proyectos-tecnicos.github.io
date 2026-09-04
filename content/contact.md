@@ -1,6 +1,7 @@
 ---
 title: "Contacto"
 description: "Contacto para estudiantes, profesores y colaboradores interesados en el club."
+layout: "contact"
 ---
 
 ### Para estudiantes

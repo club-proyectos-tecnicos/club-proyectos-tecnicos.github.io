@@ -1,31 +1,90 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
-    {{ if .Content }}<div class="page-content">{{ .Content }}</div>{{ end }}
-
-    {{ $photos := slice }}
-    {{ range readDir "static/fotos-club" }}
-      {{ $ext := lower (path.Ext .Name) }}
-      {{ if and (not .IsDir) (in (slice ".jpg" ".jpeg" ".png" ".webp" ".gif") $ext) }}
-        {{ $photos = $photos | append .Name }}
-      {{ end }}
-    {{ end }}
-
-    {{ if $photos }}
-    <div class="gallery-grid">
-      {{ range sort $photos }}
-      <figure class="gallery-item">
-        <img src="{{ printf "fotos-club/%s" . | relURL }}" alt="{{ i18n "gallery_image_alt" }}">
-      </figure>
-      {{ end }}
+{{ $selectedNames := slice "IMG_4344.jpg" "IMG_4348.jpg" "IMG_4360.jpg" "IMG_4368.jpg" "IMG_4385.jpg" "IMG_4395.jpg" "IMG_4400.jpg" "IMG_4410.jpg" "IMG_4346.jpg" "IMG_4399.jpg" }}
+{{ $allPhotos := sort (resources.Match "fotos-club/*") "Name" }}
+<section class="page-hero page-hero--gallery">
+  <div class="container layout-grid">
+    <p class="section-code">01 / {{ i18n "visual_archive" }}</p>
+    <div class="page-hero__copy">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      <p class="archive-count">{{ len $allPhotos }} {{ i18n "photographs" }}</p>
     </div>
-    {{ else }}
-    <div class="gallery-empty">
-      <p>{{ i18n "gallery_empty" | safeHTML }}</p>
-    </div>
-    {{ end }}
   </div>
 </section>
+
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-heading"><p class="section-code">02 / {{ i18n "editorial_selection" }}</p><p>{{ i18n "club_session_caption" }}</p></div>
+    <div class="editorial-gallery">
+      {{ range $index, $name := $selectedNames }}
+        {{ with resources.Get (printf "fotos-club/%s" $name) }}{{ partial "gallery-image.html" (dict "image" . "index" $index "featured" true) }}{{ end }}
+      {{ end }}
+    </div>
+
+    <details class="archive-details">
+      <summary><span>{{ i18n "complete_archive" }}</span><span>{{ len $allPhotos }} {{ i18n "photographs" }} +</span></summary>
+      <div class="archive-gallery">
+        {{ range $index, $image := $allPhotos }}{{ partial "gallery-image.html" (dict "image" $image "index" $index) }}{{ end }}
+      </div>
+    </details>
+  </div>
+</section>
+
+<dialog class="lightbox" id="gallery-lightbox" aria-label="{{ i18n "image_viewer" }}">
+  <div class="lightbox__inner">
+    <button class="lightbox__close" type="button" data-lightbox-close aria-label="{{ i18n "close_image" }}">×</button>
+    <button class="lightbox__nav lightbox__nav--previous" type="button" data-lightbox-previous aria-label="{{ i18n "previous_image" }}">←</button>
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+    <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="{{ i18n "next_image" }}">→</button>
+  </div>
+</dialog>
+<script>
+  (function () {
+    var dialog = document.getElementById('gallery-lightbox');
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    var links = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox-item]'));
+    var image = dialog.querySelector('img');
+    var caption = dialog.querySelector('figcaption');
+    var closeButton = dialog.querySelector('[data-lightbox-close]');
+    var previousButton = dialog.querySelector('[data-lightbox-previous]');
+    var nextButton = dialog.querySelector('[data-lightbox-next]');
+    var currentIndex = 0;
+    var returnFocus = null;
+
+    function show(index) {
+      currentIndex = (index + links.length) % links.length;
+      var link = links[currentIndex];
+      image.src = link.dataset.full;
+      image.alt = link.querySelector('img').alt;
+      caption.textContent = link.dataset.caption;
+    }
+
+    links.forEach(function (link, index) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        returnFocus = link;
+        show(index);
+        dialog.showModal();
+        closeButton.focus();
+      });
+    });
+
+    closeButton.addEventListener('click', function () { dialog.close(); });
+    previousButton.addEventListener('click', function () { show(currentIndex - 1); });
+    nextButton.addEventListener('click', function () { show(currentIndex + 1); });
+    dialog.addEventListener('click', function (event) { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', function () { image.src = ''; if (returnFocus) returnFocus.focus(); });
+    dialog.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); show(currentIndex - 1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); show(currentIndex + 1); }
+      if (event.key === 'Escape') { event.preventDefault(); dialog.close(); }
+      if (event.key === 'Tab') {
+        var controls = [closeButton, previousButton, nextButton];
+        var first = controls[0]; var last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
+  })();
+</script>
 {{ end }}

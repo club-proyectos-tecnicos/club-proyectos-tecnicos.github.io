@@ -176,3 +176,79 @@ gallery_empty:
   other: "The gallery does not have any photos yet. Add images to <code>static/fotos-club/</code> for them to appear here."
 back_to_essays:
   other: "Back to Essays"
+skip_to_content:
+  other: "Skip to content"
+menu:
+  other: "Menu"
+footer_navigation:
+  other: "Footer navigation"
+hero_photo_alt:
+  other: "Club students during a presentation and work session"
+documentary_photo_alt:
+  other: "Documentary view of an Applied Technical Projects Club session"
+club_session_caption:
+  other: "Club session · 18.05.2026"
+club_figures:
+  other: "Verified club figures"
+projects:
+  other: "projects"
+teams:
+  other: "teams"
+project:
+  other: "Project"
+project_index:
+  other: "Complete index"
+participate:
+  other: "Take part"
+project_catalog:
+  other: "Technical catalogue"
+number_short:
+  other: "No."
+field:
+  other: "Field"
+visual:
+  other: "Visual"
+project_no_image:
+  other: "Technical record for {{ .Title }}; no original image has been published"
+technical_record:
+  other: "Technical record"
+year:
+  other: "Year"
+fields_tools:
+  other: "Fields and tools"
+project_information:
+  other: "Project information"
+figure_main:
+  other: "Main figure"
+visual_archive:
+  other: "Visual archive"
+photographs:
+  other: "photographs"
+editorial_selection:
+  other: "Editorial selection"
+complete_archive:
+  other: "Complete archive"
+open_image:
+  other: "Open photograph at large size"
+close_image:
+  other: "Close photograph"
+previous_image:
+  other: "Previous photograph"
+next_image:
+  other: "Next photograph"
+image_viewer:
+  other: "Photograph viewer"
+compatible_jpeg:
+  other: "Compatible JPEG version"
+about_record:
+  other: "Identity and operation"
+manifesto:
+  other: "Manifesto"
+manifesto_text:
+  other: "Learn by building, measure before making claims, and document so the work can continue."
+student_led:
+  other: "Student-led initiative"
+contact_record:
+  other: "Entry point"
+write_to_us:
+  other: "Write to us"

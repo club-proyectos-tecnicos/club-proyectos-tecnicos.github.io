@@ -1,0 +1,14 @@
+{{- $page := .page -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- with $page.Params.image -}}
+  {{- $relativePath := strings.TrimPrefix "/" . -}}
+  {{- $diskPath := printf "static/%s" $relativePath -}}
+  {{- $config := imageConfig $diskPath -}}
+  <img{{ with $class }} class="{{ . }}"{{ end }} src="{{ . | relURL }}" width="{{ $config.Width }}" height="{{ $config.Height }}" loading="{{ $loading }}" decoding="async" alt="{{ i18n "project_image_alt" (dict "Title" $page.Title) }}">
+{{- else -}}
+  <div class="project-visual-placeholder{{ with $class }} {{ . }}{{ end }}" role="img" aria-label="{{ i18n "project_no_image" (dict "Title" $page.Title) }}">
+    <span>{{ printf "%02d" (int ($page.Params.projectNumber | default 0)) }}</span>
+    <span>{{ i18n "technical_record" }}</span>
+  </div>
+{{- end -}}

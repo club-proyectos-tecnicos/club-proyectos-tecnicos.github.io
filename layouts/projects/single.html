@@ -1,0 +1,50 @@
+{{ define "main" }}
+<article class="project-case">
+  <header class="project-cover">
+    <div class="container">
+      <div class="project-cover__topline">
+        <p>{{ i18n "project" }} {{ printf "%02d" (int .Params.projectNumber) }} / {{ .Date.Format "2006" }}</p>
+        {{ with .Params.status }}<p><span class="status-dot" aria-hidden="true"></span>{{ . }}</p>{{ end }}
+      </div>
+      <div class="layout-grid project-cover__grid">
+        <div class="project-cover__title">
+          {{ with .Site.GetPage "/projects" }}<a class="back-link" href="{{ .RelPermalink }}">← {{ i18n "back_to_projects" }}</a>{{ end }}
+          <h1>{{ .Title }}</h1>
+          {{ with .Params.summary }}<p class="project-cover__lead">{{ . }}</p>{{ end }}
+          {{ if or .Params.repo .Params.memory }}
+          <div class="project-cover__links">
+            {{ with .Params.repo }}<a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "view_repository" }} ↗</a>{{ end }}
+            {{ with .Params.memory }}<a href="{{ . | relURL }}" target="_blank" rel="noopener">{{ i18n "download_report" }} ↗</a>{{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      <figure class="project-cover__visual">
+        {{ partial "project-visual.html" (dict "page" . "class" "project-cover__image" "loading" "eager") }}
+        <figcaption>{{ i18n "figure_main" }} / {{ .Title }}</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <div class="container layout-grid project-body">
+    <aside class="project-rail" aria-label="{{ i18n "project_information" }}">
+      <dl>
+        <div><dt>{{ i18n "project" }}</dt><dd>{{ printf "%02d" (int .Params.projectNumber) }}</dd></div>
+        <div><dt>{{ i18n "year" }}</dt><dd>{{ .Date.Format "2006" }}</dd></div>
+        {{ with .Params.status }}<div><dt>{{ i18n "status" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+        {{ with .Params.tags }}<div><dt>{{ i18n "fields_tools" }}</dt><dd>{{ delimit . " · " }}</dd></div>{{ end }}
+        {{ with .Params.team }}<div><dt>{{ i18n "team" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+      </dl>
+      {{ if or .Params.repo .Params.memory }}
+      <div class="project-rail__links">
+        {{ with .Params.repo }}<a href="{{ . }}" target="_blank" rel="noopener">GitHub ↗</a>{{ end }}
+        {{ with .Params.memory }}<a href="{{ . | relURL }}" target="_blank" rel="noopener">PDF ↗</a>{{ end }}
+      </div>
+      {{ end }}
+    </aside>
+    <div class="project-body__content page-content">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
+{{ end }}

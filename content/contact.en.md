@@ -2,6 +2,7 @@
 title: "Contact"
 description: "Contact details for students, lecturers and collaborators interested in the club."
 slug: "contact"
+layout: "contact"
 ---
 
 ### For students

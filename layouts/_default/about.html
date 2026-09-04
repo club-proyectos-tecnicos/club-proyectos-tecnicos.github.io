@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article class="about-page">
+  <header class="page-hero page-hero--about">
+    <div class="container layout-grid">
+      <p class="section-code">01 / {{ i18n "about_record" }}</p>
+      <div class="page-hero__copy">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </div>
+    </div>
+  </header>
+  <section class="about-manifesto">
+    <div class="container layout-grid">
+      <p class="section-code">02 / {{ i18n "manifesto" }}</p>
+      <blockquote>{{ i18n "manifesto_text" }}</blockquote>
+    </div>
+  </section>
+  <section class="about-content">
+    <div class="container layout-grid">
+      <aside class="about-rail">
+        <p>{{ i18n "student_led" }}</p>
+        <p>{{ i18n "first_edition_complete" }}</p>
+        <p>3 {{ i18n "projects" }} / 3 {{ i18n "teams" }}</p>
+      </aside>
+      <div class="page-content about-prose">{{ .Content }}</div>
+    </div>
+  </section>
+</article>
+{{ end }}

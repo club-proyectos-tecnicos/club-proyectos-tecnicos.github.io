@@ -2,6 +2,7 @@
 title: "About the club"
 description: "The vision of the Applied Technical Projects Club as a university space for practical learning."
 slug: "about"
+layout: "about"
 ---
 
 The Applied Technical Projects Club was created as a university space where students in technical degree programs can apply their knowledge to concrete projects. The aim is to provide an environment where people can experiment, make mistakes, document the process and present results.

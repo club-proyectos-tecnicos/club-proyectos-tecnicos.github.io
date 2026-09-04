@@ -1,6 +1,7 @@
 ---
 title: "Brownian Motion"
 date: 2026-05-18
+projectNumber: 1
 slug: "brownian-motion"
 description: "An empirical comparison between real prices and simulations based on geometric Brownian motion."
 summary: "A theoretical and computational project exploring Brownian motion, Itô's lemma, GBM simulation and comparisons with real assets."
@@ -41,7 +42,7 @@ The project develops the mathematical foundations of Brownian motion, quadratic 
 </div>
 
 <figure>
-  <img src="/proyectos/movimiento-browniano/imagenes/results_SPY.png" alt="GBM study for SPY with simulation, returns, a QQ plot and autocorrelation">
+  <img src="/proyectos/movimiento-browniano/imagenes/results_SPY.png" width="2083" height="1518" loading="lazy" decoding="async" alt="GBM study for SPY with simulation, returns, a QQ plot and autocorrelation">
   <figcaption>SPY comparison: real price versus a band of GBM simulations, with return diagnostics.</figcaption>
 </figure>
 
@@ -87,12 +88,12 @@ The correction `-1/2 sigma^2` is essential: it represents the effect of volatili
 The project's charts compare the real price with a band of GBM simulations and show return diagnostics: the distribution, QQ plot and autocorrelation of squared returns.
 
 <figure>
-  <img src="/proyectos/movimiento-browniano/imagenes/results_BTC_USD.png" alt="GBM study for BTC-USD with simulation, returns, a QQ plot and autocorrelation">
+  <img src="/proyectos/movimiento-browniano/imagenes/results_BTC_USD.png" width="2082" height="1518" loading="lazy" decoding="async" alt="GBM study for BTC-USD with simulation, returns, a QQ plot and autocorrelation">
   <figcaption>BTC-USD displays more volatile behavior and visible departures from the model's ideal normal distribution.</figcaption>
 </figure>
 
 <figure>
-  <img src="/proyectos/movimiento-browniano/imagenes/results_AAPL.png" alt="GBM study for AAPL with simulation, returns, a QQ plot and autocorrelation">
+  <img src="/proyectos/movimiento-browniano/imagenes/results_AAPL.png" width="2083" height="1518" loading="lazy" decoding="async" alt="GBM study for AAPL with simulation, returns, a QQ plot and autocorrelation">
   <figcaption>AAPL helps illustrate differences between an individual stock and the aggregate behavior of an ETF such as SPY.</figcaption>
 </figure>
 

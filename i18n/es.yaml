@@ -176,3 +176,79 @@ gallery_empty:
   other: "La galería aún no tiene fotos. Coloca imágenes en <code>static/fotos-club/</code> para que aparezcan aquí."
 back_to_essays:
   other: "Volver a Ensayos"
+skip_to_content:
+  other: "Saltar al contenido"
+menu:
+  other: "Menú"
+footer_navigation:
+  other: "Navegación del pie"
+hero_photo_alt:
+  other: "Estudiantes del club durante una sesión de presentación y trabajo"
+documentary_photo_alt:
+  other: "Sesión documental del Club de Proyectos Técnicos Aplicados"
+club_session_caption:
+  other: "Sesión del club · 18.05.2026"
+club_figures:
+  other: "Cifras verificadas del club"
+projects:
+  other: "proyectos"
+teams:
+  other: "equipos"
+project:
+  other: "Proyecto"
+project_index:
+  other: "Índice completo"
+participate:
+  other: "Participar"
+project_catalog:
+  other: "Catálogo técnico"
+number_short:
+  other: "N.º"
+field:
+  other: "Área"
+visual:
+  other: "Visual"
+project_no_image:
+  other: "Ficha técnica del proyecto {{ .Title }}; no hay una imagen propia publicada"
+technical_record:
+  other: "Ficha técnica"
+year:
+  other: "Año"
+fields_tools:
+  other: "Áreas y herramientas"
+project_information:
+  other: "Información del proyecto"
+figure_main:
+  other: "Figura principal"
+visual_archive:
+  other: "Archivo visual"
+photographs:
+  other: "fotografías"
+editorial_selection:
+  other: "Selección editorial"
+complete_archive:
+  other: "Archivo completo"
+open_image:
+  other: "Abrir fotografía a tamaño grande"
+close_image:
+  other: "Cerrar fotografía"
+previous_image:
+  other: "Fotografía anterior"
+next_image:
+  other: "Fotografía siguiente"
+image_viewer:
+  other: "Visor de fotografías"
+compatible_jpeg:
+  other: "Versión JPEG compatible"
+about_record:
+  other: "Identidad y funcionamiento"
+manifesto:
+  other: "Manifiesto"
+manifesto_text:
+  other: "Aprender construyendo, medir antes de afirmar y documentar para que el trabajo pueda continuar."
+student_led:
+  other: "Iniciativa gestionada por estudiantes"
+contact_record:
+  other: "Puerta de entrada"
+write_to_us:
+  other: "Escríbenos"

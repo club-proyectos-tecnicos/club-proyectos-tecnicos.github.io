@@ -1,6 +1,7 @@
 ---
 title: "Movimiento Browniano"
 date: 2026-05-18
+projectNumber: 1
 slug: "movimiento-browniano"
 aliases:
   - "/projects/smart-rail-monitoring/"
@@ -44,7 +45,7 @@ El proyecto trabaja con la base matematica del movimiento browniano, la variacio
 </div>
 
 <figure>
-  <img src="/proyectos/movimiento-browniano/imagenes/results_SPY.png" alt="Estudio GBM para SPY con simulacion, retornos, QQ-plot y autocorrelacion">
+  <img src="/proyectos/movimiento-browniano/imagenes/results_SPY.png" width="2083" height="1518" loading="lazy" decoding="async" alt="Estudio GBM para SPY con simulacion, retornos, QQ-plot y autocorrelacion">
   <figcaption>Comparacion para SPY: precio real frente a banda de simulacion GBM y diagnosticos sobre retornos.</figcaption>
 </figure>
 
@@ -90,12 +91,12 @@ La correccion `-1/2 sigma^2` es esencial: representa el efecto de la volatilidad
 Las graficas del proyecto comparan el precio real con una banda de simulaciones GBM y muestran diagnosticos sobre los retornos: distribucion, QQ-plot y autocorrelacion de retornos al cuadrado.
 
 <figure>
-  <img src="/proyectos/movimiento-browniano/imagenes/results_BTC_USD.png" alt="Estudio GBM para BTC-USD con simulacion, retornos, QQ-plot y autocorrelacion">
+  <img src="/proyectos/movimiento-browniano/imagenes/results_BTC_USD.png" width="2082" height="1518" loading="lazy" decoding="async" alt="Estudio GBM para BTC-USD con simulacion, retornos, QQ-plot y autocorrelacion">
   <figcaption>BTC-USD muestra un comportamiento mas volatil y con desviaciones visibles respecto a la normalidad ideal del modelo.</figcaption>
 </figure>
 
 <figure>
-  <img src="/proyectos/movimiento-browniano/imagenes/results_AAPL.png" alt="Estudio GBM para AAPL con simulacion, retornos, QQ-plot y autocorrelacion">
+  <img src="/proyectos/movimiento-browniano/imagenes/results_AAPL.png" width="2083" height="1518" loading="lazy" decoding="async" alt="Estudio GBM para AAPL con simulacion, retornos, QQ-plot y autocorrelacion">
   <figcaption>AAPL permite observar diferencias entre una accion individual y el comportamiento agregado de un ETF como SPY.</figcaption>
 </figure>
 

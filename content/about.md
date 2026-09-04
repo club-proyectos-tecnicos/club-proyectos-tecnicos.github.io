@@ -1,6 +1,7 @@
 ---
 title: "Sobre el club"
 description: "Visión del Club de Proyectos Técnicos Aplicados como un espacio universitario de aprendizaje práctico."
+layout: "about"
 ---
 
 El Club de Proyectos Técnicos Aplicados nace como un espacio universitario para que estudiantes de grados técnicos apliquen sus conocimientos en proyectos concretos. La idea es crear un entorno donde se pueda experimentar, equivocarse, documentar el proceso y presentar resultados.

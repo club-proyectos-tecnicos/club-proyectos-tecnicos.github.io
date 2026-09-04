@@ -1,212 +1,144 @@
 {{ define "main" }}
-<section class="hero hero-strong">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">{{ i18n "club_name" }}</p>
+{{ $heroImage := resources.Get "fotos-club/IMG_4344.jpg" }}
+{{ $documentaryImage := resources.Get "fotos-club/IMG_4380.jpg" }}
+{{ $projectsPage := .Site.GetPage "/projects" }}
+{{ $projects := $projectsPage.Pages.ByParam "projectNumber" }}
+{{ $featured := false }}
+{{ range $projects }}{{ if eq (int .Params.projectNumber) 2 }}{{ $featured = . }}{{ end }}{{ end }}
+
+<section class="home-hero">
+  <div class="container layout-grid home-hero__grid">
+    <div class="home-hero__copy">
+      <div class="section-code"><span>01 / CPTA</span><span>2026–27</span></div>
       <h1>{{ i18n "hero_title" }}</h1>
-      <p class="hero-text">{{ i18n "hero_text" }}</p>
-      <div class="hero-actions">
-        {{ with .Site.GetPage "/projects" }}<a class="button primary" href="{{ .RelPermalink }}">{{ i18n "view_projects" }}</a>{{ end }}
-        <a class="button secondary" href="mailto:javier.gonzalvezsempere@usp.ceu.es">{{ i18n "join_club" }}</a>
+      <p class="home-hero__lead">{{ i18n "hero_text" }}</p>
+      <div class="home-hero__action">
+        <a class="button primary" href="{{ $projectsPage.RelPermalink }}">{{ i18n "view_projects" }} <span aria-hidden="true">→</span></a>
       </div>
-      <p class="hero-note">{{ i18n "hero_note" }}</p>
+      <p class="home-hero__note">{{ i18n "hero_note" }}</p>
     </div>
+    <figure class="home-hero__media documentary-figure">
+      {{ partial "club-picture.html" (dict "image" $heroImage "alt" (i18n "hero_photo_alt") "class" "home-hero__image" "sizes" "(max-width: 767px) 100vw, 42vw" "loading" "eager" "fetchpriority" "high") }}
+      <figcaption>{{ i18n "club_session_caption" }}</figcaption>
+    </figure>
+  </div>
+</section>
 
-    <aside class="hero-panel">
-      <div class="panel-header">
-        <div>
-          <p class="panel-eyebrow">{{ i18n "current_status" }}</p>
-          <h2>{{ i18n "initial_progress" }}</h2>
-        </div>
+<section class="stats-rail" aria-label="{{ i18n "club_figures" }}">
+  <div class="container stats-rail__inner">
+    <div><strong>3</strong><span>{{ i18n "projects" }}</span></div>
+    <div><strong>3</strong><span>{{ i18n "teams" }}</span></div>
+  </div>
+</section>
+
+<section class="editorial-section home-intro">
+  <div class="container layout-grid">
+    <div class="section-heading">
+      <p class="section-code">02 / {{ i18n "what_is_club" }}</p>
+      <h2>{{ i18n "what_is_club_text" }}</h2>
+    </div>
+    <ol class="principles-list">
+      <li><span>01</span><div><h3>{{ i18n "learn_by_applying" }}</h3><p>{{ i18n "learn_by_applying_text" }}</p></div></li>
+      <li><span>02</span><div><h3>{{ i18n "teamwork" }}</h3><p>{{ i18n "teamwork_text" }}</p></div></li>
+      <li><span>03</span><div><h3>{{ i18n "honest_projects" }}</h3><p>{{ i18n "honest_projects_text" }}</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="documentary-break">
+  <div class="container">
+    <figure class="documentary-figure documentary-break__figure">
+      {{ partial "club-picture.html" (dict "image" $documentaryImage "alt" (i18n "documentary_photo_alt") "class" "documentary-break__image" "sizes" "(max-width: 767px) 100vw, 92vw") }}
+      <figcaption>{{ i18n "club_session_caption" }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="editorial-section home-projects">
+  <div class="container">
+    <div class="section-title-row">
+      <p class="section-code">03 / {{ i18n "current_projects" }}</p>
+      <a class="text-link" href="{{ $projectsPage.RelPermalink }}">{{ i18n "project_index" }} <span aria-hidden="true">→</span></a>
+    </div>
+    {{ with $featured }}
+    <article class="featured-project layout-grid">
+      <a class="featured-project__visual" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+        {{ partial "project-visual.html" (dict "page" . "class" "featured-project__image") }}
+      </a>
+      <div class="featured-project__copy">
+        <p class="project-reference">{{ i18n "project" }} {{ printf "%02d" (int .Params.projectNumber) }} / {{ .Date.Format "2006" }}</p>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Params.summary }}</p>
+        <dl class="inline-meta">
+          <div><dt>{{ i18n "status" }}</dt><dd>{{ .Params.status }}</dd></div>
+          <div><dt>{{ i18n "team" }}</dt><dd>{{ .Params.team }}</dd></div>
+        </dl>
+        <a class="text-link" href="{{ .RelPermalink }}">{{ i18n "view_project" }} <span aria-hidden="true">→</span></a>
       </div>
-      <div class="panel-content">
-        <div class="panel-row">
-          <div>
-            <span class="panel-value">3</span>
-            <p>{{ i18n "projects_in_progress" }}</p>
-          </div>
-          <div>
-            <span class="panel-value">3</span>
-            <p>{{ i18n "student_groups" }}</p>
-          </div>
-        </div>
-        <div class="panel-badges">
-          <span>{{ i18n "learning" }}</span>
-          <span>{{ i18n "prototypes" }}</span>
-          <span>{{ i18n "data" }}</span>
-          <span>{{ i18n "sensors" }}</span>
-        </div>
-        <div class="panel-alert">
-          <strong>{{ i18n "current_status" }}</strong>
-          <p>{{ i18n "first_edition_complete" }}</p>
-        </div>
-      </div>
-    </aside>
+    </article>
+    {{ end }}
+    <div class="project-index" role="list">
+      {{ range $projects }}{{ if ne (int .Params.projectNumber) 2 }}
+      <a class="project-index__row" href="{{ .RelPermalink }}" role="listitem">
+        <span>{{ printf "%02d" (int .Params.projectNumber) }}</span>
+        <strong>{{ .Title }}</strong>
+        <span>{{ delimit (first 2 .Params.tags) " / " }}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      {{ end }}{{ end }}
+    </div>
   </div>
 </section>
 
-<section class="section section-soft">
+<section class="editorial-section process-section">
   <div class="container">
-    <div class="section-header">
-      <h2>{{ i18n "what_is_club" }}</h2>
-      <p>{{ i18n "what_is_club_text" }}</p>
+    <div class="section-heading section-heading--compact">
+      <p class="section-code">04 / {{ i18n "how_we_work" }}</p>
+      <h2>{{ i18n "how_we_work_text" }}</h2>
     </div>
-    <div class="card-grid">
-      <article class="feature-card">
-        <h3>{{ i18n "learn_by_applying" }}</h3>
-        <p>{{ i18n "learn_by_applying_text" }}</p>
-      </article>
-      <article class="feature-card">
-        <h3>{{ i18n "teamwork" }}</h3>
-        <p>{{ i18n "teamwork_text" }}</p>
-      </article>
-      <article class="feature-card">
-        <h3>{{ i18n "honest_projects" }}</h3>
-        <p>{{ i18n "honest_projects_text" }}</p>
-      </article>
+    <ol class="process-rail">
+      <li><span>01</span><h3>{{ i18n "define_problem" }}</h3><p>{{ i18n "define_problem_text" }}</p></li>
+      <li><span>02</span><h3>{{ i18n "form_teams" }}</h3><p>{{ i18n "form_teams_text" }}</p></li>
+      <li><span>03</span><h3>{{ i18n "build_prototype" }}</h3><p>{{ i18n "build_prototype_text" }}</p></li>
+      <li><span>04</span><h3>{{ i18n "document_present" }}</h3><p>{{ i18n "document_present_text" }}</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="editorial-section skills-section">
+  <div class="container layout-grid">
+    <div class="section-heading">
+      <p class="section-code">05 / {{ i18n "what_you_learn" }}</p>
+      <h2>{{ i18n "what_you_learn_text" }}</h2>
+    </div>
+    <div class="skills-columns">
+      <div><h3>{{ i18n "hard_skills" }}</h3><ul><li>{{ i18n "skill_programming" }}</li><li>{{ i18n "skill_data" }}</li><li>{{ i18n "skill_modelling" }}</li><li>{{ i18n "skill_physics" }}</li><li>{{ i18n "skill_documentation" }}</li><li>{{ i18n "skill_presentation" }}</li></ul></div>
+      <div><h3>{{ i18n "soft_skills" }}</h3><ul><li>{{ i18n "skill_teamwork" }}</li><li>{{ i18n "skill_communication" }}</li><li>{{ i18n "skill_organization" }}</li><li>{{ i18n "skill_uncertainty" }}</li><li>{{ i18n "skill_feedback" }}</li><li>{{ i18n "skill_explain" }}</li></ul></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="editorial-section areas-section">
   <div class="container">
-    <div class="section-header">
-      <h2>{{ i18n "how_we_work" }}</h2>
-      <p>{{ i18n "how_we_work_text" }}</p>
-    </div>
-    <div class="card-grid">
-      <article class="process-card">
-        <h3>{{ i18n "define_problem" }}</h3>
-        <p>{{ i18n "define_problem_text" }}</p>
-      </article>
-      <article class="process-card">
-        <h3>{{ i18n "form_teams" }}</h3>
-        <p>{{ i18n "form_teams_text" }}</p>
-      </article>
-      <article class="process-card">
-        <h3>{{ i18n "build_prototype" }}</h3>
-        <p>{{ i18n "build_prototype_text" }}</p>
-      </article>
-      <article class="process-card">
-        <h3>{{ i18n "document_present" }}</h3>
-        <p>{{ i18n "document_present_text" }}</p>
-      </article>
-    </div>
+    <p class="section-code">06 / {{ i18n "areas_of_work" }}</p>
+    <ol class="areas-index">
+      <li><span>01</span>{{ i18n "area_aerospace" }}</li><li><span>02</span>{{ i18n "area_ai" }}</li><li><span>03</span>{{ i18n "area_consulting" }}</li><li><span>04</span>{{ i18n "area_sensors" }}</li><li><span>05</span>{{ i18n "area_optimization" }}</li><li><span>06</span>{{ i18n "area_simulation" }}</li>
+    </ol>
   </div>
 </section>
 
-<section class="section section-soft">
-  <div class="container">
-    <div class="section-header">
-      <h2>{{ i18n "what_you_learn" }}</h2>
-      <p>{{ i18n "what_you_learn_text" }}</p>
-    </div>
-    <div class="skill-grid">
-      <article class="skill-card">
-        <h3>{{ i18n "hard_skills" }}</h3>
-        <ul>
-          <li>{{ i18n "skill_programming" }}</li>
-          <li>{{ i18n "skill_data" }}</li>
-          <li>{{ i18n "skill_modelling" }}</li>
-          <li>{{ i18n "skill_physics" }}</li>
-          <li>{{ i18n "skill_documentation" }}</li>
-          <li>{{ i18n "skill_presentation" }}</li>
-        </ul>
-      </article>
-      <article class="skill-card">
-        <h3>{{ i18n "soft_skills" }}</h3>
-        <ul>
-          <li>{{ i18n "skill_teamwork" }}</li>
-          <li>{{ i18n "skill_communication" }}</li>
-          <li>{{ i18n "skill_organization" }}</li>
-          <li>{{ i18n "skill_uncertainty" }}</li>
-          <li>{{ i18n "skill_feedback" }}</li>
-          <li>{{ i18n "skill_explain" }}</li>
-        </ul>
-      </article>
-    </div>
+<section class="course-band">
+  <div class="container course-band__inner">
+    <p class="section-code">2026–27</p>
+    <div><h2>{{ i18n "upcoming_projects" }}</h2><p>{{ i18n "upcoming_projects_text" }}</p></div>
+    {{ with .Site.GetPage "/contact" }}<a class="text-link" href="{{ .RelPermalink }}">{{ i18n "participate" }} <span aria-hidden="true">→</span></a>{{ end }}
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2>{{ i18n "current_projects" }}</h2>
-      <p>{{ i18n "current_projects_text" }}</p>
-    </div>
-    <div class="project-grid">
-      {{ with .Site.GetPage "/projects" }}
-      {{ range .Pages.ByTitle }}
-      <article class="project-card project-card-strong">
-        <div class="project-card-top">
-          {{ with .Params.status }}<span class="project-status">{{ . }}</span>{{ end }}
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <p>{{ .Params.summary }}</p>
-        </div>
-        <div class="project-tags">
-          {{ with .Params.tags }}{{ range . }}<span class="tag">{{ . }}</span>{{ end }}{{ end }}
-        </div>
-        <div class="project-actions">
-          <a class="button outline" href="{{ .RelPermalink }}">{{ i18n "view_project" }}</a>
-        </div>
-      </article>
-      {{ end }}
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-<section class="section section-soft">
-  <div class="container">
-    <div class="section-header">
-      <h2>{{ i18n "areas_of_work" }}</h2>
-      <p>{{ i18n "areas_of_work_text" }}</p>
-    </div>
-    <div class="badge-grid">
-      <span class="badge">{{ i18n "area_aerospace" }}</span>
-      <span class="badge">{{ i18n "area_ai" }}</span>
-      <span class="badge">{{ i18n "area_consulting" }}</span>
-      <span class="badge">{{ i18n "area_sensors" }}</span>
-      <span class="badge">{{ i18n "area_optimization" }}</span>
-      <span class="badge">{{ i18n "area_simulation" }}</span>
-    </div>
-  </div>
-</section>
-
-<section class="section section-callout">
-  <div class="container callout-card">
-    <div>
-      <h2>{{ i18n "upcoming_projects" }}</h2>
-      <p>{{ i18n "upcoming_projects_text" }}</p>
-    </div>
-  </div>
-</section>
-
-<section class="section section-cta">
-  <div class="container cta-panel">
-    <div>
-      <p class="eyebrow">{{ i18n "contact" }}</p>
-      <h2>{{ i18n "participate_question" }}</h2>
-      <p>{{ i18n "participate_text" }}</p>
-      <p class="cta-email">javier.gonzalvezsempere@usp.ceu.es</p>
-      <p class="cta-note">{{ i18n "temporary_email" }}</p>
-    </div>
-    <div class="cta-actions">
-      <a class="button primary" href="mailto:javier.gonzalvezsempere@usp.ceu.es">{{ i18n "contact_action" }}</a>
-      {{ with .Site.GetPage "/projects" }}<a class="button outline" href="{{ .RelPermalink }}">{{ i18n "view_projects" }}</a>{{ end }}
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <div class="container contact-section">
-    <div class="contact-card">
-      <h2>{{ i18n "contact" }}</h2>
-      <p>{{ i18n "contact_students" }}</p>
-      <p>{{ i18n "contact_collaborators" }}</p>
-      <p><strong>{{ i18n "email" }}:</strong> javier.gonzalvezsempere@usp.ceu.es</p>
-      <p>{{ i18n "contact_channel" }}</p>
-    </div>
+<section class="final-contact">
+  <div class="container final-contact__inner">
+    <h2>{{ i18n "participate_question" }}</h2>
+    <a href="mailto:javier.gonzalvezsempere@usp.ceu.es">javier.gonzalvezsempere@usp.ceu.es <span aria-hidden="true">→</span></a>
   </div>
 </section>
 {{ end }}

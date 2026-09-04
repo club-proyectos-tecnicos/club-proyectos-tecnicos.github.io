@@ -1,6 +1,7 @@
 ---
 title: "Sports trajectory prediction"
 date: 2026-05-18
+projectNumber: 3
 slug: "sports-trajectory-prediction"
 description: "A project for analyzing and predicting trajectories in sports contexts through data, modelling and visualization."
 summary: "A sports-focused system for studying trajectories, extracting patterns and building a documented predictive foundation."
@@ -16,11 +17,6 @@ memory: "/proyectos/deportes/memoria.pdf"
 team: "Jairo Sanchez, Jose Ariza, Samuel Izquierdo, Marina Vicens and Manuel Fernandez"
 image: ""
 ---
-
-<div class="project-cta">
-  <a class="button primary" href="/proyectos/deportes/memoria.pdf" target="_blank" rel="noopener">Download report</a>
-  <a class="button outline" href="https://github.com/jairosdc/Prediccion-de-trayectoria-en-deportes" target="_blank" rel="noopener">View repository</a>
-</div>
 
 ## Summary
 
@@ -57,8 +53,3 @@ The files belonging to this project are organized as follows:
 ## Report and repository
 
 The full report contains the detailed development of the project. The repository provides access to the associated code and technical files.
-
-<div class="project-cta">
-  <a class="button primary" href="/proyectos/deportes/memoria.pdf" target="_blank" rel="noopener">Download report</a>
-  <a class="button outline" href="https://github.com/jairosdc/Prediccion-de-trayectoria-en-deportes" target="_blank" rel="noopener">View repository</a>
-</div>

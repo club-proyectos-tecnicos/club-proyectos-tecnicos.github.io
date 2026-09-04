@@ -1,6 +1,7 @@
 ---
 title: "Intelligent airport queue and access optimization"
 date: 2026-05-18
+projectNumber: 2
 slug: "airport-queue-optimization"
 description: "A simulation and decision-support prototype that estimates passenger congestion in airports and recommends operational reinforcement using queueing theory."
 summary: "A simulation and decision-support prototype that estimates passenger congestion in airports and recommends operational reinforcement using queueing theory."
@@ -20,10 +21,6 @@ memory: "/proyectos/airport-queue-optimization/memoria.pdf"
 team: "Javier Gonzálvez, Luis Gonzalez, Matthew Puente-Villegas and María Macías"
 image: "/proyectos/airport-queue-optimization/imagenes/dashboard-operativo.png"
 ---
-
-<div class="project-cta">
-  <a class="button primary" href="/proyectos/airport-queue-optimization/memoria.pdf" target="_blank" rel="noopener">Download report</a>
-</div>
 
 ## Summary
 
@@ -49,7 +46,7 @@ Its main validation uses simulation to compare a baseline scenario without recom
 </div>
 
 <figure>
-  <img src="/proyectos/airport-queue-optimization/imagenes/esquema-conceptual-sistema.png" alt="Conceptual system diagram from videos and simulation to the dashboard">
+  <img src="/proyectos/airport-queue-optimization/imagenes/esquema-conceptual-sistema.png" width="1448" height="1086" loading="lazy" decoding="async" alt="Conceptual system diagram from videos and simulation to the dashboard">
   <figcaption>Flow documented in the report: synthetic data or visual counts, a CSV of readings, the queue engine and the recommendation dashboard.</figcaption>
 </figure>
 
@@ -135,7 +132,7 @@ The project's most relevant comparison places two scenarios under the same simul
 In that simulation, total cumulative waiting time falls from **19.09 minutes** to **5.32 minutes**, a relative improvement of **72.1%**. The aggregate peak waiting time also decreases from **1.70 minutes** to **0.75 minutes**.
 
 <figure>
-  <img src="/proyectos/airport-queue-optimization/imagenes/comparacion-espera-acumulada.png" alt="Comparison of cumulative waiting time without the system and with recommendations">
+  <img src="/proyectos/airport-queue-optimization/imagenes/comparacion-espera-acumulada.png" width="1233" height="577" loading="lazy" decoding="async" alt="Comparison of cumulative waiting time without the system and with recommendations">
   <figcaption>Comparison included in the report: the baseline scenario versus the scenario with recommendations.</figcaption>
 </figure>
 
@@ -196,7 +193,3 @@ Finally, the dashboard could evolve into a more operational interface, with filt
 The full report covers the project in greater detail: context, theoretical foundation, methodology, architecture, implementation, results, limitations and future work.
 
 Project team: **Javier Gonzálvez, Luis Gonzalez, Matthew Puente-Villegas and María Macías**.
-
-<div class="project-cta">
-  <a class="button primary" href="/proyectos/airport-queue-optimization/memoria.pdf" target="_blank" rel="noopener">Download report</a>
-</div>

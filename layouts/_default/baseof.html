@@ -11,75 +11,121 @@
   {{ end }}
   {{ range .AllTranslations }}{{ if eq .Language.Lang hugo.Sites.Default.Language.Lang }}
   <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}{{ end }}
+  {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">{{ end }}
   <link rel="icon" href="{{ with .Site.Params.favicon }}{{ . | relURL }}{{ else }}{{ "/Logo_2.png" | relURL }}{{ end }}">
+  {{ $inter := resources.Get "fonts/inter-latin.woff2" }}
+  {{ $serif := resources.Get "fonts/source-serif-4-latin.woff2" }}
+  {{ $mono := resources.Get "fonts/ibm-plex-mono-latin.woff2" }}
+  <link rel="preload" href="{{ $inter.RelPermalink }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ $serif.RelPermalink }}" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:"Inter CPTA";src:url("{{ $inter.RelPermalink }}") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+    @font-face{font-family:"Source Serif 4 CPTA";src:url("{{ $serif.RelPermalink }}") format("woff2");font-style:normal;font-weight:200 900;font-display:swap}
+    @font-face{font-family:"IBM Plex Mono CPTA";src:url("{{ $mono.RelPermalink }}") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
+  </style>
   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
   <script>
-    (function() {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const savedTheme = localStorage.getItem('theme');
-      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-      }
+    (function () {
+      var savedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if ((savedTheme || (prefersDark ? 'dark' : 'light')) === 'dark') document.documentElement.classList.add('dark-mode');
     })();
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">{{ i18n "skip_to_content" }}</a>
   <div class="page-shell">
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-        <nav class="site-nav" aria-label="{{ i18n "main_navigation" }}">
+        <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="{{ .Site.Title }}">
+          <span class="brand-mark">CPTA</span>
+          <span class="brand-name">{{ i18n "club_name" }}</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+          <span>{{ i18n "menu" }}</span><span class="menu-toggle__mark" aria-hidden="true">+</span>
+        </button>
+        <nav class="site-nav" id="primary-navigation" aria-label="{{ i18n "main_navigation" }}">
           <ul>
             {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+              {{ $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+              {{ if and $.IsHome (eq .Identifier "home") }}{{ $active = true }}{{ end }}
+            <li><a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
             {{ end }}
           </ul>
         </nav>
         <div class="header-controls">
-          {{ $switchURL := "" }}
-          {{ $switchCode := "" }}
-          {{ range .Translations }}
-            {{ $switchURL = .RelPermalink }}
-            {{ $switchCode = upper .Language.Lang }}
-          {{ end }}
-          {{ if not $switchURL }}
-            {{ range hugo.Sites }}
-              {{ if ne .Language.Lang $.Site.Language.Lang }}
-                {{ $switchURL = .Home.RelPermalink }}
-                {{ $switchCode = upper .Language.Lang }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
+          {{ $switchURL := "" }}{{ $switchCode := "" }}
+          {{ range .Translations }}{{ $switchURL = .RelPermalink }}{{ $switchCode = upper .Language.Lang }}{{ end }}
+          {{ if not $switchURL }}{{ range hugo.Sites }}{{ if ne .Language.Lang $.Site.Language.Lang }}{{ $switchURL = .Home.RelPermalink }}{{ $switchCode = upper .Language.Lang }}{{ end }}{{ end }}{{ end }}
           <a class="language-toggle" href="{{ $switchURL }}" hreflang="{{ lower $switchCode }}" lang="{{ lower $switchCode }}" aria-label="{{ i18n "switch_language" }}">{{ $switchCode }}</a>
-          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="{{ i18n "change_theme" }}" aria-pressed="false" data-dark-label="🌙 {{ i18n "dark_theme" }}" data-light-label="☀️ {{ i18n "light_theme" }}">🌙 {{ i18n "dark_theme" }}</button>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="{{ i18n "change_theme" }}" aria-pressed="false">
+            <span class="theme-toggle__mark" aria-hidden="true">◐</span>
+            <span class="visually-hidden theme-toggle__label">{{ i18n "dark_theme" }}</span>
+          </button>
         </div>
       </div>
     </header>
-    <main class="site-content">
+    <main class="site-content" id="main-content" tabindex="-1">
       {{ block "main" . }}{{ end }}
     </main>
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>{{ .Site.Params.footerText }}</p>
+      <div class="container footer-grid">
+        <div class="footer-identity">
+          <p class="footer-mark">CPTA</p>
+          <p>{{ .Site.Params.footerText }}</p>
+        </div>
+        <nav class="footer-nav" aria-label="{{ i18n "footer_navigation" }}">
+          {{ range .Site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}
+        </nav>
+        <div class="footer-contact">
+          <a href="mailto:javier.gonzalvezsempere@usp.ceu.es">javier.gonzalvezsempere@usp.ceu.es</a>
+          <a href="https://github.com/club-proyectos-tecnicos/club-proyectos-tecnicos.github.io" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
     </footer>
   </div>
   <script>
-    (function() {
-      const button = document.getElementById('theme-toggle');
-      const html = document.documentElement;
+    (function () {
+      var html = document.documentElement;
+      var themeButton = document.getElementById('theme-toggle');
+      var themeLabel = themeButton.querySelector('.theme-toggle__label');
+      var menuButton = document.getElementById('menu-toggle');
+      var nav = document.getElementById('primary-navigation');
 
       function updateThemeButton() {
-        const darkMode = html.classList.contains('dark-mode');
-        button.textContent = darkMode ? button.dataset.lightLabel : button.dataset.darkLabel;
-        button.setAttribute('aria-pressed', darkMode ? 'true' : 'false');
+        var dark = html.classList.contains('dark-mode');
+        themeButton.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        themeLabel.textContent = dark ? '{{ i18n "light_theme" }}' : '{{ i18n "dark_theme" }}';
       }
 
-      button.addEventListener('click', function() {
-        const darkMode = html.classList.toggle('dark-mode');
-        localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+      themeButton.addEventListener('click', function () {
+        var dark = html.classList.toggle('dark-mode');
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
         updateThemeButton();
+      });
+
+      menuButton.addEventListener('click', function () {
+        var open = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', open ? 'false' : 'true');
+        nav.classList.toggle('is-open', !open);
+        menuButton.querySelector('.menu-toggle__mark').textContent = open ? '+' : '−';
+      });
+
+      nav.addEventListener('click', function (event) {
+        if (event.target.closest('a')) {
+          menuButton.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('is-open');
+          menuButton.querySelector('.menu-toggle__mark').textContent = '+';
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+          menuButton.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('is-open');
+          menuButton.querySelector('.menu-toggle__mark').textContent = '+';
+          menuButton.focus();
+        }
       });
 
       updateThemeButton();

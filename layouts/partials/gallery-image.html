@@ -1,0 +1,22 @@
+{{- $image := .image -}}
+{{- $index := .index | default 0 -}}
+{{- $featured := .featured | default false -}}
+{{- $caption := i18n "club_session_caption" -}}
+{{- $alt := i18n "gallery_image_alt" -}}
+{{- $webp480 := $image.Resize "480x webp q76" -}}
+{{- $webp960 := $image.Resize "960x webp q79" -}}
+{{- $webp1600 := $image.Resize "1600x webp q82" -}}
+{{- $jpg480 := $image.Resize "480x jpg q78" -}}
+{{- $jpg960 := $image.Resize "960x jpg q81" -}}
+{{- $jpg1600 := $image.Resize "1600x jpg q84" -}}
+{{- $compat := resources.Copy (printf "fotos-club/%s" (path.Base $image.Name)) $jpg1600 -}}
+<figure class="gallery-figure{{ if $featured }} gallery-figure--featured{{ end }}">
+  <a href="{{ $compat.RelPermalink }}" class="gallery-link" data-lightbox-item data-full="{{ $webp1600.RelPermalink }}" data-caption="{{ $caption }}" aria-label="{{ i18n "open_image" }}">
+    <picture>
+      <source type="image/webp" srcset="{{ $webp480.RelPermalink }} 480w, {{ $webp960.RelPermalink }} 960w, {{ $webp1600.RelPermalink }} 1600w" sizes="{{ if $featured }}(max-width: 767px) 100vw, 55vw{{ else }}(max-width: 767px) 100vw, 32vw{{ end }}">
+      <source type="image/jpeg" srcset="{{ $jpg480.RelPermalink }} 480w, {{ $jpg960.RelPermalink }} 960w, {{ $jpg1600.RelPermalink }} 1600w" sizes="{{ if $featured }}(max-width: 767px) 100vw, 55vw{{ else }}(max-width: 767px) 100vw, 32vw{{ end }}">
+      <img src="{{ $jpg960.RelPermalink }}" width="{{ $jpg960.Width }}" height="{{ $jpg960.Height }}" alt="{{ $alt }}" loading="{{ if and $featured (eq $index 0) }}eager{{ else }}lazy{{ end }}" decoding="async"{{ if and $featured (eq $index 0) }} fetchpriority="high"{{ end }}>
+    </picture>
+  </a>
+  <figcaption><span>{{ printf "%02d" (add $index 1) }}</span>{{ $caption }}</figcaption>
+</figure>

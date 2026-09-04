@@ -1,6 +1,7 @@
 ---
 title: "Prediccion de trayectoria en deportes"
 date: 2026-05-18
+projectNumber: 3
 slug: "deportes"
 aliases:
   - "/projects/smart-plant-monitoring/"
@@ -18,11 +19,6 @@ memory: "/proyectos/deportes/memoria.pdf"
 team: "Jairo Sanchez, Jose Ariza, Samuel Izquierdo, Marina Vicens y Manuel Fernandez"
 image: ""
 ---
-
-<div class="project-cta">
-  <a class="button primary" href="/proyectos/deportes/memoria.pdf" target="_blank" rel="noopener">Descargar memoria</a>
-  <a class="button outline" href="https://github.com/jairosdc/Prediccion-de-trayectoria-en-deportes" target="_blank" rel="noopener">Ver repositorio</a>
-</div>
 
 ## Resumen
 
@@ -59,8 +55,3 @@ Los archivos propios de este proyecto se organizan en:
 ## Memoria y repositorio
 
 La memoria completa contiene el desarrollo detallado del proyecto. El repositorio permite consultar el codigo y los archivos tecnicos asociados.
-
-<div class="project-cta">
-  <a class="button primary" href="/proyectos/deportes/memoria.pdf" target="_blank" rel="noopener">Descargar memoria</a>
-  <a class="button outline" href="https://github.com/jairosdc/Prediccion-de-trayectoria-en-deportes" target="_blank" rel="noopener">Ver repositorio</a>
-</div>

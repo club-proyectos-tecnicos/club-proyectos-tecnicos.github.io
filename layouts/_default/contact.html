@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article class="contact-page">
+  <header class="page-hero page-hero--contact">
+    <div class="container layout-grid">
+      <p class="section-code">01 / {{ i18n "contact_record" }}</p>
+      <div class="page-hero__copy"><h1>{{ .Title }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</div>
+    </div>
+  </header>
+  <section class="contact-layout">
+    <div class="container layout-grid">
+      <div class="page-content contact-prose">{{ .Content }}</div>
+      <aside class="contact-address">
+        <p class="section-code">{{ i18n "write_to_us" }}</p>
+        <a href="mailto:javier.gonzalvezsempere@usp.ceu.es">javier.gonzalvezsempere@usp.ceu.es <span aria-hidden="true">↗</span></a>
+        <p>{{ i18n "temporary_email" }}</p>
+      </aside>
+    </div>
+  </section>
+</article>
+{{ end }}

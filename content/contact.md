@@ -1,21 +1,25 @@
 ---
 title: "Contacto"
-description: "Contacto para estudiantes, profesores y colaboradores interesados en el club."
+description: "Propón una colaboración o consulta cómo incorporarte al CPTA."
 layout: "contact"
 ---
 
-## Para estudiantes
+<span id="para-profesores-y-colaboradores"></span>
 
-Si tienes curiosidad por aprender construyendo y quieres participar en proyectos técnicos en equipo, este club es un espacio accesible para primeros cursos y grados técnicos.
+## Colabora {#colabora}
 
-No es necesario llegar con todo resuelto: buscamos personas con ganas de aprender, compromiso razonable e interés por trabajar con otros.
+Trabajamos con entidades sociales y otros colaboradores en problemas acotados que puedan dar lugar a un análisis, un prototipo o una demostración. También recibimos propuestas de orientación y revisión técnica del profesorado.
 
-## Para profesores y colaboradores
+En el primer contacto, cuéntanos qué decisión queréis mejorar, qué información podríais aportar, con quién revisaríamos el avance y si tenéis una fecha objetivo. Basta con describir la información disponible. Podemos acordar por separado cómo gestionar el acceso a los datos.
 
-Si eres profesor, mentor o colaborador externo, el club está abierto a recibir propuestas de retos, feedback técnico y orientación para los equipos.
+Si el proyecto encaja, acordamos el alcance, una persona de contacto por cada parte, las revisiones y la entrega. [Reforesta]({{< ref "/projects/reforesta" >}}) es un ejemplo de piloto en fase inicial.
+
+<span id="para-estudiantes"></span>
+
+## Únete {#unete}
+
+Si estudias en la Universidad CEU San Pablo y quieres participar, escríbenos con tu grado, tus intereses y tu disponibilidad. Hay tareas de programación, análisis, diseño experimental, comunicación y documentación. El equipo y la dedicación se acuerdan según las plazas y los hitos del curso. Puedes consultar los [proyectos en curso]({{< ref "/projects" >}}).
 
 ## Contacto
 
-- Email: javier.gonzalvezsempere@usp.ceu.es
-
-Este es el canal principal para que estudiantes, profesores y colaboradores se conecten con el club.
+[javier.gonzalvezsempere@usp.ceu.es](mailto:javier.gonzalvezsempere@usp.ceu.es)

@@ -1,11 +1,17 @@
 ---
-title: "Intelligent airport queue and access optimization"
+title: "AeroFlow · Airport queues"
 date: 2026-05-18
+lastmod: 2026-11-04
 projectNumber: 2
+phase: first
 slug: "airport-queue-optimization"
 description: "A simulation and decision-support prototype that estimates passenger congestion in airports and recommends operational reinforcement using queueing theory."
-summary: "A simulation and decision-support prototype that estimates passenger congestion in airports and recommends operational reinforcement using queueing theory."
-status: "Functional prototype"
+summary: "AeroFlow combines a queue model and a dashboard to explore when to open more service desks and where to add capacity under simulated airport demand."
+category: "Decision support"
+caseLink: "Read the AeroFlow case"
+imageAlt: "AeroFlow dashboard showing congestion estimates and operational recommendations for a simulated airport terminal."
+imageCaption: "AeroFlow dashboard with simulated airport demand."
+status: "Completed student prototype"
 tags:
   - "Python"
   - "pandas"
@@ -24,7 +30,9 @@ image: "/proyectos/airport-queue-optimization/imagenes/dashboard-operativo.png"
 
 ## Summary
 
-**Intelligent airport queue and access optimization** is a functional prototype for analyzing passenger flows in an airport terminal and generating operational recommendations from simulated data.
+The idea came from a pilot who spends much of his working day in airports. He told us that queues and bottlenecks were a recurring problem. That prompted the team to explore whether it could anticipate congestion and work out when to open more service desks.
+
+AeroFlow is a working prototype that analyses passenger flows in a simulated terminal and recommends where to add capacity.
 
 The system represents several airport areas—check-in, bag drop, security, passport control and boarding—and turns occupancy readings into metrics such as congestion, estimated waiting times and potential bottlenecks.
 
@@ -33,7 +41,7 @@ Its main validation uses simulation to compare a baseline scenario without recom
 <div class="project-kpis">
   <div>
     <span>19.09 min → 5.32 min</span>
-    <p>cumulative waiting time in the report's comparison</p>
+    <p>total cumulative waiting time in the terminal simulation, baseline vs. recommendations</p>
   </div>
   <div>
     <span>72.1%</span>
@@ -56,7 +64,7 @@ Congestion in an airport rarely occurs in isolation. An excessive check-in queue
 
 The challenge is not merely to **count how many people are in an area**, but to turn those counts into useful information: estimate whether the available capacity is sufficient, detect which areas are approaching saturation and decide where opening an additional line or assigning more staff would have the greatest impact.
 
-This project starts from that idea: moving from reactive management, where action is taken only once a queue already exists, toward a more proactive model based on data, simulation and operational metrics.
+Earlier warnings could give operations staff time to reassign people or open an extra desk before a queue builds. For passengers, that could mean shorter waits. AeroFlow tested the approach under simulated airport demand.
 
 ## Goal
 

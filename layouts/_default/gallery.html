@@ -1,6 +1,24 @@
 {{ define "main" }}
 {{ $selectedNames := slice "IMG_4344.jpg" "IMG_4348.jpg" "IMG_4360.jpg" "IMG_4368.jpg" "IMG_4385.jpg" "IMG_4395.jpg" "IMG_4400.jpg" "IMG_4410.jpg" "IMG_4346.jpg" "IMG_4399.jpg" }}
-{{ $allPhotos := sort (resources.Match "fotos-club/*") "Name" }}
+{{ $recentNames := slice
+  "presentacion-ante-el-publico.jpg"
+  "mesa-redonda-deep-tech.jpg"
+  "diapositiva-recorrido-investigador.jpg"
+  "cierre-de-la-presentacion.jpg"
+  "participantes-madrid-innovation-lab.jpg"
+  "ponencia-impacto-social-perfil.jpg"
+  "ponencia-impacto-social-frente.jpg"
+  "ponencia-expansion.jpg"
+}}
+{{ $recentPhotos := slice }}
+{{ $recentDescriptions := newScratch }}
+{{ range $recentNames }}
+  {{ $image := resources.Get (printf "fotos-club-recientes/%s" .) }}
+  {{ $recentPhotos = $recentPhotos | append $image }}
+  {{ $recentDescriptions.Set $image.Name (i18n (printf "recent_photo_%s" (strings.TrimSuffix ".jpg" .))) }}
+{{ end }}
+{{ $oldPhotos := sort (resources.Match "fotos-club/*") "Name" }}
+{{ $allPhotos := $recentPhotos | append $oldPhotos }}
 {{ $photoTotal := len $allPhotos }}
 {{ $photoOrdinals := newScratch }}
 {{ range $index, $image := $allPhotos }}{{ $photoOrdinals.Set $image.Name (add $index 1) }}{{ end }}
@@ -17,17 +35,24 @@
 
 <section class="gallery-section">
   <div class="container">
-    <div class="gallery-heading"><p class="section-code">02 / {{ i18n "editorial_selection" }}</p><p>{{ i18n "club_session_caption" }}</p></div>
+    <div class="gallery-heading"><h2 class="section-code">02 / {{ i18n "recent_photos" }}</h2></div>
+    <div class="editorial-gallery recent-gallery">
+      {{ range $index, $image := $recentPhotos }}
+        {{ partial "gallery-image.html" (dict "image" $image "ordinal" (add $index 1) "total" $photoTotal "description" ($recentDescriptions.Get $image.Name) "featured" true "eager" (eq $index 0)) }}
+      {{ end }}
+    </div>
+
+    <div class="gallery-heading"><p class="section-code">03 / {{ i18n "editorial_selection" }}</p><p>{{ i18n "club_session_caption" }}</p></div>
     <div class="editorial-gallery">
-      {{ range $index, $name := $selectedNames }}
-        {{ with resources.Get (printf "fotos-club/%s" $name) }}{{ partial "gallery-image.html" (dict "image" . "ordinal" ($photoOrdinals.Get .Name) "total" $photoTotal "featured" true "eager" (eq $index 0)) }}{{ end }}
+      {{ range $selectedNames }}
+        {{ with resources.Get (printf "fotos-club/%s" .) }}{{ partial "gallery-image.html" (dict "image" . "ordinal" ($photoOrdinals.Get .Name) "total" $photoTotal "featured" true) }}{{ end }}
       {{ end }}
     </div>
 
     <details class="archive-details">
       <summary><span>{{ i18n "complete_archive" }}</span><span>{{ $photoTotal }} {{ i18n "photographs" }} +</span></summary>
       <div class="archive-gallery">
-        {{ range $index, $image := $allPhotos }}{{ partial "gallery-image.html" (dict "image" $image "ordinal" (add $index 1) "total" $photoTotal) }}{{ end }}
+        {{ range $index, $image := $allPhotos }}{{ partial "gallery-image.html" (dict "image" $image "ordinal" (add $index 1) "total" $photoTotal "description" ($recentDescriptions.Get $image.Name)) }}{{ end }}
       </div>
     </details>
   </div>
@@ -37,7 +62,7 @@
   <div class="lightbox__inner">
     <button class="lightbox__close" type="button" data-lightbox-close aria-label="{{ i18n "close_image" }}">×</button>
     <button class="lightbox__nav lightbox__nav--previous" type="button" data-lightbox-previous aria-label="{{ i18n "previous_image" }}">←</button>
-    <figure><img src="" alt="" decoding="async"><figcaption></figcaption></figure>
+    <figure><img src="" alt="" decoding="async"></figure>
     <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="{{ i18n "next_image" }}">→</button>
     <p class="visually-hidden" data-lightbox-status aria-live="polite" aria-atomic="true"></p>
   </div>
@@ -48,7 +73,6 @@
     if (!dialog || typeof dialog.showModal !== 'function') return;
     var links = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox-item]'));
     var image = dialog.querySelector('img');
-    var caption = dialog.querySelector('figcaption');
     var liveStatus = dialog.querySelector('[data-lightbox-status]');
     var closeButton = dialog.querySelector('[data-lightbox-close]');
     var previousButton = dialog.querySelector('[data-lightbox-previous]');
@@ -71,7 +95,6 @@
       var link = items[currentIndex];
       image.src = link.dataset.full;
       image.alt = link.querySelector('img').alt;
-      caption.textContent = link.dataset.caption;
       liveStatus.textContent = link.dataset.status;
     }
 

@@ -1,27 +1,37 @@
 ---
-title: "Sobre el club"
-description: "Visión del Club de Proyectos Técnicos Aplicados como un espacio universitario de aprendizaje práctico."
+title: "Sobre el CPTA"
+description: "Propósito, trayectoria y respaldo universitario del Club de Proyectos Técnicos Aplicados."
 layout: "about"
 ---
 
-El Club de Proyectos Técnicos Aplicados nace como un espacio universitario para que estudiantes de grados técnicos apliquen sus conocimientos en proyectos concretos. La idea es crear un entorno donde se pueda experimentar, equivocarse, documentar el proceso y presentar resultados.
-
-Este club está impulsado por estudiantes interesados en crear un puente entre la teoría del aula y la práctica del proyecto técnico. No se trata de un laboratorio avanzado ni de una consultora: es un grupo joven que quiere aprender haciendo.
-
 ## Nuestra misión
 
-- Ofrecer un espacio para aplicar teoría a problemas reales.
-- Realizar primeros prototipos, análisis y documentación técnica.
-- Aprender a trabajar en equipo, comunicar ideas y cerrar proyectos con sentido.
+El CPTA reúne a estudiantes de la Universidad CEU San Pablo para aplicar conocimientos de datos, ingeniería y ciencia a problemas concretos. Los equipos trabajan con un objetivo acotado y documentan lo que construyen mediante informes, código o demostraciones.
 
-## Cómo crecemos
+## Primera edición y curso actual {#cómo-crecemos}
 
-El club avanza poco a poco, a medida que los equipos terminan primeras iteraciones y comparten lo que han aprendido. Las áreas de interés incluyen:
+En la primera edición (2025/26), 14 estudiantes trabajaron en tres equipos con la participación de siete profesores. La edición cerró con presentaciones de los equipos. En el curso 2026/27 hay proyectos de colaboración con entidades externas, investigación y divulgación.
 
-- Aeroespacial y sistemas físicos.
-- IA y análisis de datos.
-- Sensores e IoT.
-- Optimización y toma de decisiones.
-- Simulación y modelización matemática.
+## Respaldo universitario
 
-El objetivo es crecer con proyectos claros, colaborar con profesores y presentar propuestas reales, sin vender una imagen exagerada ni asumir que ya tenemos toda la experiencia resuelta.
+### Registro del club · Campus Life
+
+El CPTA es un club estudiantil registrado en la Universidad CEU San Pablo a través de [Campus Life](https://www.uspceu.com/alumnos/vida-campus/campus-life). El reglamento de la Universidad denomina [Registro de Clubes Universitarios](https://www.uspceu.com/Portals/0/docs/transparencia/normativa/normativa-interna/estudiantes/Rglm%20Asociaciones%20y%20Clubes%20Estudiantes%20USP-CEU%20CGXX.pdf#page=8) al registro interno de clubes.
+
+### CEU Social · Proyectos pro bono
+
+El CPTA ha mantenido conversaciones con [CEU Social](https://www.uspceu.com/conocenos/ceu-social/que-es-ceu-social) para explorar cómo podrían encajar sus proyectos pro bono con entidades sociales.
+
+### Participación del profesorado
+
+En la primera edición (2025/26) participaron siete profesores. Las presentaciones de cierre permitieron a los equipos compartir sus resultados y recibir comentarios académicos.
+
+### Apoyo de direcciones de grado
+
+El CPTA cuenta con apoyo académico de direcciones de grado de la Universidad.
+
+## Equipo y contacto
+
+La coordinación estudiantil del CPTA está a cargo de Javier Gonzálvez Sempere. Marina Paula Vicens Martín coordina el equipo de [Reforesta]({{< ref "/projects/reforesta" >}}).
+
+Puedes escribir al CPTA en [javier.gonzalvezsempere@usp.ceu.es](mailto:javier.gonzalvezsempere@usp.ceu.es).

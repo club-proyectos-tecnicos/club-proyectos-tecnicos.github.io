@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-description: "The club's current projects, including their status, goals and next steps."
+description: "Current CPTA projects and the first edition archive."
 ---
 
-The Applied Technical Projects Club works on first iterations of technical projects with a focus on applied learning. Each initiative has its own page explaining the problem being explored, what is being built, what the team is learning and what comes next.
+Each case explains the problem, the project's status and the evidence available to the public.

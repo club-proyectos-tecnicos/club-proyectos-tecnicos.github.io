@@ -11,15 +11,15 @@ light_theme:
 club_name:
   other: "Club de Proyectos Técnicos Aplicados"
 hero_title:
-  other: "Aprender construyendo proyectos técnicos reales"
+  other: "Club de Proyectos Técnicos Aplicados"
 hero_text:
-  other: "Una comunidad universitaria donde estudiantes de grados técnicos trabajan en equipo para convertir ideas en prototipos, aprender herramientas reales y presentar resultados."
+  other: "Estudiantes de la Universidad CEU San Pablo que desarrollan proyectos de datos, ingeniería y ciencia aplicada. Organizamos equipos interdisciplinares para construir prototipos, investigar y colaborar con entidades externas."
 view_projects:
   other: "Ver proyectos"
 join_club:
   other: "Unirse al club"
 hero_note:
-  other: "No hace falta saberlo todo desde el principio: el objetivo es aprender, aportar y avanzar en equipo."
+  other: "Club estudiantil registrado a través de Campus Life."
 current_status:
   other: "Estado actual"
 initial_progress:
@@ -53,7 +53,7 @@ teamwork_text:
 honest_projects:
   other: "Proyectos honestos"
 honest_projects_text:
-  other: "No son trabajos terminados, sino primeras iteraciones con documentación, resultados iniciales y próximos pasos claros."
+  other: "Cada ficha distingue lo que el equipo ha hecho, la evidencia disponible y lo que queda por probar."
 how_we_work:
   other: "Cómo trabajamos"
 how_we_work_text:
@@ -107,7 +107,7 @@ skill_feedback:
 skill_explain:
   other: "Explicar ideas a públicos no especializados"
 current_projects:
-  other: "Proyectos actuales"
+  other: "Proyectos en curso"
 current_projects_text:
   other: "Estos proyectos están en desarrollo y sus páginas individuales recogen el enfoque, el estado y los próximos pasos de cada iniciativa."
 view_project:
@@ -184,8 +184,26 @@ menu:
   other: "Menú"
 footer_navigation:
   other: "Navegación del pie"
-hero_photo_alt:
-  other: "Estudiantes del club durante una sesión de presentación y trabajo"
+hero_photo_caption:
+  other: "Presentación ante el público"
+recent_photos:
+  other: "Fotos recientes"
+recent_photo_presentacion-ante-el-publico:
+  other: "Tres ponentes frente a una pantalla azul. La persona del centro habla al micrófono ante el público."
+recent_photo_mesa-redonda-deep-tech:
+  other: "Mesa redonda en un auditorio, con el público sentado y una ponente en la pantalla."
+recent_photo_diapositiva-recorrido-investigador:
+  other: "Un ponente presenta una diapositiva sobre las etapas de la investigación mientras el resto del equipo lo escucha."
+recent_photo_cierre-de-la-presentacion:
+  other: "Cinco ponentes delante de una diapositiva azul de cierre, con el público en primer plano."
+recent_photo_participantes-madrid-innovation-lab:
+  other: "Tres participantes posan juntos ante el panel de Madrid Innovation Lab."
+recent_photo_ponencia-impacto-social-perfil:
+  other: "Un ponente de perfil gesticula con el micrófono en la mano ante una diapositiva de impacto social."
+recent_photo_ponencia-impacto-social-frente:
+  other: "Vista frontal de un ponente con micrófono ante una diapositiva de impacto social."
+recent_photo_ponencia-expansion:
+  other: "Un ponente extiende la mano hacia una diapositiva sobre expansión durante la presentación."
 documentary_photo_alt:
   other: "Sesión documental del Club de Proyectos Técnicos Aplicados"
 club_session_caption:
@@ -247,7 +265,7 @@ image_viewer:
 compatible_jpeg:
   other: "Versión JPEG compatible"
 about_record:
-  other: "Identidad y funcionamiento"
+  other: "Sobre el CPTA"
 manifesto:
   other: "Manifiesto"
 manifesto_text:
@@ -258,3 +276,31 @@ contact_record:
   other: "Puerta de entrada"
 write_to_us:
   other: "Escríbenos"
+first_edition_archive:
+  other: "Archivo de la primera edición · 2025/26"
+early_design_projects:
+  other: "Diseños iniciales"
+first_edition_balance:
+  other: "En 2025/26, 14 estudiantes trabajaron en tres equipos con la participación de siete profesores. La edición cerró con presentaciones de los equipos."
+members:
+  other: "Miembros en noviembre de 2026"
+active_members:
+  other: "En equipos con trabajo asignado en noviembre de 2026"
+portfolio_label:
+  other: "Portfolio Projects"
+collaborate_label:
+  other: "Proponer un proyecto"
+about_support_link:
+  other: "Respaldo universitario"
+updated_date:
+  other: "Actualización"
+footer_student_site:
+  other: "Web gestionada por estudiantes del CPTA."
+
+project_category:
+  other: "Categoría"
+
+university_support_anchor:
+  other: "respaldo-universitario"
+collaboration_heading:
+  other: "Colabora con el CPTA"

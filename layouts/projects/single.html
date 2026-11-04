@@ -5,6 +5,7 @@
       <div class="project-cover__topline">
         <p>{{ i18n "project" }} {{ printf "%02d" (int .Params.projectNumber) }} / {{ .Date.Format "2006" }}</p>
         {{ with .Params.status }}<p><span class="status-dot" aria-hidden="true"></span>{{ . }}</p>{{ end }}
+        {{ with .Lastmod }}<p>{{ i18n "updated_date" }} <time datetime="{{ .Format "2006-01-02" }}">{{ time.Format ":date_medium" . }}</time></p>{{ end }}
       </div>
       <div class="layout-grid project-cover__grid">
         <div class="project-cover__title">
@@ -19,10 +20,14 @@
           {{ end }}
         </div>
       </div>
+      {{ if .Params.pilotPlots }}
+        {{ partial "reforesta-dashboard.html" . }}
+      {{ else }}
       <figure class="project-cover__visual">
         {{ partial "project-visual.html" (dict "page" . "class" "project-cover__image" "loading" "eager") }}
-        <figcaption>{{ i18n "figure_main" }} / {{ .Title }}</figcaption>
+        <figcaption>{{ with .Params.imageCaption }}{{ . }}{{ else }}{{ i18n "figure_main" }} / {{ .Title }}{{ end }}</figcaption>
       </figure>
+      {{ end }}
     </div>
   </header>
 
@@ -32,6 +37,7 @@
         <div><dt>{{ i18n "project" }}</dt><dd>{{ printf "%02d" (int .Params.projectNumber) }}</dd></div>
         <div><dt>{{ i18n "year" }}</dt><dd>{{ .Date.Format "2006" }}</dd></div>
         {{ with .Params.status }}<div><dt>{{ i18n "status" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+        {{ with .Params.category }}<div><dt>{{ i18n "project_category" }}</dt><dd>{{ . }}</dd></div>{{ end }}
         {{ with .Params.tags }}<div><dt>{{ i18n "fields_tools" }}</dt><dd>{{ delimit . " · " }}</dd></div>{{ end }}
         {{ with .Params.team }}<div><dt>{{ i18n "team" }}</dt><dd>{{ . }}</dd></div>{{ end }}
       </dl>

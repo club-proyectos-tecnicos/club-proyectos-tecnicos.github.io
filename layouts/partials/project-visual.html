@@ -4,8 +4,14 @@
 {{- with $page.Params.image -}}
   {{- $relativePath := strings.TrimPrefix "/" . -}}
   {{- $diskPath := printf "static/%s" $relativePath -}}
-  {{- $config := imageConfig $diskPath -}}
-  <img{{ with $class }} class="{{ . }}"{{ end }} src="{{ . | relURL }}" width="{{ $config.Width }}" height="{{ $config.Height }}" loading="{{ $loading }}" decoding="async" alt="{{ i18n "project_image_alt" (dict "Title" $page.Title) }}">
+  {{- $width := $page.Params.imageWidth -}}
+  {{- $height := $page.Params.imageHeight -}}
+  {{- if not (and $width $height) -}}
+    {{- $config := imageConfig $diskPath -}}
+    {{- $width = $config.Width -}}
+    {{- $height = $config.Height -}}
+  {{- end -}}
+  <img{{ with $class }} class="{{ . }}"{{ end }} src="{{ . | relURL }}" width="{{ $width }}" height="{{ $height }}" loading="{{ $loading }}" decoding="async" alt="{{ $page.Params.imageAlt | default (i18n "project_image_alt" (dict "Title" $page.Title)) }}">
 {{- else -}}
   <div class="project-visual-placeholder{{ with $class }} {{ . }}{{ end }}" role="img" aria-label="{{ i18n "project_no_image" (dict "Title" $page.Title) }}">
     <span>{{ printf "%02d" (int ($page.Params.projectNumber | default 0)) }}</span>

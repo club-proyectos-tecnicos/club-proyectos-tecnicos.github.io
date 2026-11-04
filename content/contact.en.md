@@ -1,22 +1,26 @@
 ---
 title: "Contact"
-description: "Contact details for students, lecturers and collaborators interested in the club."
+description: "Propose a collaboration or ask how to join CPTA."
 slug: "contact"
 layout: "contact"
 ---
 
-## For students
+<span id="for-lecturers-and-collaborators"></span>
 
-If you are curious about learning by building and would like to take part in technical team projects, the club is an accessible space for students in their first years and across technical degree programs.
+## Collaborate {#collaborate}
 
-You do not need to arrive with everything figured out: we are looking for people who are eager to learn, willing to make a reasonable commitment and interested in working with others.
+We work with nonprofits and other partners on scoped questions that can lead to an analysis, a prototype or a demonstration. Faculty members can also offer technical guidance or review.
 
-## For lecturers and collaborators
+When you write to us, tell us what decision you want to improve, what information you could provide, who could review progress and whether you have a target date. A description of the information available is enough for the initial discussion. We can agree separately on how to handle data access.
 
-If you are a lecturer, mentor or external collaborator, the club welcomes proposals for challenges, technical feedback and guidance for the teams.
+When a project fits, we agree on the scope, a contact on each side, regular reviews and a handover. [Reforesta]({{< ref "/projects/reforesta" >}}) is an example of an early-stage pilot.
+
+<span id="for-students"></span>
+
+## Join us {#join}
+
+Students at Universidad CEU San Pablo can write to us with their degree programme, interests and availability. Teams work on programming, analysis, experimental design, communication and documentation. Team assignments and time commitments depend on available places and project milestones. See the [current projects]({{< ref "/projects" >}}).
 
 ## Contact
 
-- Email: javier.gonzalvezsempere@usp.ceu.es
-
-This is the main channel for students, lecturers and collaborators to connect with the club.
+[javier.gonzalvezsempere@usp.ceu.es](mailto:javier.gonzalvezsempere@usp.ceu.es)

@@ -1,14 +1,16 @@
 ---
-title: "Movimiento Browniano"
+title: "Movimiento browniano y sus límites"
 date: 2026-05-18
+lastmod: 2026-11-04
 projectNumber: 1
+phase: first
 slug: "movimiento-browniano"
 aliases:
   - "/projects/smart-rail-monitoring/"
   - "/projects/modelizacion-browniana-precios-financieros/"
 description: "Comparacion empirica entre precios reales y simulaciones basadas en movimiento browniano geometrico."
-summary: "Proyecto teorico-computacional para estudiar movimiento browniano, lema de Ito, simulacion GBM y contraste con activos reales."
-status: "Analisis teorico y experimental"
+summary: "¿Hasta qué punto reproduce el movimiento browniano geométrico la evolución de los precios de activos reales? El equipo contrasta simulaciones y series observadas."
+status: "Investigación formativa documentada"
 tags:
   - "Python"
   - "NumPy"
@@ -27,7 +29,7 @@ image: "/proyectos/movimiento-browniano/imagenes/results_SPY.png"
 
 El objetivo es estudiar hasta que punto un modelo clasico de matematicas financieras puede reproducir la evolucion de activos reales y, sobre todo, detectar donde falla: colas pesadas, clustering de volatilidad, asimetria en los retornos o memoria temporal.
 
-El proyecto trabaja con la base matematica del movimiento browniano, la variacion cuadratica y el lema de Ito, y la conecta con simulaciones y contrastes estadisticos sobre activos como SPY, BTC-USD y AAPL.
+El proyecto parte del movimiento browniano, la variación cuadrática y el lema de Itô, y los conecta con simulaciones y contrastes estadísticos sobre activos como SPY, BTC-USD y AAPL. Sirve como ejemplo práctico para estudiantes de cómo pasar de los supuestos matemáticos de un modelo a su contraste con datos observados.
 
 <div class="project-kpis">
   <div>
@@ -126,3 +128,5 @@ Las imagenes y graficas propias del proyecto se organizan en:
 - `/proyectos/movimiento-browniano/imagenes/results_AAPL.png`.
 
 Este proyecto no tiene memoria PDF publicada por ahora.
+
+[Nota teórica sobre movimiento browniano, lema de Itō y arquitectura del proyecto](/documents/memoria-browniano-ito-arquitectura.pdf).

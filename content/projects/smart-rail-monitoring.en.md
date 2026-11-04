@@ -1,11 +1,15 @@
 ---
-title: "Brownian Motion"
+title: "Brownian motion and its limits"
 date: 2026-05-18
+lastmod: 2026-11-04
 projectNumber: 1
+phase: first
 slug: "brownian-motion"
 description: "An empirical comparison between real prices and simulations based on geometric Brownian motion."
-summary: "A theoretical and computational project exploring Brownian motion, Itô's lemma, GBM simulation and comparisons with real assets."
-status: "Theoretical and experimental analysis"
+summary: "How closely does geometric Brownian motion reproduce real asset prices? The team compares simulations with observed series."
+portfolioQuestion: "Which features of real asset prices can geometric Brownian motion reproduce?"
+portfolioWork: "The team compared Monte Carlo simulations with observed price series for SPY, BTC-USD and AAPL and examined where the model diverged."
+status: "Documented student research"
 tags:
   - "Python"
   - "NumPy"
@@ -24,7 +28,7 @@ image: "/proyectos/movimiento-browniano/imagenes/results_SPY.png"
 
 Its purpose is to study how well a classic mathematical finance model can reproduce the behavior of real assets and, above all, to identify where it fails: heavy tails, volatility clustering, return asymmetry or temporal dependence.
 
-The project develops the mathematical foundations of Brownian motion, quadratic variation and Itô's lemma, then connects them to simulations and statistical tests on assets such as SPY, BTC-USD and AAPL.
+The project develops the mathematical foundations of Brownian motion, quadratic variation and Itô's lemma, then connects them to simulations and statistical tests on assets such as SPY, BTC-USD and AAPL. It gives students a worked example of how to take a model from its mathematical assumptions to a comparison with observed data.
 
 <div class="project-kpis">
   <div>
@@ -123,3 +127,5 @@ The project's original images and charts are organized at:
 - `/proyectos/movimiento-browniano/imagenes/results_AAPL.png`.
 
 This project does not currently have a published PDF report.
+
+[Theory note on Brownian motion, Itō’s lemma and project architecture in Spanish](/documents/memoria-browniano-ito-arquitectura.pdf).

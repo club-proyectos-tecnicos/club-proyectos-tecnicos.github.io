@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <title>Fictional Reforesta pilot map with plots P1, P2 and P3</title>
+  <defs>
+    <pattern id="planting" width="29" height="26" patternUnits="userSpaceOnUse">
+      <path d="M10 13h8m-4-4v8" fill="none" stroke="#263b30" stroke-width="1.4" opacity=".24"/>
+    </pattern>
+    <path id="plot-p1" d="m88 122 96-41 132 5 96 57-31 101-117 54-141-31-61-65Z"/>
+    <path id="plot-p2" d="m508 134 109-54 144 32 68 86-12 126-86 94-123 28-112-68-36-114Z"/>
+    <path id="plot-p3" d="m114 327 132 5 124-48 59 57 29 91-89 66-150 18-124-42-29-89Z"/>
+  </defs>
+
+  <path fill="#ecece1" d="M0 0h900v560H0z"/>
+  <g fill="#dfe5d6">
+    <path d="M0 0h173C119 55 48 43 0 88Zm900 0v155c-74-46-133-62-169-72-60-16-107-36-147-83ZM900 373v187H553c109-54 220-55 347-187Z"/>
+    <path d="M0 443c36 40 81 76 151 117H0Z"/>
+  </g>
+  <g fill="none" stroke="#b7c2ae" stroke-width="1.5" opacity=".7">
+    <path d="M-25 103C81 106 92 24 202 27s183 70 285 42S625 21 746 52s153 64 181 105"/>
+    <path d="M-27 122C99 116 109 45 204 46s180 66 281 42S618 41 742 72s148 66 181 114"/>
+    <path d="M-23 142C109 134 120 67 208 65s177 60 274 41S615 60 732 92s145 65 179 116"/>
+    <path d="M-15 423c77 12 85 91 213 114 147 27 189-49 297-40s233 37 352-44l71-55"/>
+    <path d="M-19 448c72 5 84 89 212 110 156 25 201-48 309-38s238 31 351-48l67-50"/>
+    <path d="M-24 467c73 3 95 95 223 111 150 18 191-44 301-37s246 28 368-55l51-43"/>
+  </g>
+
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M-20 310C71 276 133 307 207 315s138-29 189-52 57-41 67-105S511 47 560-20M396 263c-2 59 48 98 68 145s69 70 123 76 149-16 213-78 81-109 125-111" stroke="#c4bba4" stroke-width="19"/>
+    <path d="M-20 310C71 276 133 307 207 315s138-29 189-52 57-41 67-105S511 47 560-20M396 263c-2 59 48 98 68 145s69 70 123 76 149-16 213-78 81-109 125-111" stroke="#fcf8ec" stroke-width="13"/>
+    <path d="M-20 310C71 276 133 307 207 315s138-29 189-52 57-41 67-105S511 47 560-20M396 263c-2 59 48 98 68 145s69 70 123 76 149-16 213-78 81-109 125-111" stroke="#d0c6af" stroke-width="1.5" stroke-dasharray="8 9"/>
+  </g>
+
+  <g stroke-width="4" stroke-linejoin="round">
+    <use href="#plot-p1" fill="#f1aaa1" stroke="#a1403a"/>
+    <use href="#plot-p2" fill="#a8c69a" stroke="#467355"/>
+    <use href="#plot-p3" fill="#f1d779" stroke="#9a7425"/>
+  </g>
+  <g fill="url(#planting)">
+    <use href="#plot-p1"/>
+    <use href="#plot-p2"/>
+    <use href="#plot-p3"/>
+  </g>
+  <g stroke="#fff8ec" stroke-width="3">
+    <rect x="181" y="156" width="108" height="70" rx="12" fill="#792523"/>
+    <rect x="604" y="225" width="108" height="70" rx="12" fill="#244a35"/>
+    <rect x="203" y="391" width="108" height="70" rx="12" fill="#594215"/>
+  </g>
+  <g fill="#fff8ec" font-family="system-ui, sans-serif" font-size="45" font-weight="750" text-anchor="middle">
+    <text x="235" y="207">P1</text>
+    <text x="658" y="276">P2</text>
+    <text x="257" y="442">P3</text>
+  </g>
+</svg>

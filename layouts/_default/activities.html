@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article>
+  <header class="page-hero">
+    <div class="container layout-grid">
+      <p class="section-code">CPTA / {{ .Title }}</p>
+      <div class="page-hero__copy"><h1>{{ .Title }}</h1><p>{{ .Description }}</p></div>
+    </div>
+  </header>
+  <section class="about-content">
+    <div class="container layout-grid">
+      <div class="page-content about-prose">{{ .Content }}</div>
+    </div>
+  </section>
+</article>
+{{ end }}

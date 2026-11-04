@@ -1,0 +1,122 @@
+{{ define "main" }}
+{{ $reforesta := .Site.GetPage "/projects/reforesta" }}
+{{ $aeroflow := .Site.GetPage "/projects/airport-queue-optimization" }}
+{{ $projects := (.Site.GetPage "/projects").RegularPages.ByParam "projectNumber" }}
+<article class="portfolio">
+  <header class="page-hero">
+    <div class="container layout-grid">
+      <p class="section-code">CPTA / Portfolio</p>
+      <div class="page-hero__copy">
+        <h1>{{ .Title }}</h1>
+        <div class="page-intro">{{ .Content }}</div>
+        <a class="text-link" href="{{ hugo.Sites.Default.Home.RelPermalink }}" hreflang="es" lang="es">Ir a la web en español <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container portfolio__body">
+    <section class="portfolio__section portfolio__primary" aria-labelledby="reforesta">
+      <div class="portfolio__decision">
+        <p class="project-reference">{{ $reforesta.Params.category }} · {{ $reforesta.Params.status }}</p>
+        <h2 id="reforesta">{{ $reforesta.Title }}</h2>
+        <h3>The decision</h3>
+        <p>Reforesta is a nonprofit that restores woodland. Its field team has to spread its time and watering resources across several planting sites. Which areas should they inspect or water first?</p>
+      </div>
+      {{ partial "reforesta-dashboard.html" $reforesta }}
+      <div class="portfolio__pilot">
+        <div>
+          <h3>Confirmed progress</h3>
+          <p>We received an initial data sample on 29 October 2026 and are preparing a pilot limited to one area.</p>
+        </div>
+        <div>
+          <h3>Next milestone</h3>
+          <p>Agree on the pilot area with Reforesta. The proposed first deliverable is a private list of zones in priority order, with a reason for each ranking and a flag where information is too limited to decide with confidence.</p>
+        </div>
+        <div>
+          <h3>How we would test it</h3>
+          <p>Review the list with Reforesta’s field team and record which priorities they would change, why, and what information they are missing.</p>
+        </div>
+        <div>
+          <h3>What we want to improve</h3>
+          <p>An order the field team can check and explain could help them direct watering resources to the areas that need most attention. The pilot will test whether this makes planning easier.</p>
+        </div>
+      </div>
+      <a class="text-link" href="{{ $reforesta.RelPermalink }}">{{ $reforesta.Params.caseLink }} <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="portfolio__section page-content" aria-labelledby="how-we-work">
+      <h2 id="how-we-work">How our teams work</h2>
+      <p>We start with a decision or research question and agree on what the team can deliver. We build a first version, review it against the available evidence and document the assumptions and limits so that others can examine the work or take it forward.</p>
+    </section>
+
+    <section class="featured-project layout-grid portfolio__case portfolio__section" aria-labelledby="aeroflow">
+      <div class="featured-project__copy">
+        <p class="project-reference">{{ $aeroflow.Params.category }} · {{ $aeroflow.Params.status }}</p>
+        <h2 id="aeroflow">{{ $aeroflow.Title }}</h2>
+        <p>A pilot who spends much of his working day in airports told us that queues and bottlenecks were a recurring problem. We set out to explore how airport staff could anticipate congestion and decide when to open more service desks.</p>
+        <p>{{ $aeroflow.Params.summary }} Earlier warnings could give staff time to move resources before queues build and could shorten passenger waits. The team tested the approach in a simulated terminal.</p>
+        <div class="portfolio__links">
+          <a class="text-link" href="{{ $aeroflow.RelPermalink }}">{{ $aeroflow.Params.caseLink }} <span aria-hidden="true">→</span></a>
+          {{ with $aeroflow.Params.repo }}<a class="text-link" href="{{ . }}">Explore the AeroFlow code <span aria-hidden="true">↗</span></a>{{ end }}
+          {{ with $aeroflow.Params.memory }}<a class="text-link" href="{{ . | relURL }}" hreflang="es">AeroFlow report (Spanish PDF)</a>{{ end }}
+        </div>
+      </div>
+      <figure class="featured-project__visual portfolio__figure">
+        {{ partial "project-visual.html" (dict "page" $aeroflow) }}
+        <figcaption>{{ $aeroflow.Params.imageCaption }}</figcaption>
+      </figure>
+    </section>
+
+    <section class="portfolio__section" aria-labelledby="more-projects">
+      <h2 id="more-projects">More projects from our teams</h2>
+      <p class="portfolio__intro">{{ i18n "first_edition_balance" }} AeroFlow was one of those projects. The teams also presented work on sports prediction and Brownian motion. The club now has projects in nonprofit collaboration, outreach and research.</p>
+      {{ range slice (dict "phase" "first" "heading" "Presented in our first edition · 2025/26") (dict "phase" "current" "heading" "In progress") (dict "phase" "design" "heading" "Early design work") }}
+      <section class="portfolio__group" aria-labelledby="portfolio-{{ .phase }}">
+        <h3 id="portfolio-{{ .phase }}">{{ .heading }}</h3>
+        <ul class="portfolio__project-list">
+          {{ range where $projects "Params.phase" .phase }}
+            {{ if and (ne .Path $reforesta.Path) (ne .Path $aeroflow.Path) }}
+          <li>
+            <p class="project-reference">{{ .Params.status }}</p>
+            <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+            <p>{{ .Params.portfolioQuestion }}</p>
+            <p>{{ .Params.portfolioWork }}</p>
+            {{ if or .Params.memory .Params.repo }}
+            <div class="portfolio__links">
+              {{ with .Params.memory }}<a class="text-link" href="{{ . | relURL }}" hreflang="es">Technical report (Spanish PDF)</a>{{ end }}
+              {{ with .Params.repo }}<a class="text-link" href="{{ . }}">Project code <span aria-hidden="true">↗</span></a>{{ end }}
+            </div>
+            {{ end }}
+          </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </section>
+      {{ end }}
+      {{ with .Site.GetPage "/activities" }}
+      <aside class="portfolio__group" aria-labelledby="member-activities">
+        <h3 id="member-activities">Member work outside CPTA teams</h3>
+        <p class="portfolio__intro">Members also take part in external events. For example, CPTA member Nikolai Ilin placed in the top ten of a Madrid hackathon with his own team. <a href="{{ .RelPermalink }}">See the activities record and source</a>.</p>
+      </aside>
+      {{ end }}
+    </section>
+
+    <section class="portfolio__section page-content" aria-labelledby="university">
+      <h2 id="university">University support</h2>
+      <p>CPTA is registered as a student club at Universidad CEU San Pablo through <a href="https://www.uspceu.com/alumnos/vida-campus/campus-life" hreflang="es">Campus Life</a>. As of November 2026, CPTA reported around 40 members, with 20 assigned to project teams.</p>
+    </section>
+
+    <section class="portfolio__section page-content" aria-labelledby="first-project">
+      <h2 id="first-project">Our first project with DSSD · January 2027</h2>
+      <p>We propose starting our first project with Data Science for Sustainable Development (DSSD) in January 2027, subject to agreement with DSSD and a nonprofit partner.</p>
+      <p>We propose a team of five to eight CPTA students, with one designated project lead. We would agree on the final team size with DSSD based on the scope of the project and the students available.</p>
+      <ol>
+        <li><strong>Agree on the scope.</strong> The CPTA project lead and a partner contact would agree on one deliverable, data access and acceptance criteria.</li>
+        <li><strong>Review progress during the semester.</strong> The team would share an early version, meet regularly with the partner and record decisions and limitations.</li>
+        <li><strong>Hand over the result.</strong> The team would deliver the agreed tool or report with documentation, a walkthrough and an agreement on maintenance.</li>
+      </ol>
+      <p><strong>Club contact</strong><br>Javier Gonzálvez Sempere · <a href="mailto:javier.gonzalvezsempere@usp.ceu.es">javier.gonzalvezsempere@usp.ceu.es</a></p>
+    </section>
+  </div>
+</article>
+{{ end }}

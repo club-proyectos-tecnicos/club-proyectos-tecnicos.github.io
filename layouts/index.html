@@ -1,10 +1,9 @@
 {{ define "main" }}
-{{ $heroImage := resources.Get "fotos-club/IMG_4344.jpg" }}
+{{ $heroImage := resources.Get "fotos-club-recientes/presentacion-ante-el-publico.jpg" }}
 {{ $documentaryImage := resources.Get "fotos-club/IMG_4380.jpg" }}
 {{ $projectsPage := .Site.GetPage "/projects" }}
-{{ $projects := $projectsPage.Pages.ByParam "projectNumber" }}
-{{ $featured := false }}
-{{ range $projects }}{{ if eq (int .Params.projectNumber) 2 }}{{ $featured = . }}{{ end }}{{ end }}
+{{ $currentProjects := (where $projectsPage.Pages "Params.phase" "current").ByParam "projectNumber" }}
+{{ $firstEdition := (where $projectsPage.Pages "Params.phase" "first").ByParam "projectNumber" }}
 
 <section class="home-hero">
   <div class="container layout-grid home-hero__grid">
@@ -13,21 +12,64 @@
       <h1>{{ i18n "hero_title" }}</h1>
       <p class="home-hero__lead">{{ i18n "hero_text" }}</p>
       <div class="home-hero__action">
-        <a class="button primary" href="{{ $projectsPage.RelPermalink }}">{{ i18n "view_projects" }} <span aria-hidden="true">→</span></a>
+        <a class="button primary" href="#current-projects">{{ i18n "view_projects" }} <span aria-hidden="true">→</span></a>
+        {{ range hugo.Sites }}{{ with .GetPage "/portfolio" }}<a class="text-link" href="{{ .RelPermalink }}" hreflang="en">{{ i18n "portfolio_label" }} <span aria-hidden="true">→</span></a>{{ end }}{{ end }}
       </div>
       <p class="home-hero__note">{{ i18n "hero_note" }}</p>
     </div>
     <figure class="home-hero__media documentary-figure">
-      {{ partial "club-picture.html" (dict "image" $heroImage "alt" (i18n "hero_photo_alt") "class" "home-hero__image" "sizes" "(max-width: 767px) 100vw, 42vw" "loading" "eager" "fetchpriority" "high") }}
-      <figcaption>{{ i18n "club_session_caption" }}</figcaption>
+      {{ partial "club-picture.html" (dict "image" $heroImage "alt" (i18n "recent_photo_presentacion-ante-el-publico") "class" "home-hero__image" "sizes" "(max-width: 767px) 100vw, 42vw" "loading" "eager" "fetchpriority" "high") }}
+      <figcaption>{{ i18n "hero_photo_caption" }}</figcaption>
     </figure>
   </div>
 </section>
 
 <section class="stats-rail" aria-label="{{ i18n "club_figures" }}">
   <div class="container stats-rail__inner">
-    <div><strong>3</strong><span>{{ i18n "projects" }}</span></div>
-    <div><strong>3</strong><span>{{ i18n "teams" }}</span></div>
+    <div><strong>≈40</strong><span>{{ i18n "members" }}</span></div>
+    <div><strong>20</strong><span>{{ i18n "active_members" }}</span></div>
+  </div>
+</section>
+
+<section class="editorial-section home-projects" id="current-projects" aria-labelledby="current-projects-heading">
+  <div class="container">
+    <div class="section-title-row">
+      <h2 id="current-projects-heading">{{ i18n "current_projects" }}</h2>
+      <a class="text-link" href="{{ $projectsPage.RelPermalink }}">{{ i18n "project_index" }} <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="current-project-grid">
+      {{ range $currentProjects }}
+      <article class="current-project">
+        <figure class="current-project__visual">
+          {{ partial "project-visual.html" (dict "page" .) }}
+          <figcaption>{{ .Params.imageCaption }}</figcaption>
+        </figure>
+        <p class="project-reference">{{ .Params.category }} · {{ .Params.status }}</p>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Params.summary }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="editorial-section home-archive" aria-labelledby="first-edition-heading">
+  <div class="container">
+    <h2 id="first-edition-heading">{{ i18n "first_edition_archive" }}</h2>
+    <p>{{ i18n "first_edition_balance" }}</p>
+    <ol class="project-index">
+      {{ range $firstEdition }}
+      <li>
+        <a class="project-index__row" href="{{ .RelPermalink }}">
+          <span>{{ printf "%02d" (int .Params.projectNumber) }}</span>
+          <strong>{{ .Title }}</strong>
+          <span>{{ .Params.status }}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <p>{{ .Params.summary }}</p>
+      </li>
+      {{ end }}
+    </ol>
   </div>
 </section>
 
@@ -51,44 +93,6 @@
       {{ partial "club-picture.html" (dict "image" $documentaryImage "alt" (i18n "documentary_photo_alt") "class" "documentary-break__image" "sizes" "(max-width: 767px) 100vw, 92vw") }}
       <figcaption>{{ i18n "club_session_caption" }}</figcaption>
     </figure>
-  </div>
-</section>
-
-<section class="editorial-section home-projects">
-  <div class="container">
-    <div class="section-title-row">
-      <p class="section-code">03 / {{ i18n "current_projects" }}</p>
-      <a class="text-link" href="{{ $projectsPage.RelPermalink }}">{{ i18n "project_index" }} <span aria-hidden="true">→</span></a>
-    </div>
-    {{ with $featured }}
-    <article class="featured-project layout-grid">
-      <a class="featured-project__visual" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
-        {{ partial "project-visual.html" (dict "page" . "class" "featured-project__image") }}
-      </a>
-      <div class="featured-project__copy">
-        <p class="project-reference">{{ i18n "project" }} {{ printf "%02d" (int .Params.projectNumber) }} / {{ .Date.Format "2006" }}</p>
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <p>{{ .Params.summary }}</p>
-        <dl class="inline-meta">
-          <div><dt>{{ i18n "status" }}</dt><dd>{{ .Params.status }}</dd></div>
-          <div><dt>{{ i18n "team" }}</dt><dd>{{ .Params.team }}</dd></div>
-        </dl>
-        <a class="text-link" href="{{ .RelPermalink }}">{{ i18n "view_project" }} <span aria-hidden="true">→</span></a>
-      </div>
-    </article>
-    {{ end }}
-    <ol class="project-index">
-      {{ range $projects }}{{ if ne (int .Params.projectNumber) 2 }}
-      <li>
-        <a class="project-index__row" href="{{ .RelPermalink }}">
-          <span>{{ printf "%02d" (int .Params.projectNumber) }}</span>
-          <strong>{{ .Title }}</strong>
-          <span>{{ delimit (first 2 .Params.tags) " / " }}</span>
-          <span aria-hidden="true">→</span>
-        </a>
-      </li>
-      {{ end }}{{ end }}
-    </ol>
   </div>
 </section>
 
@@ -132,8 +136,8 @@
 <section class="course-band">
   <div class="container course-band__inner">
     <p class="section-code">2026–27</p>
-    <div><h2>{{ i18n "upcoming_projects" }}</h2><p>{{ i18n "upcoming_projects_text" }}</p></div>
-    {{ with .Site.GetPage "/contact" }}<a class="text-link" href="{{ .RelPermalink }}">{{ i18n "participate" }} <span aria-hidden="true">→</span></a>{{ end }}
+    <div><h2>{{ i18n "collaboration_heading" }}</h2></div>
+    {{ range where .Site.Menus.main "Identifier" "collaborate" }}<a class="text-link" href="{{ .URL }}">{{ i18n "collaborate_label" }} <span aria-hidden="true">→</span></a>{{ end }}
   </div>
 </section>
 

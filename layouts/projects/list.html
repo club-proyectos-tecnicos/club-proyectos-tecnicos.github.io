@@ -10,29 +10,36 @@
   </div>
 </section>
 
-<section class="project-catalog">
-  <div class="container">
+<div class="container project-catalog">
+  {{ range slice (dict "phase" "current" "heading" "current_projects") (dict "phase" "first" "heading" "first_edition_archive") (dict "phase" "design" "heading" "early_design_projects") }}
+  <section class="catalog-group" aria-labelledby="catalog-{{ .phase }}">
+    <h2 id="catalog-{{ .phase }}">{{ i18n .heading }}</h2>
     <div class="project-catalog__header" aria-hidden="true">
       <span>{{ i18n "number_short" }}</span><span>{{ i18n "project" }}</span><span>{{ i18n "year" }}</span><span>{{ i18n "status" }}</span><span>{{ i18n "tags" }}</span><span>{{ i18n "visual" }}</span>
     </div>
     <div class="project-catalog__list">
-      {{ range .Pages.ByParam "projectNumber" }}
+      {{ range (where $.Pages "Params.phase" .phase).ByParam "projectNumber" }}
       <article class="catalog-row">
         <div class="catalog-row__number">{{ printf "%02d" (int .Params.projectNumber) }}</div>
         <div class="catalog-row__title">
-          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
           {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
           <a class="catalog-row__link" href="{{ .RelPermalink }}">{{ i18n "view_project" }} <span aria-hidden="true">→</span></a>
         </div>
         <div class="catalog-row__year"><span>{{ i18n "year" }}</span>{{ .Date.Format "2006" }}</div>
         <div class="catalog-row__status"><span>{{ i18n "status" }}</span>{{ .Params.status }}</div>
         <div class="catalog-row__field"><span>{{ i18n "tags" }}</span>{{ delimit (first 3 .Params.tags) " · " }}</div>
-        <a class="catalog-row__visual" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+        <figure class="catalog-row__visual">
           {{ partial "project-visual.html" (dict "page" . "class" "catalog-row__image") }}
-        </a>
+          {{ with .Params.imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
+        </figure>
       </article>
       {{ end }}
     </div>
-  </div>
-</section>
+  </section>
+  {{ end }}
+  {{ with .Site.GetPage "/activities" }}
+  <a class="text-link" href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">→</span></a>
+  {{ end }}
+</div>
 {{ end }}

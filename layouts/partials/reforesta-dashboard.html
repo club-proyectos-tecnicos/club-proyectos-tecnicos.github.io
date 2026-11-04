@@ -1,0 +1,21 @@
+<figure class="reforesta-dashboard">
+  <div class="reforesta-dashboard__header">
+    <strong>{{ .Params.pilotTitle }}</strong>
+    <span>{{ .Params.pilotBadge }}</span>
+  </div>
+  <div class="reforesta-dashboard__body">
+    {{ partial "project-visual.html" (dict "page" . "class" "reforesta-dashboard__map" "loading" "eager") }}
+    <ul class="reforesta-dashboard__plots" role="list">
+      {{ range .Params.pilotPlots }}
+      <li>
+        <span class="reforesta-dashboard__plot" data-plot="{{ .id }}">{{ .id }}</span>
+        <div>
+          <strong>{{ .action }}</strong>
+          <p>{{ .reason }}</p>
+        </div>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  <figcaption>{{ .Params.imageCaption }}</figcaption>
+</figure>

@@ -1,28 +1,38 @@
 ---
-title: "About the club"
-description: "The vision of the Applied Technical Projects Club as a university space for practical learning."
+title: "About CPTA"
+description: "Purpose, history and university support for the Applied Technical Projects Club."
 slug: "about"
 layout: "about"
 ---
 
-The Applied Technical Projects Club was created as a university space where students in technical degree programs can apply their knowledge to concrete projects. The aim is to provide an environment where people can experiment, make mistakes, document the process and present results.
-
-The club is driven by students who want to bridge the gap between classroom theory and practical technical projects. It is neither an advanced laboratory nor a consultancy: it is a young group that wants to learn by doing.
-
 ## Our mission
 
-- Provide a place to apply theory to real problems.
-- Build first prototypes, conduct analyses and produce technical documentation.
-- Learn to work as a team, communicate ideas and bring projects to a meaningful conclusion.
+CPTA brings together students at Universidad CEU San Pablo to apply data science, engineering and science to practical problems. Teams work towards a defined goal and document what they build through reports, code or demonstrations.
 
-## How we grow
+## First edition and current year {#how-we-grow}
 
-The club moves forward gradually as teams complete their first iterations and share what they have learned. Our areas of interest include:
+In the first edition (2025/26), 14 students worked across three teams, with seven faculty members involved. The edition concluded with presentations by the teams. Projects in 2026/27 span external collaboration, research and outreach.
 
-- Aerospace and physical systems.
-- AI and data analysis.
-- Sensors and IoT.
-- Optimization and decision-making.
-- Simulation and mathematical modelling.
+## University support
 
-The goal is to grow through well-defined projects, collaborate with lecturers and present realistic proposals, without exaggerating our capabilities or assuming that we already have all the answers.
+### Student club registration · Campus Life
+
+CPTA is registered as a student club at Universidad CEU San Pablo through [Campus Life](https://www.uspceu.com/alumnos/vida-campus/campus-life). The university's regulations call its internal register the [Registro de Clubes Universitarios](https://www.uspceu.com/Portals/0/docs/transparencia/normativa/normativa-interna/estudiantes/Rglm%20Asociaciones%20y%20Clubes%20Estudiantes%20USP-CEU%20CGXX.pdf#page=8).
+
+### CEU Social · Pro bono projects
+
+CPTA has held discussions with [CEU Social](https://www.uspceu.com/conocenos/ceu-social/que-es-ceu-social) about how its pro bono projects with social organisations could fit within the programme.
+
+### Faculty involvement
+
+Seven faculty members were involved in the first edition (2025/26). The closing presentations gave teams an opportunity to share their work and receive academic feedback.
+
+### Support from degree programme directors
+
+CPTA receives academic support from university degree programme directors.
+
+## Team and contact
+
+Javier Gonzálvez Sempere leads the club's student coordination. Marina Paula Vicens Martín coordinates the [Reforesta]({{< ref "/projects/reforesta" >}}) team.
+
+Contact CPTA at [javier.gonzalvezsempere@usp.ceu.es](mailto:javier.gonzalvezsempere@usp.ceu.es).

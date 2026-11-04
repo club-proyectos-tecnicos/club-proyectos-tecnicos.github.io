@@ -3,25 +3,27 @@
 {{- $total := .total -}}
 {{- $featured := .featured | default false -}}
 {{- $eager := .eager | default false -}}
-{{- $caption := i18n "club_session_caption" -}}
 {{- $number := printf "%02d" $ordinal -}}
-{{- $alt := i18n "gallery_image_alt_numbered" (dict "Number" $number "Total" $total) -}}
+{{- $alt := .description | default (i18n "gallery_image_alt_numbered" (dict "Number" $number "Total" $total)) -}}
 {{- $openLabel := i18n "open_image_numbered" (dict "Number" $number "Total" $total) -}}
+{{- with .description }}{{ $openLabel = printf "%s. %s" $openLabel . }}{{ end -}}
 {{- $status := i18n "viewing_image_numbered" (dict "Number" $number "Total" $total) -}}
+{{- $largeWidth := 1600 -}}
+{{- if .description }}{{ $largeWidth = int (math.Min 1600 $image.Width) }}{{ end -}}
+{{- $mediumWidth := int (math.Min 960 $largeWidth) -}}
 {{- $webp480 := $image.Resize "480x webp q76" -}}
-{{- $webp960 := $image.Resize "960x webp q79" -}}
-{{- $webp1600 := $image.Resize "1600x webp q82" -}}
+{{- $webp960 := $image.Resize (printf "%dx webp q79" $mediumWidth) -}}
+{{- $webp1600 := $image.Resize (printf "%dx webp q82" $largeWidth) -}}
 {{- $jpg480 := $image.Resize "480x jpg q78" -}}
-{{- $jpg960 := $image.Resize "960x jpg q81" -}}
-{{- $jpg1600 := $image.Resize "1600x jpg q84" -}}
-{{- $compat := resources.Copy (printf "fotos-club/%s" (path.Base $image.Name)) $jpg1600 -}}
+{{- $jpg960 := $image.Resize (printf "%dx jpg q81" $mediumWidth) -}}
+{{- $jpg1600 := $image.Resize (printf "%dx jpg q84" $largeWidth) -}}
+{{- $compat := resources.Copy $image.Name $jpg1600 -}}
 <figure class="gallery-figure{{ if $featured }} gallery-figure--featured{{ end }}">
-  <a href="{{ $compat.RelPermalink }}" class="gallery-link" data-lightbox-item data-full="{{ $webp1600.RelPermalink }}" data-caption="{{ $caption }}" data-status="{{ $status }}" aria-label="{{ $openLabel }}">
+  <a href="{{ $compat.RelPermalink }}" class="gallery-link" data-lightbox-item data-full="{{ $webp1600.RelPermalink }}" data-status="{{ $status }}" aria-label="{{ $openLabel }}">
     <picture>
-      <source type="image/webp" srcset="{{ $webp480.RelPermalink }} 480w, {{ $webp960.RelPermalink }} 960w, {{ $webp1600.RelPermalink }} 1600w" sizes="{{ if $featured }}(max-width: 767px) 100vw, 55vw{{ else }}(max-width: 767px) 100vw, 32vw{{ end }}">
-      <source type="image/jpeg" srcset="{{ $jpg480.RelPermalink }} 480w, {{ $jpg960.RelPermalink }} 960w, {{ $jpg1600.RelPermalink }} 1600w" sizes="{{ if $featured }}(max-width: 767px) 100vw, 55vw{{ else }}(max-width: 767px) 100vw, 32vw{{ end }}">
+      <source type="image/webp" srcset="{{ $webp480.RelPermalink }} 480w, {{ if lt $mediumWidth $largeWidth }}{{ $webp960.RelPermalink }} {{ $mediumWidth }}w, {{ end }}{{ $webp1600.RelPermalink }} {{ $largeWidth }}w" sizes="{{ if $featured }}(max-width: 767px) 100vw, 55vw{{ else }}(max-width: 767px) 100vw, 32vw{{ end }}">
+      <source type="image/jpeg" srcset="{{ $jpg480.RelPermalink }} 480w, {{ if lt $mediumWidth $largeWidth }}{{ $jpg960.RelPermalink }} {{ $mediumWidth }}w, {{ end }}{{ $jpg1600.RelPermalink }} {{ $largeWidth }}w" sizes="{{ if $featured }}(max-width: 767px) 100vw, 55vw{{ else }}(max-width: 767px) 100vw, 32vw{{ end }}">
       <img src="{{ $jpg960.RelPermalink }}" width="{{ $jpg960.Width }}" height="{{ $jpg960.Height }}" alt="{{ $alt }}" loading="{{ if $eager }}eager{{ else }}lazy{{ end }}" decoding="async"{{ if $eager }} fetchpriority="high"{{ end }}>
     </picture>
   </a>
-  <figcaption><span>{{ $number }}</span>{{ $caption }}</figcaption>
 </figure>

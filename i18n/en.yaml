@@ -11,15 +11,15 @@ light_theme:
 club_name:
   other: "Applied Technical Projects Club"
 hero_title:
-  other: "Learn by building real technical projects"
+  other: "Applied Technical Projects Club"
 hero_text:
-  other: "A university community where students in technical degree programs work together to turn ideas into prototypes, learn real-world tools and present results."
+  other: "Students at Universidad CEU San Pablo develop projects in data science, engineering and applied science. We organise interdisciplinary teams to build prototypes, carry out research and work with external organisations."
 view_projects:
   other: "View projects"
 join_club:
   other: "Join the club"
 hero_note:
-  other: "You do not need to know everything from the start: the goal is to learn, contribute and move forward as a team."
+  other: "Student club registered through Campus Life."
 current_status:
   other: "Current status"
 initial_progress:
@@ -53,7 +53,7 @@ teamwork_text:
 honest_projects:
   other: "Honest projects"
 honest_projects_text:
-  other: "These are not finished products, but first iterations with documentation, initial results and clear next steps."
+  other: "Each case records what the team has done, what evidence is available and what remains to be tested."
 how_we_work:
   other: "How we work"
 how_we_work_text:
@@ -107,7 +107,7 @@ skill_feedback:
 skill_explain:
   other: "Explaining ideas to non-specialist audiences"
 current_projects:
-  other: "Current projects"
+  other: "Projects in progress"
 current_projects_text:
   other: "These projects are in development, and their individual pages describe each initiative's approach, status and next steps."
 view_project:
@@ -184,8 +184,26 @@ menu:
   other: "Menu"
 footer_navigation:
   other: "Footer navigation"
-hero_photo_alt:
-  other: "Club students during a presentation and work session"
+hero_photo_caption:
+  other: "Presentation in front of an audience"
+recent_photos:
+  other: "Recent photos"
+recent_photo_presentacion-ante-el-publico:
+  other: "Three presenters stand in front of a blue screen. The person in the middle speaks into a microphone before the audience."
+recent_photo_mesa-redonda-deep-tech:
+  other: "A panel discussion in an auditorium, with a seated audience and a speaker on the screen."
+recent_photo_diapositiva-recorrido-investigador:
+  other: "A presenter talks through a slide about the stages of research while the rest of the team listens."
+recent_photo_cierre-de-la-presentacion:
+  other: "Five presenters stand in front of a blue closing slide, with the audience in the foreground."
+recent_photo_participantes-madrid-innovation-lab:
+  other: "Three participants pose together in front of the Madrid Innovation Lab backdrop."
+recent_photo_ponencia-impacto-social-perfil:
+  other: "A side view of a presenter gesturing with a microphone in front of a slide about social impact."
+recent_photo_ponencia-impacto-social-frente:
+  other: "A front view of a presenter holding a microphone in front of a slide about social impact."
+recent_photo_ponencia-expansion:
+  other: "A presenter extends a hand towards a slide about expansion during the talk."
 documentary_photo_alt:
   other: "Documentary view of an Applied Technical Projects Club session"
 club_session_caption:
@@ -247,7 +265,7 @@ image_viewer:
 compatible_jpeg:
   other: "Compatible JPEG version"
 about_record:
-  other: "Identity and operation"
+  other: "About CPTA"
 manifesto:
   other: "Manifesto"
 manifesto_text:
@@ -258,3 +276,31 @@ contact_record:
   other: "Entry point"
 write_to_us:
   other: "Write to us"
+first_edition_archive:
+  other: "First edition archive · 2025/26"
+early_design_projects:
+  other: "Early design work"
+first_edition_balance:
+  other: "In 2025/26, 14 students worked across three teams, with seven faculty members involved. The edition concluded with presentations by the teams."
+members:
+  other: "Members in November 2026"
+active_members:
+  other: "Assigned to project teams in November 2026"
+portfolio_label:
+  other: "Portfolio Projects"
+collaborate_label:
+  other: "Propose a project"
+about_support_link:
+  other: "University support"
+updated_date:
+  other: "Updated"
+footer_student_site:
+  other: "Website managed by CPTA students."
+
+project_category:
+  other: "Category"
+
+university_support_anchor:
+  other: "university-support"
+collaboration_heading:
+  other: "Work with CPTA"

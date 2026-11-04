@@ -1,10 +1,15 @@
 ---
-title: "Optimización inteligente de colas y accesos en aeropuertos"
+title: "AeroFlow · Colas y accesos en aeropuertos"
 date: 2026-05-18
+lastmod: 2026-11-04
 projectNumber: 2
+phase: first
 description: "Prototipo de simulación y apoyo a la decisión para estimar saturación de pasajeros en aeropuertos y recomendar refuerzos operativos mediante teoría de colas."
-summary: "Prototipo de simulación y apoyo a la decisión para estimar saturación de pasajeros en aeropuertos y recomendar refuerzos operativos mediante teoría de colas."
-status: "Prototipo funcional"
+summary: "AeroFlow combina un modelo de colas con un panel para explorar cuándo abrir más puestos y dónde reforzar el servicio bajo demanda aeroportuaria simulada."
+category: "Apoyo a la decisión"
+imageAlt: "Panel de AeroFlow con estimaciones de congestión y recomendaciones para una terminal aeroportuaria simulada."
+imageCaption: "Panel de AeroFlow con demanda aeroportuaria simulada."
+status: "Prototipo estudiantil terminado"
 tags:
   - "Python"
   - "pandas"
@@ -23,7 +28,9 @@ image: "/proyectos/airport-queue-optimization/imagenes/dashboard-operativo.png"
 
 ## Resumen
 
-**Optimización inteligente de colas y accesos en aeropuertos** es un prototipo funcional para analizar el flujo de pasajeros en una terminal aeroportuaria y generar recomendaciones operativas a partir de datos simulados.
+La idea surgió cuando un piloto que pasa buena parte de su jornada en aeropuertos nos contó que las colas y los cuellos de botella eran un problema recurrente. A partir de esa observación, el equipo exploró cómo anticipar la congestión y decidir cuándo abrir más puestos.
+
+AeroFlow es un prototipo funcional que analiza el flujo de pasajeros en una terminal simulada y recomienda dónde reforzar el servicio.
 
 El sistema representa varias zonas del aeropuerto —check-in, bag drop, seguridad, pasaportes y embarque— y transforma lecturas de ocupación en métricas como saturación, tiempos de espera estimados y posibles cuellos de botella.
 
@@ -32,7 +39,7 @@ La validación principal se realiza mediante simulación, comparando un escenari
 <div class="project-kpis">
   <div>
     <span>19,09 min → 5,32 min</span>
-    <p>espera acumulada en la comparación de la memoria</p>
+    <p>espera total acumulada en la simulación de terminal, escenario base frente a recomendaciones</p>
   </div>
   <div>
     <span>72,1%</span>
@@ -55,7 +62,7 @@ En un aeropuerto, la congestión rara vez aparece de forma aislada. Una cola exc
 
 El problema no consiste únicamente en **contar cuántas personas hay en una zona**, sino en convertir esos conteos en información útil: estimar si la capacidad disponible es suficiente, detectar qué zonas se están acercando a la saturación y decidir dónde tendría más impacto abrir una línea adicional o reforzar el personal.
 
-Este proyecto parte de esa idea: pasar de una gestión reactiva, donde se actúa cuando la cola ya existe, a un modelo más anticipativo basado en datos, simulación y métricas operativas.
+Una alerta temprana podría dar al personal de operaciones tiempo para reasignar recursos o abrir otro puesto antes de que se acumule la cola. Para los pasajeros, eso podría traducirse en esperas más cortas. AeroFlow probó el enfoque con demanda aeroportuaria simulada.
 
 ## Objetivo
 

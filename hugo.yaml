@@ -42,7 +42,7 @@ languages:
           pageRef: /
           weight: 1
         - identifier: portfolio
-          name: Portfolio Projects
+          name: Portfolio
           url: /en/portfolio/
           weight: 2
         - identifier: about
@@ -89,7 +89,7 @@ languages:
           pageRef: /
           weight: 1
         - identifier: portfolio
-          name: Portfolio Projects
+          name: Portfolio
           pageRef: /portfolio
           weight: 2
         - identifier: about

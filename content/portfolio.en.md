@@ -1,5 +1,5 @@
 ---
-title: "Portfolio Projects"
+title: "CPTA Project Portfolio"
 description: "An early nonprofit pilot, a completed student prototype and a proposal for a first project with Data Science for Sustainable Development in January 2027."
 layout: portfolio
 socialImage: "/Logo_2.png"
